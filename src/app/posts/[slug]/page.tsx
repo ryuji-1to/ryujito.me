@@ -4,6 +4,12 @@ import { Text } from "@/share/components/text";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
 import { formatMarkdown } from "@/share/lib";
+import { date, object, parse, string } from "valibot";
+
+const Schema = object({
+  date: date(),
+  value: string(),
+});
 
 async function getPostBySlug(slug: string) {
   const filename = `./public/${slug}/index.md`;
@@ -11,7 +17,7 @@ async function getPostBySlug(slug: string) {
 
   const file = await formatMarkdown(content);
 
-  return { content, ...file, ...data };
+  return parse(Schema, { content, ...file, ...data });
 }
 
 export default async function PostPage({
@@ -25,7 +31,10 @@ export default async function PostPage({
     <article>
       <header className="flex items-center justify-between mb-10">
         <Link href="/" title="back">
-          <HiArrowLongLeft size={20} />
+          <HiArrowLongLeft
+            className="text-gray-800 dark:text-gray-200"
+            size={20}
+          />
         </Link>
         <Text className="font-semibold text-xs">
           {data.date.toDateString()}
