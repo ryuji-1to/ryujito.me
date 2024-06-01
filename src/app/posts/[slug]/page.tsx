@@ -1,5 +1,5 @@
 import matter from "gray-matter";
-import { readFile, readdir } from "fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { Text } from "@/share/components/text";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
@@ -42,6 +42,7 @@ export default async function PostPage({
       </header>
       <div
         className="prose prose-md dark:prose-invert"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: data.value }}
       />
     </article>
@@ -63,7 +64,7 @@ export async function generateMetadata({
     slug: string;
   };
 }) {
-  const file = await readFile("./public/" + params.slug + "/index.md", "utf8");
+  const file = await readFile(`./public/${params.slug}/index.md`, "utf8");
   const { data } = matter(file);
 
   return {

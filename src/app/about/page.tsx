@@ -1,5 +1,5 @@
 import { formatMarkdown } from "@/share/lib";
-import { readFile } from "fs/promises";
+import { readFile } from "node:fs/promises";
 import matter from "gray-matter";
 
 async function getAbout() {
@@ -12,6 +12,7 @@ export default async function AboutPage() {
   return (
     <div
       className="prose prose-md dark:prose-invert"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
         __html: data.value,
       }}

@@ -1,10 +1,12 @@
 import { cn } from "@/share/lib";
-import { ElementType } from "react";
+import type { ElementType } from "react";
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 type Props<T extends ElementType<any>> = {
   as?: T;
 } & React.ComponentProps<T>;
 
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function Text<T extends ElementType<any> = "p">({
   as,
   className,

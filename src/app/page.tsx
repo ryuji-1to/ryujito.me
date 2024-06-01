@@ -1,9 +1,11 @@
 import { Text } from "@/share/components/text";
 import matter from "gray-matter";
-import { readFile, readdir } from "fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import { date, object, string, parse, array } from "valibot";
 import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
+import Image from "next/image";
 
 const PostSchema = object({
   slug: string(),
@@ -28,31 +30,59 @@ async function getMdPosts() {
   return parse(array(PostSchema), data);
 }
 
+async function getAvatar() {
+  const Schema = object({ avatar_url: string() });
+  const res = await fetch("https://api.github.com/users/ryuji-1to");
+  if (!res.ok) {
+    return { avatar_url: "" };
+  }
+  const data = await res.json();
+  return parse(Schema, data);
+}
+
 export default async function Home() {
-  const data = await getMdPosts();
+  const [posts, avatar] = await Promise.all([getMdPosts(), getAvatar()]);
 
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
         <div>
           <Link href="/about">
-            <Text as="h1" className="font-bold text-2xl">
-              Ryuji Ito
-            </Text>
+            <div className="flex items-center gap-3 mb-1">
+              <img
+                src={avatar.avatar_url}
+                width={28}
+                height={28}
+                alt="my avatar"
+                className="rounded-full"
+              />
+              <Text as="h1" className="font-bold text-2xl">
+                Ryuji Ito
+              </Text>
+              <FiExternalLink />
+            </div>
             <Text className="text-sm">Software Engineer at LY Corp.</Text>
           </Link>
         </div>
         <div className="flex gap-4">
-          <a href="" target="_blank">
+          <a
+            href="https://github.com/ryuji-1to"
+            target="_blank"
+            rel="noreferrer"
+          >
             <RiGithubFill className="dark:text-gray-50" size={22} />
           </a>
-          <a href="" target="_blank">
+          <a
+            href="https://twitter.com/ryuji_program"
+            target="_blank"
+            rel="noreferrer"
+          >
             <RiTwitterXFill className="dark:text-gray-50" size={22} />
           </a>
         </div>
       </div>
       <ul className="list-decimal ml-4 space-y-6 dark:marker:text-gray-50">
-        {data.map((d) => (
+        {posts.map((d) => (
           <li key={d.slug}>
             <Link
               prefetch={false}

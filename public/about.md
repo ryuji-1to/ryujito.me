@@ -5,13 +5,29 @@ date: 2024-03-29
 
 # Ryuji Ito
 
----
+## Education
 
-1 MyAddress email@example.com
-MyTown 1000 @twitter_handle
-MyCountry 1800 my-phone-nr
+- **2016** Entered the Department of Mathematics, College of Science and Technology, Nihon University
+- **2020** Graduated from the Department of Mathematics, College of Science and Technology, Nihon University
+- **2020** Entered the Graduate School of Science and Technology, Major in Mathematics, Nihon University
+- **2022** Completed Master's Program, Major in Mathematics, Graduate School of Science and Technology, Nihon University
 
----
+## Work Experience
+
+- **2021 - 2022.2** Dotinstall Inc.
+- **2022.4 - 2023.10** Yahoo Japan Corporation.
+- **2023.10 - Present** LY Corp.
+
+## Programming Skills
+
+- JavaScript
+- TypeScript
+- React
+- Next.js
+- Remix
+- Tailwind CSS
+- Hono
+- NestJS
 
 ## Education
 
