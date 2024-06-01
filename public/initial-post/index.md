@@ -1,16 +1,23 @@
 ---
-title: initial post
-date: 2024-03-19
+title: "Designing and Developing My Personal Portfolio Site"
+date: 2024-06-01
 ---
 
-# Hi
+# Designing and Developing My Personal Portfolio Site
 
-```jsx
-export default function Hoge() {
-  return (
-    <div>
-      <p>hoge</p>
-    </div>
-  );
-}
-```
+---
+
+## Technical Stack
+
+The portfolio website is built with a simple yet effective technical stack, including:
+
+- **Next.js**
+- **Tailwind CSS**
+- **Biome**
+  - Linter and Formatter
+- **Valibot**
+  - validator
+- **Shiki**
+  - Syntax Highlighter
+
+https://github.com/ryuji-1to/my-homepage

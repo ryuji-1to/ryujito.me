@@ -41,7 +41,7 @@ export default async function PostPage({
         </Text>
       </header>
       <div
-        className="prose prose-md dark:prose-invert"
+        className="prose prose-md dark:prose-invert prose-h1:text-balance"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: data.value }}
       />
