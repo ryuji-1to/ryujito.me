@@ -5,6 +5,8 @@ date: 2024-03-29
 
 # Ryuji Ito
 
+---
+
 ## Education
 
 - **2016** Entered the Department of Mathematics, College of Science and Technology, Nihon University
