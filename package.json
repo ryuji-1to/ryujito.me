@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "",
+    "format": "",
+    "test": "vitest run"
   },
   "dependencies": {
     "@shikijs/rehype": "^1.2.0",
@@ -27,9 +29,12 @@
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
     "@tailwindcss/typography": "^0.5.10",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.0.1",
     "happy-dom": "^15.7.4",
     "postcss": "^8",
