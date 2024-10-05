@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`share/components/text > snapshot 1`] = `
+<p
+  class="text-gray-800 dark:text-gray-200"
+>
+  test
+</p>
+`;
