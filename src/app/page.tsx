@@ -5,7 +5,6 @@ import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import { date, object, string, parse, array } from "valibot";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
-import Image from "next/image";
 
 const PostSchema = object({
   slug: string(),
