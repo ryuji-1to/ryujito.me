@@ -81,18 +81,20 @@ export default async function Home() {
         </div>
       </div>
       <ul className="list-decimal ml-4 space-y-6 dark:marker:text-gray-50">
-        {posts.map((d) => (
-          <li key={d.slug}>
-            <Link
-              prefetch={false}
-              href={`/posts/${d.slug}`}
-              className="w-fit block"
-            >
-              <Text className="font-medium">{d.title}</Text>
-              <Text className="text-[11px]">{d.date.toDateString()}</Text>
-            </Link>
-          </li>
-        ))}
+        {posts
+          .sort((a, b) => (a.date < b.date ? 1 : -1))
+          .map((d) => (
+            <li key={d.slug}>
+              <Link
+                prefetch={false}
+                href={`/posts/${d.slug}`}
+                className="w-fit block"
+              >
+                <Text className="font-medium">{d.title}</Text>
+                <Text className="text-[11px]">{d.date.toDateString()}</Text>
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   );
