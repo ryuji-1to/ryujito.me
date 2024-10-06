@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`share/components/markdown > snapshot 1`] = `
+<div
+  class="prose prose-md dark:prose-invert prose-h1:text-balance"
+>
+  hoge
+</div>
+`;
