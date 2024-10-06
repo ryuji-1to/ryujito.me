@@ -5,6 +5,7 @@ import { HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
 import { formatMarkdown } from "@/share/lib";
 import { date, object, parse, string } from "valibot";
+import { MarkDown } from "@/share/components/markdown";
 
 const Schema = object({
   date: date(),
@@ -40,11 +41,7 @@ export default async function PostPage({
           {data.date.toDateString()}
         </Text>
       </header>
-      <div
-        className="prose prose-md dark:prose-invert prose-h1:text-balance"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-        dangerouslySetInnerHTML={{ __html: data.value }}
-      />
+      <MarkDown>{data.value}</MarkDown>
     </article>
   );
 }

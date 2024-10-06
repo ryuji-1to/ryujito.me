@@ -9,7 +9,7 @@ date: 2024-06-01
 
 ## Technical Stack
 
-The portfolio website is built with a simple yet effective technical stack, including:
+This website is built with a simple yet effective technical stack, including:
 
 - **Next.js**
 - **Tailwind CSS**
