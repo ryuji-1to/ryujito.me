@@ -27,7 +27,7 @@ export default function RootLayout({
           GeistSans.className
         )}
       >
-        <div className="flex-1 flex flex-col w-[680px] mx-auto p-10">
+        <div className="flex-1 flex flex-col w-[764px] mx-auto p-10">
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

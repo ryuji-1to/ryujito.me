@@ -30,7 +30,7 @@ export default async function PostPage({
 
   return (
     <article>
-      <header className="flex items-center justify-between mb-10">
+      <header className="flex items-center justify-between pb-5 mb-10 border-b">
         <Link href="/" title="back">
           <HiArrowLongLeft
             className="text-gray-800 dark:text-gray-200"
