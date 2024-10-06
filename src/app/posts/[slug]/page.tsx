@@ -4,12 +4,12 @@ import { Text } from "@/share/components/text";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
 import { formatMarkdown } from "@/share/lib";
-import { date, object, parse, string } from "valibot";
+import * as v from "valibot";
 import { MarkDown } from "@/share/components/markdown";
 
-const Schema = object({
-  date: date(),
-  value: string(),
+const Schema = v.object({
+  date: v.date(),
+  value: v.string(),
 });
 
 async function getPostBySlug(slug: string) {
@@ -18,7 +18,7 @@ async function getPostBySlug(slug: string) {
 
   const file = await formatMarkdown(content);
 
-  return parse(Schema, { content, ...file, ...data });
+  return v.parse(Schema, { content, ...file, ...data });
 }
 
 export default async function PostPage({

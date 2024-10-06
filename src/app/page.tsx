@@ -2,14 +2,15 @@ import { Text } from "@/share/components/text";
 import matter from "gray-matter";
 import { readFile, readdir } from "node:fs/promises";
 import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
-import { date, object, string, parse, array } from "valibot";
+import * as v from "valibot";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 
-const PostSchema = object({
-  slug: string(),
-  title: string(),
-  date: date(),
+const PostSchema = v.object({
+  slug: v.string(),
+  title: v.string(),
+  date: v.date(),
+  tag: v.optional(v.string()),
 });
 
 async function getMdPosts() {
@@ -24,19 +25,22 @@ async function getMdPosts() {
       throw new Error("content not found");
     }
     const { data } = matter(content);
+    console.log(data);
+
     return { slug, ...data };
   });
-  return parse(array(PostSchema), data);
+  return v.parse(v.array(PostSchema), data);
 }
 
+const AvatarSchema = v.object({ avatar_url: v.string() });
+
 async function getAvatar() {
-  const Schema = object({ avatar_url: string() });
   const res = await fetch("https://api.github.com/users/ryuji-1to");
   if (!res.ok) {
     return { avatar_url: "" };
   }
   const data = await res.json();
-  return parse(Schema, data);
+  return v.parse(AvatarSchema, data);
 }
 
 export default async function Home() {
