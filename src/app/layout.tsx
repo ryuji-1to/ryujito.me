@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { cn } from "@/share/lib";
 import { Footer } from "./footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ryuji Ito",
@@ -26,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen antialiased flex flex-col dark:bg-gray-950 bg-gray-50",
-          inter.className
+          GeistSans.className
         )}
       >
         <div className="flex-1 flex flex-col w-[680px] mx-auto p-10">

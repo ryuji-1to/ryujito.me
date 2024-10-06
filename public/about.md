@@ -16,12 +16,28 @@ date: 2024-03-29
 
 ## Skills
 
-- **Programming Languages**: TypeScript, JavaScript
-- **Frontend**: React, Next.js, Tailwind CSS
-- **Backend**: Hono, NestJS, Fastify, Prisma
-- **Validation Libraries**: Zod, Valibot
-- **Testing**: Vitest, Jest, Playwright
-- **UI/UX Design**: Figma
+- **Programming Languages**
+  - TypeScript
+  - Java
+- **Frontend**
+  - React
+  - Next.js
+  - Tailwind CSS
+- **Backend**
+  - NestJS
+  - Hono
+  - Fastify
+  - Prisma
+- **Validation Libraries**
+  - Zod
+  - Valibot
+- **Testing**
+  - Vitest
+  - Jest
+  - Playwright
+  - testing-library
+- **UI/UX Design**
+  - Figma
 
 ---
 
