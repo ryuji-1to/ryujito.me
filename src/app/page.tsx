@@ -5,6 +5,7 @@ import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import * as v from "valibot";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
+import { cn } from "@/share/lib";
 
 const PostSchema = v.object({
   slug: v.string(),
@@ -95,11 +96,54 @@ export default async function Home() {
                 className="w-fit block"
               >
                 <Text className="font-medium">{d.title}</Text>
-                <Text className="text-[11px]">{d.date.toDateString()}</Text>
+                <Text className="text-[11px] space-x-2">
+                  <span>{d.date.toDateString()}</span>
+                  {d.tag && <Badge value={d.tag} />}
+                </Text>
               </Link>
             </li>
           ))}
       </ul>
     </div>
+  );
+}
+
+const BadgeSchema = v.union([
+  v.literal("Design"),
+  v.literal("Dev"),
+  v.literal("Other"),
+]);
+
+const badgeStuff = {
+  Design: "",
+  Dev: "",
+  Other: "",
+} as const satisfies Record<v.Input<typeof BadgeSchema>, string>;
+
+function Badge({ value }: { value: string }) {
+  const parsed = v.safeParse(BadgeSchema, value);
+  const badge = parsed.success ? parsed.output : "Other";
+
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset",
+        badge === "Dev" &&
+          "bg-blue-50 dark:bg-blue-400/10 ring-blue-700/10 dark:ring-blue-600/50 text-blue-700 dark:text-blue-500",
+        badge === "Design" &&
+          "bg-green-50 dark:bg-green-400/10 ring-green-700/10 dark:ring-green-600/50 text-green-700 dark:text-green-500",
+        badge === "Other" &&
+          "bg-indigo-50 dark:bg-indigo-400/10 ring-indigo-700/10 dark:ring-indigo-600/50 text-indigo-700 dark:text-indigo-500"
+      )}
+    >
+      {badge === "Design"
+        ? "🎨"
+        : badge === "Dev"
+        ? "💻"
+        : badge === "Other"
+        ? "🦊"
+        : null}{" "}
+      {badge}
+    </span>
   );
 }
