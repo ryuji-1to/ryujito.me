@@ -1,7 +1,7 @@
 ---
 title: "Welcome"
 date: 2024-06-01
-tag: "Design"
+tag: "Other"
 ---
 
 ## Technical Stack
