@@ -26,7 +26,6 @@ async function getMdPosts() {
       throw new Error("content not found");
     }
     const { data } = matter(content);
-    console.log(data);
 
     return { slug, ...data };
   });
