@@ -23,11 +23,11 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen antialiased flex flex-col dark:bg-gray-950 bg-gray-50",
+          "antialiased dark:bg-gray-950 bg-gray-50",
           GeistSans.className
         )}
       >
-        <div className="flex-1 flex flex-col w-[764px] mx-auto p-10">
+        <div className="min-h-screen flex flex-col max-w-3xl mx-auto p-10">
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
