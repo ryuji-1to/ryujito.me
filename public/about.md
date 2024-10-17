@@ -14,7 +14,24 @@ date: 2024-03-29
 
 ---
 
+## Education
+
+- **2016 - 2020**: Bachelor of Science, Mathematics, Nihon University, College of Science and Technology
+- **2020 - 2022**: Master of Science, Mathematics, Nihon University, Graduate School of Science and Technology
+
+---
+
+## Work Experience
+
+- **2021.3 - 2022.2**: Dotinstall Inc. - Software Engineer (Part-time)
+- **2022.4 - 2023.10**: Yahoo Japan Corporation - Software Engineer
+- **2023.10 - Present**: LY Corporation (LINE ヤフー株式会社) - Software Engineer
+
 ## Skills
+
+| hoge | hoge | hoge |
+| ---- | ---- | ---- |
+| test | test | test |
 
 - **Programming Languages**
   - TypeScript
@@ -40,16 +57,3 @@ date: 2024-03-29
   - Figma
 
 ---
-
-## Education
-
-- **2016 - 2020**: Bachelor of Science, Mathematics, Nihon University, College of Science and Technology
-- **2020 - 2022**: Master of Science, Mathematics, Nihon University, Graduate School of Science and Technology
-
----
-
-## Work Experience
-
-- **2021.3 - 2022.2**: Dotinstall Inc. - Software Engineer (Part-time)
-- **2022.4 - 2023.10**: Yahoo Japan Corporation - Software Engineer
-- **2023.10 - Present**: LY Corporation (LINE ヤフー株式会社) - Software Engineer
