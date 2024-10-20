@@ -18,7 +18,7 @@ async function getMdPosts() {
   const entries = await readdir("./public/", { withFileTypes: true });
   const posts = entries.filter((f) => f.isDirectory()).map((file) => file.name);
   const contents = await Promise.all(
-    posts.map((post) => readFile(`./public/${post}/index.md`, "utf-8"))
+    posts.map((post) => readFile(`./public/${post}/index.md`, "utf-8")),
   );
   const data = posts.map((slug, i) => {
     const content = contents[i];
@@ -113,12 +113,6 @@ const BadgeSchema = v.union([
   v.literal("Other"),
 ]);
 
-const badgeStuff = {
-  Design: "",
-  Dev: "",
-  Other: "",
-} as const satisfies Record<v.Input<typeof BadgeSchema>, string>;
-
 function Badge({ value }: { value: string }) {
   const parsed = v.safeParse(BadgeSchema, value);
   const badge = parsed.success ? parsed.output : "Other";
@@ -132,16 +126,16 @@ function Badge({ value }: { value: string }) {
         badge === "Design" &&
           "bg-green-50 dark:bg-green-400/10 ring-green-700/10 dark:ring-green-600/50 text-green-700 dark:text-green-500",
         badge === "Other" &&
-          "bg-indigo-50 dark:bg-indigo-400/10 ring-indigo-700/10 dark:ring-indigo-600/50 text-indigo-700 dark:text-indigo-500"
+          "bg-indigo-50 dark:bg-indigo-400/10 ring-indigo-700/10 dark:ring-indigo-600/50 text-indigo-700 dark:text-indigo-500",
       )}
     >
       {badge === "Design"
         ? "🎨"
         : badge === "Dev"
-        ? "💻"
-        : badge === "Other"
-        ? "🦊"
-        : null}{" "}
+          ? "💻"
+          : badge === "Other"
+            ? "🦊"
+            : null}{" "}
       {badge}
     </span>
   );
