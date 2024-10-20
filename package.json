@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "",
-    "format": "",
+    "lint": "biome check ./src",
+    "format": "biome format --write ./src",
     "test": "vitest run"
   },
   "dependencies": {
