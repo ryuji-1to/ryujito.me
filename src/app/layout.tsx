@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           "antialiased dark:bg-gray-950 bg-gray-50",
-          GeistSans.className
+          GeistSans.className,
         )}
       >
         <div className="min-h-screen flex flex-col max-w-3xl mx-auto p-10">
