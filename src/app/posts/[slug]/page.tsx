@@ -5,7 +5,7 @@ import { HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
 import { formatMarkdown } from "@/share/lib";
 import * as v from "valibot";
-import { MarkDown } from "@/share/components/markdown";
+import { Markdown } from "@/share/components/markdown";
 
 const Schema = v.object({
   date: v.date(),
@@ -41,7 +41,7 @@ export default async function PostPage({
           {data.date.toDateString()}
         </Text>
       </header>
-      <MarkDown>{data.value}</MarkDown>
+      <Markdown>{data.value}</Markdown>
     </article>
   );
 }
