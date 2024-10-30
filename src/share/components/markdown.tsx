@@ -4,7 +4,7 @@ type Props = {
   >["__html"];
 };
 
-export function MarkDown(props: Props) {
+export function Markdown(props: Props) {
   return (
     <div
       className="prose prose-md dark:prose-invert prose-h1:text-balance"

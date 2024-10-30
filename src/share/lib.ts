@@ -1,5 +1,7 @@
 import rehypeShiki from "@shikijs/rehype";
 import { clsx, type ClassValue } from "clsx";
+import { readFile } from "node:fs/promises";
+import matter from "gray-matter";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -24,4 +26,12 @@ export async function formatMarkdown(html: string) {
     })
     .use(rehypeStringify)
     .process(html);
+}
+
+export async function getFormattedMarkdown(filePath: `${string}.md`) {
+  const { content, data } = matter(
+    await readFile(`./public/${filePath}`, "utf8")
+  );
+  const file = await formatMarkdown(content);
+  return { content, ...file, ...data };
 }
