@@ -15,17 +15,14 @@ const Schema = v.object({
 async function getPostBySlug(slug: string) {
   const filename = `./public/${slug}/index.md`;
   const { content, data } = matter(await readFile(filename, "utf8"));
-
   const file = await formatMarkdown(content);
-
   return v.parse(Schema, { content, ...file, ...data });
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function PostPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const data = await getPostBySlug(params.slug);
 
   return (
@@ -54,13 +51,12 @@ export async function generateStaticParams() {
   return dirs.map((dir) => ({ slug: dir }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
+export async function generateMetadata(props: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
+  const params = await props.params;
   const file = await readFile(`./public/${params.slug}/index.md`, "utf8");
   const { data } = matter(file);
 
