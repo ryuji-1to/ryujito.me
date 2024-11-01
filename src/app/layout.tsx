@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { cn } from "@/share/lib";
-import { Footer } from "./footer";
+import { Footer } from "./(main)/footer";
 
 export const metadata: Metadata = {
   title: "Ryuji Ito",
@@ -28,8 +28,7 @@ export default function RootLayout({
         )}
       >
         <div className="min-h-screen flex flex-col max-w-3xl mx-auto p-10">
-          <main className="flex-1">{children}</main>
-          <Footer />
+          {children}
         </div>
       </body>
     </html>
