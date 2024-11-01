@@ -11,7 +11,6 @@ function replaceSmall(htmlText: string) {
     `;
   const cardEndDiv = "</div>";
   if (!htmlText.includes(cardStartTag) || !htmlText.includes(cardEndTag)) {
-    console.error("Error: Card start or end tag not found.");
     return htmlText;
   }
   return htmlText
@@ -27,7 +26,6 @@ function replaceCard(htmlText: string) {
   const cardEndDiv = "</div>";
   // `cardStartTag`と`cardEndTag`がhtmlTextに存在するかチェック
   if (!htmlText.includes(cardStartTag) || !htmlText.includes(cardEndTag)) {
-    console.error("Error: Card start or end tag not found.");
     return htmlText;
   }
   // 全体を一度にreplace
@@ -37,8 +35,11 @@ function replaceCard(htmlText: string) {
 }
 
 function replaceMark(htmlText: string): string {
-  const mark = "--mark:print--";
-  const printStyle = `<small class='print-only' style='font-size:10px;'>※ This resume is generated from https://ryujito.me/resume.</small>`;
+  const mark = "<p>--mark:print--</p>";
+  if (!htmlText.includes(mark)) {
+    return htmlText;
+  }
+  const printStyle = `<div class='print-only' style='font-size: 10px; text-align: right;'>※ This resume is generated from https://ryujito.me/resume.</div>`;
   return htmlText.replaceAll(mark, printStyle);
 }
 
