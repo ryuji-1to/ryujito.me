@@ -16,3 +16,12 @@
 .prose p > code::before {
   content: none;
 }
+
+.print-only {
+  display: none;
+}
+@media print {
+  .print-only {
+    display: block;
+  }
+}
