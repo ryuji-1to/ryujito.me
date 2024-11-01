@@ -85,7 +85,7 @@ devDependencies:
     version: 10.4.20(postcss@8.4.47)
   happy-dom:
     specifier: ^15.7.4
-    version: 15.7.4
+    version: 15.8.0
   postcss:
     specifier: ^8
     version: 8.4.47
@@ -100,7 +100,7 @@ devDependencies:
     version: 5.6.3
   vitest:
     specifier: ^2.1.2
-    version: 2.1.4(@types/node@20.17.3)(happy-dom@15.7.4)
+    version: 2.1.4(@types/node@20.17.3)(happy-dom@15.8.0)
 
 packages:
 
@@ -371,7 +371,7 @@ packages:
     resolution: {integrity: sha512-kEBmG8KyqtxJZv+ygbEim+KCGtIq1fC22Ms3S4ziXmYKm8uyoLX0MHONVKwp+9opg390VaKRNt4a7A9NwmpNhw==}
     requiresBuild: true
     dependencies:
-      tslib: 2.8.0
+      tslib: 2.8.1
     dev: false
     optional: true
 
@@ -1784,8 +1784,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: false
 
-  /happy-dom@15.7.4:
-    resolution: {integrity: sha512-r1vadDYGMtsHAAsqhDuk4IpPvr6N8MGKy5ntBo7tSdim+pWDxus2PNqOcOt8LuDZ4t3KJHE+gCuzupcx/GKnyQ==}
+  /happy-dom@15.8.0:
+    resolution: {integrity: sha512-LwBvPvR4MQ1xfrf4gbWRJzeL2xQqWiEiHvZF5uA1AwlCCgjH9ht0fGVXciRGQCghdHAIXw1zGX1mJ6a3O0fpeA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       entities: 4.5.0
@@ -3075,6 +3075,12 @@ packages:
     resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
     dev: false
 
+  /tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+    requiresBuild: true
+    dev: false
+    optional: true
+
   /types-react-dom@19.0.0-rc.1:
     resolution: {integrity: sha512-VSLZJl8VXCD0fAWp7DUTFUDCcZ8DVXOQmjhJMD03odgeFmu14ZQJHCXeETm3BEAhJqfgJaFkLnGkQv88sRx0fQ==}
     dependencies:
@@ -3233,7 +3239,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.1.4(@types/node@20.17.3)(happy-dom@15.7.4):
+  /vitest@2.1.4(@types/node@20.17.3)(happy-dom@15.8.0):
     resolution: {integrity: sha512-eDjxbVAJw1UJJCHr5xr/xM86Zx+YxIEXGAR+bmnEID7z9qWfoxpHw0zdobz+TQAFOLT+nEXz3+gx6nUJ7RgmlQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3269,7 +3275,7 @@ packages:
       chai: 5.1.2
       debug: 4.3.7
       expect-type: 1.1.0
-      happy-dom: 15.7.4
+      happy-dom: 15.8.0
       magic-string: 0.30.12
       pathe: 1.1.2
       std-env: 3.7.0
