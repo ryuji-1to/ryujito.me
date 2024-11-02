@@ -6,7 +6,7 @@ settings:
 
 overrides:
   '@types/react': npm:types-react@19.0.0-rc.1
-  '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
+  '@types/react-dom': npm:types-react-dom@19.0.0
 
 dependencies:
   '@shikijs/rehype':
@@ -67,7 +67,7 @@ devDependencies:
     version: 10.4.0
   '@testing-library/react':
     specifier: ^16.0.1
-    version: 16.0.1(@testing-library/dom@10.4.0)(react-dom@19.0.0-rc-02c0e824-20241028)(react@19.0.0-rc-02c0e824-20241028)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)
+    version: 16.0.1(@testing-library/dom@10.4.0)(react-dom@19.0.0-rc-02c0e824-20241028)(react@19.0.0-rc-02c0e824-20241028)(types-react-dom@19.0.0)(types-react@19.0.0-rc.1)
   '@types/node':
     specifier: ^20
     version: 20.17.3
@@ -75,8 +75,8 @@ devDependencies:
     specifier: npm:types-react@19.0.0-rc.1
     version: /types-react@19.0.0-rc.1
   '@types/react-dom':
-    specifier: npm:types-react-dom@19.0.0-rc.1
-    version: /types-react-dom@19.0.0-rc.1
+    specifier: npm:types-react-dom@19.0.0
+    version: /types-react-dom@19.0.0
   '@vitejs/plugin-react':
     specifier: ^4.3.2
     version: 4.3.3(vite@5.4.10)
@@ -1126,13 +1126,13 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@16.0.1(@testing-library/dom@10.4.0)(react-dom@19.0.0-rc-02c0e824-20241028)(react@19.0.0-rc-02c0e824-20241028)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1):
+  /@testing-library/react@16.0.1(@testing-library/dom@10.4.0)(react-dom@19.0.0-rc-02c0e824-20241028)(react@19.0.0-rc-02c0e824-20241028)(types-react-dom@19.0.0)(types-react@19.0.0-rc.1):
     resolution: {integrity: sha512-dSmwJVtJXmku+iocRhWOUFbrERC76TX2Mnf0ATODz8brzAZrMBbzLwQixlBSanZxR6LddK3eiwpSFZgDET1URg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@testing-library/dom': ^10.0.0
       '@types/react': npm:types-react@19.0.0-rc.1
-      '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
+      '@types/react-dom': npm:types-react-dom@19.0.0
       react: ^18.0.0
       react-dom: ^18.0.0
     peerDependenciesMeta:
@@ -1144,7 +1144,7 @@ packages:
       '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
       '@types/react': /types-react@19.0.0-rc.1
-      '@types/react-dom': /types-react-dom@19.0.0-rc.1
+      '@types/react-dom': /types-react-dom@19.0.0
       react: 19.0.0-rc-02c0e824-20241028
       react-dom: 19.0.0-rc-02c0e824-20241028(react@19.0.0-rc-02c0e824-20241028)
     dev: true
@@ -3081,8 +3081,8 @@ packages:
     dev: false
     optional: true
 
-  /types-react-dom@19.0.0-rc.1:
-    resolution: {integrity: sha512-VSLZJl8VXCD0fAWp7DUTFUDCcZ8DVXOQmjhJMD03odgeFmu14ZQJHCXeETm3BEAhJqfgJaFkLnGkQv88sRx0fQ==}
+  /types-react-dom@19.0.0:
+    resolution: {integrity: sha512-qtWBYduBCmrgf4wqnTrGttEJJSZ6cTGmzuvmWd/34TJNKz/Pp69Islc1+txHF3nRxSuRvmhxztFXvLyxhp8G2w==}
     dependencies:
       '@types/react': /types-react@19.0.0-rc.1
     dev: true
