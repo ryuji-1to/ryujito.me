@@ -4,6 +4,7 @@
 **氏名**：伊藤 龍二
 
 - **Home**: https://ryujito.me
+- **Resume**: https://ryujito.me/resume
 - **GitHub️**: https://github.com/ryuji-1to
 - **Zenn**: https://zenn.dev/ryuji_ito
 
