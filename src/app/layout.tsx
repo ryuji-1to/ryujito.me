@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { cn } from "@/share/lib";
-import { Footer } from "./(main)/footer";
 
 export const metadata: Metadata = {
   title: "Ryuji Ito",
@@ -23,7 +22,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "antialiased dark:bg-gray-950 bg-gray-50",
+          "antialiased dark:bg-gray-950 bg-gray-50 print:bg-white",
           GeistSans.className,
         )}
       >
