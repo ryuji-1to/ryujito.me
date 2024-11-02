@@ -17,4 +17,4 @@ This website is built with a simple yet effective technical stack, including:
 - **Shiki**
   - Syntax Highlighter
 
-https://github.com/ryuji-1to/my-homepage
+https://github.com/ryuji-1to/ryujito.me
