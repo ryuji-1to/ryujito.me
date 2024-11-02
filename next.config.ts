@@ -2,8 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   //   experimental: {
-  //     ppr: true,
-  //     reactCompiler: true,
+  //     dynamicIO: true,
   //   },
   reactStrictMode: true,
   poweredByHeader: false,
