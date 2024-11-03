@@ -26,7 +26,7 @@ export default async function PostPage(props: {
 
   return (
     <ArticleLayout
-      renderHeaderLeft={() => {
+      renderHeaderRight={() => {
         return (
           <Text className="font-semibold text-xs">
             {data.date.toDateString()}
