@@ -35,12 +35,13 @@ function replaceCard(htmlText: string) {
 }
 
 function replaceMark(htmlText: string): string {
-  const mark = "<p>--mark:print--</p>";
-  if (!htmlText.includes(mark)) {
-    return htmlText;
-  }
-  const printStyle = `<div class='print-only' style='font-size: 10px; text-align: right;'>※ This resume is generated from https://ryujito.me/resume.</div>`;
-  return htmlText.replaceAll(mark, printStyle);
+  // const mark = "<p>--mark:print--</p>";
+  // if (!htmlText.includes(mark)) {
+  //   return htmlText;
+  // }
+  // const printStyle = `<div class='print-only' style='font-size: 10px; text-align: right;'>※ This resume is generated from https://ryujito.me/resume.</div>`;
+  // return htmlText.replaceAll(mark, printStyle);
+  return htmlText;
 }
 
 function replaceHtml(
