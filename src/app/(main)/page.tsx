@@ -64,7 +64,7 @@ export default async function Home() {
               </Text>
               <FiExternalLink className="dark:text-gray-300" />
             </div>
-            <Text className="text-sm">Software Engineer</Text>
+            <Text className="text-sm pl-3">Software Engineer</Text>
           </Link>
         </div>
         <div className="flex gap-4">
