@@ -3,8 +3,8 @@ import { HiArrowLongLeft } from "react-icons/hi2";
 
 export function ArticleLayout({
   children,
-  renderHeaderLeft,
-}: { children: React.ReactNode; renderHeaderLeft?: () => React.ReactNode }) {
+  renderHeaderRight,
+}: { children: React.ReactNode; renderHeaderRight?: () => React.ReactNode }) {
   return (
     <article>
       <header className="flex items-center justify-between pb-8 mb-12 border-b dark:border-b-gray-700">
@@ -14,7 +14,7 @@ export function ArticleLayout({
             size={20}
           />
         </Link>
-        {renderHeaderLeft?.()}
+        {renderHeaderRight?.()}
       </header>
       {children}
     </article>
