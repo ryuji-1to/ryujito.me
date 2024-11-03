@@ -62,7 +62,7 @@ export default async function Home() {
               <Text as="h1" className="font-bold text-2xl">
                 Ryuji Ito
               </Text>
-              <FiExternalLink />
+              <FiExternalLink className="dark:text-gray-300" />
             </div>
             <Text className="text-sm">Software Engineer</Text>
           </Link>
