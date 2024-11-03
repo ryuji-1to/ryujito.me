@@ -1,11 +1,10 @@
 import matter from "gray-matter";
 import { readFile, readdir } from "node:fs/promises";
 import { Text } from "@/share/components/text";
-import { HiArrowLongLeft } from "react-icons/hi2";
-import Link from "next/link";
 import { formatMarkdown } from "@/share/lib";
 import * as v from "valibot";
 import { Markdown } from "@/share/components/markdown";
+import { ArticleLayout } from "../../article-layout";
 
 const Schema = v.object({
   date: v.date(),
@@ -26,20 +25,17 @@ export default async function PostPage(props: {
   const data = await getPostBySlug(params.slug);
 
   return (
-    <article>
-      <header className="flex items-center justify-between pb-8 mb-12 border-b dark:border-b-gray-700">
-        <Link href="/" title="back">
-          <HiArrowLongLeft
-            className="text-gray-800 dark:text-gray-200"
-            size={20}
-          />
-        </Link>
-        <Text className="font-semibold text-xs">
-          {data.date.toDateString()}
-        </Text>
-      </header>
+    <ArticleLayout
+      renderHeaderLeft={() => {
+        return (
+          <Text className="font-semibold text-xs">
+            {data.date.toDateString()}
+          </Text>
+        );
+      }}
+    >
       <Markdown>{data.value}</Markdown>
-    </article>
+    </ArticleLayout>
   );
 }
 
