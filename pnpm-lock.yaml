@@ -85,7 +85,7 @@ devDependencies:
     version: 10.4.20(postcss@8.4.47)
   happy-dom:
     specifier: ^15.7.4
-    version: 15.8.2
+    version: 15.8.3
   postcss:
     specifier: ^8
     version: 8.4.47
@@ -100,7 +100,7 @@ devDependencies:
     version: 5.6.3
   vitest:
     specifier: ^2.1.2
-    version: 2.1.4(@types/node@20.17.6)(happy-dom@15.8.2)
+    version: 2.1.4(@types/node@20.17.6)(happy-dom@15.8.3)
 
 packages:
 
@@ -1784,8 +1784,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: false
 
-  /happy-dom@15.8.2:
-    resolution: {integrity: sha512-MhU+SvFD6Ul002JPMY8WoKSV1EV+AK+sLfeqWluvUmD873G0DNXpsUdi7gmBgXo8Nwj44NeWCuWy8OmPDLqs1g==}
+  /happy-dom@15.8.3:
+    resolution: {integrity: sha512-YR9nUWN/T2bH7pPLEYMhTp4DQExPH+mC4KulJDgimCb+FY3Er0Vp6SOOcBXrNfMTri3lAk9uSZqUTG2hgZOYwg==}
     engines: {node: '>=18.0.0'}
     dependencies:
       entities: 4.5.0
@@ -3239,7 +3239,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.8.2):
+  /vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.8.3):
     resolution: {integrity: sha512-eDjxbVAJw1UJJCHr5xr/xM86Zx+YxIEXGAR+bmnEID7z9qWfoxpHw0zdobz+TQAFOLT+nEXz3+gx6nUJ7RgmlQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3275,7 +3275,7 @@ packages:
       chai: 5.1.2
       debug: 4.3.7
       expect-type: 1.1.0
-      happy-dom: 15.8.2
+      happy-dom: 15.8.3
       magic-string: 0.30.12
       pathe: 1.1.2
       std-env: 3.7.0
