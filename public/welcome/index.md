@@ -4,9 +4,13 @@ date: 2024-06-01
 tag: "Other"
 ---
 
+
+
 ## 技術スタック紹介
 
 以下の技術を使用しています
+
+--browser:start--  
 
 - **Next.js**
 - **Tailwind CSS**
@@ -14,6 +18,8 @@ tag: "Other"
 - **Valibot**
 - **Shiki**
 - **remark**
+
+--browser:end--
 
 `public` 内のmdファイルに記事を書き、slugページで↓のように取得し表示しています
 
