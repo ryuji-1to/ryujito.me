@@ -22,7 +22,7 @@ function replaceCard(htmlText: string) {
   const cardStartTag = "<p>--card:start--</p>";
   const cardEndTag = "<p>--card:end--</p>";
   const cardStartDiv =
-    "<div style='background-color: #f0f0f0; border:1px solid #eee; padding: 8px 20px; margin: 8px 0; border-radius: 8px;'>";
+    "<div class='bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 py-2 px-5 my-2 rounded-lg'>";
   const cardEndDiv = "</div>";
   // `cardStartTag`と`cardEndTag`がhtmlTextに存在するかチェック
   if (!htmlText.includes(cardStartTag) || !htmlText.includes(cardEndTag)) {
@@ -44,6 +44,24 @@ function replaceMark(htmlText: string): string {
   return htmlText;
 }
 
+function replaceBrowser(htmlText: string) {
+  const browserStart = "<p>--browser:start--</p>";
+  const browserEnd = "<p>--browser:end--</p>";
+  const start = `
+  <div class="bg-gray-50 dark:bg-gray-800 rounded drop-shadow-lg min-h-20 pb-1">
+     <div class="h-6 bg-gray-200 dark:bg-gray-700 py-1 px-2 rounded-t">
+        <div class="flex items-center h-full gap-1.5">
+            <div class="rounded-full bg-red-500 h-2 w-2"></div>
+            <div class="rounded-full bg-amber-500 h-2 w-2"></div>
+            <div class="rounded-full bg-green-500 h-2 w-2"></div>
+        </div>
+      </div>
+      <div>
+  `;
+  const end = "</div></div>";
+  return htmlText.replaceAll(browserStart, start).replaceAll(browserEnd, end);
+}
+
 function replaceHtml(
   htmlText: string,
   methods: ((htmlText: string) => string)[],
@@ -56,7 +74,12 @@ function replaceHtml(
 
 export function Markdown(props: Props) {
   const value = props.children.toString();
-  const html = replaceHtml(value, [replaceCard, replaceSmall, replaceMark]);
+  const html = replaceHtml(value, [
+    replaceCard,
+    replaceSmall,
+    replaceMark,
+    replaceBrowser,
+  ]);
   return (
     <div
       className="prose prose-md dark:prose-invert prose-h1:text-balance"
