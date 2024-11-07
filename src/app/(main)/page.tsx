@@ -72,6 +72,7 @@ export default async function Home() {
             href="https://github.com/ryuji-1to"
             target="_blank"
             rel="noreferrer"
+            aria-label="link for ryuji's github account"
           >
             <RiGithubFill className="dark:text-gray-50" size={22} />
           </a>
@@ -79,6 +80,7 @@ export default async function Home() {
             href="https://twitter.com/ryuji_program"
             target="_blank"
             rel="noreferrer"
+            aria-label="link for ryuji's x account"
           >
             <RiTwitterXFill className="dark:text-gray-50" size={22} />
           </a>
