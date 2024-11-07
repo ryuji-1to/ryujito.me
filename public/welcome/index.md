@@ -17,7 +17,7 @@ tag: "Other"
 
 `public` 内のmdファイルに記事を書き、slugページで↓のように取得し表示しています
 
-```ts
+```tsx
 const Schema = v.object({
   date: v.date(),
   value: v.string(),
@@ -38,7 +38,7 @@ export default async function PostPage(props: {
 
   return (
     <ArticleLayout
-      renderHeaderLeft={() => {
+      renderHeaderRight={() => {
         return (
           <Text className="font-semibold text-xs">
             {data.date.toDateString()}
