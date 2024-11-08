@@ -7,7 +7,7 @@ export function ArticleLayout({
 }: { children: React.ReactNode; renderHeaderRight?: () => React.ReactNode }) {
   return (
     <article>
-      <header className="flex items-center justify-between pb-8 mb-12 border-b dark:border-b-gray-700">
+      <header className="flex items-center justify-between pb-6 mb-12 border-b dark:border-b-gray-700">
         <Link href="/" title="back">
           <HiArrowLongLeft
             className="text-gray-800 dark:text-gray-200"
