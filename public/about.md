@@ -10,4 +10,5 @@ Ryuji Ito is a software engineer with a hobby in design, currently working at LY
 ### Contact  
 - **Email** -> ryuji0222ss@gmail.com  
 - **X** -> https://x.com/ryuji_program
+- **BlueSky** -> https://bsky.app/profile/ryuji-ito.bsky.social
 - **Github** -> https://github.com/ryuji-1to
