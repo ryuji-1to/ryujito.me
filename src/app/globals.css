@@ -9,6 +9,15 @@
   border-radius: 4px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .prose p > code {
+    background-color: #98a1ad33;
+    color: #eee;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+}
+
 .prose p > code::after {
   content: none;
 }

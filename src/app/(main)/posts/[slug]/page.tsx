@@ -1,9 +1,9 @@
-import matter from "gray-matter";
 import { readFile, readdir } from "node:fs/promises";
+import { Markdown } from "@/share/components/markdown";
 import { Text } from "@/share/components/text";
 import { formatMarkdown } from "@/share/lib";
+import matter from "gray-matter";
 import * as v from "valibot";
-import { Markdown } from "@/share/components/markdown";
 import { ArticleLayout } from "../../article-layout";
 
 const Schema = v.object({

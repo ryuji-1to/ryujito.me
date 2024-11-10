@@ -1,5 +1,5 @@
-import { getFormattedMarkdown } from "@/share/lib";
 import { Markdown } from "@/share/components/markdown";
+import { getFormattedMarkdown } from "@/share/lib";
 import type { Metadata } from "next";
 import { ArticleLayout } from "../article-layout";
 

@@ -9,19 +9,21 @@
   },
   "javascript": {
     "formatter": {
-      "arrowParentheses":"always",
+      "arrowParentheses": "always",
       "bracketSameLine": false,
       "bracketSpacing": true,
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
-      "semicolons": "always",
-      "trailingCommas": "all"
+      "semicolons": "always"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "a11y": {
+        "all": true
+      }
     }
   }
 }
