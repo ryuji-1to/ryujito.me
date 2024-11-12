@@ -56,10 +56,29 @@ describe("share/components/markdown", () => {
       formatExpected(expected),
     );
   });
-  test("replaceMark", () => {
-    // TODO
-  });
   test("replaceBrowser", () => {
-    // TODO
+    const actual = `
+    <p>--browser:start--</p>
+    <div>test</div>
+    <p>--browser:end--</p>
+    `;
+    const expected = `
+    <div class="bg-gray-50 dark:bg-gray-800 rounded drop-shadow-lg min-h-20">
+      <div class="h-6 bg-gray-200 dark:bg-gray-700 py-1 px-2 rounded-t">
+        <div class="flex items-center h-full gap-1.5">
+            <div class="rounded-full bg-red-500 h-2 w-2"></div>
+            <div class="rounded-full bg-amber-500 h-2 w-2"></div>
+            <div class="rounded-full bg-green-500 h-2 w-2"></div>
+        </div>
+      </div>
+      <div class="px-4 py-1">
+        <div>test</div>
+      </div>
+    </div>
+    `;
+    const { container } = render(<Markdown>{actual}</Markdown>);
+    expect(trimSpace(container.innerHTML.toString())).toMatch(
+      formatExpected(expected),
+    );
   });
 });
