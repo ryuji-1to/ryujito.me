@@ -1,4 +1,4 @@
-import { GeistSans } from "geist/font/sans";
+import { Geist } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/share/lib";
@@ -6,6 +6,8 @@ import { cn } from "@/share/lib";
 export const metadata: Metadata = {
   title: "Ryuji Ito",
 };
+
+const geist = Geist();
 
 export default function RootLayout({
   children,
@@ -24,7 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           "antialiased dark:bg-gray-950 bg-gray-50 print:bg-white",
-          GeistSans.className,
+          geist.className,
         )}
       >
         <div className="min-h-screen flex flex-col max-w-3xl mx-auto p-10">
