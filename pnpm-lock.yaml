@@ -84,13 +84,13 @@ importers:
         version: 4.3.3(vite@5.4.10(@types/node@20.17.6))
       '@vitest/coverage-v8':
         specifier: ^2.1.4
-        version: 2.1.4(vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.1))
+        version: 2.1.4(vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.2))
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.20(postcss@8.4.49)
       happy-dom:
         specifier: ^15.7.4
-        version: 15.11.1
+        version: 15.11.2
       postcss:
         specifier: ^8
         version: 8.4.49
@@ -105,7 +105,7 @@ importers:
         version: 5.6.3
       vitest:
         specifier: ^2.1.2
-        version: 2.1.4(@types/node@20.17.6)(happy-dom@15.11.1)
+        version: 2.1.4(@types/node@20.17.6)(happy-dom@15.11.2)
 
 packages:
 
@@ -1110,8 +1110,8 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
-  happy-dom@15.11.1:
-    resolution: {integrity: sha512-c6Ysm3743TQBBaNu26IOFtlb7rl5iS85zOq5PpZwe2NO70/8fs6nZOnC9mN1cxRsAlL7nx6G+/4kk2zBz4afJg==}
+  happy-dom@15.11.2:
+    resolution: {integrity: sha512-MZ8kazOz+8i9G+olnJS836mNaF96UhOTzuECmxdE56+1+juiubqaJHTJUf+1WZ6Vs09lKLdmfX2AxGslfj1XFg==}
     engines: {node: '>=18.0.0'}
 
   has-flag@4.0.0:
@@ -2495,7 +2495,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.4(vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.1))':
+  '@vitest/coverage-v8@2.1.4(vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -2509,7 +2509,7 @@ snapshots:
       std-env: 3.7.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.4(@types/node@20.17.6)(happy-dom@15.11.1)
+      vitest: 2.1.4(@types/node@20.17.6)(happy-dom@15.11.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -2837,7 +2837,7 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
-  happy-dom@15.11.1:
+  happy-dom@15.11.2:
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -3817,7 +3817,7 @@ snapshots:
       '@types/node': 20.17.6
       fsevents: 2.3.3
 
-  vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.1):
+  vitest@2.1.4(@types/node@20.17.6)(happy-dom@15.11.2):
     dependencies:
       '@vitest/expect': 2.1.4
       '@vitest/mocker': 2.1.4(vite@5.4.10(@types/node@20.17.6))
@@ -3841,7 +3841,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.6
-      happy-dom: 15.11.1
+      happy-dom: 15.11.2
     transitivePeerDependencies:
       - less
       - lightningcss
