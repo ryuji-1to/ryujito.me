@@ -32,19 +32,8 @@ async function getMdPosts() {
   return v.parse(v.array(PostSchema), data);
 }
 
-const AvatarSchema = v.object({ avatar_url: v.string() });
-
-async function getAvatar() {
-  const res = await fetch("https://api.github.com/users/ryuji-1to");
-  if (!res.ok) {
-    return { avatar_url: "" };
-  }
-  const data = await res.json();
-  return v.parse(AvatarSchema, data);
-}
-
 export default async function Home() {
-  const [posts, avatar] = await Promise.all([getMdPosts(), getAvatar()]);
+  const posts = await getMdPosts();
 
   return (
     <div>
@@ -53,7 +42,7 @@ export default async function Home() {
           <Link href="/about">
             <div className="flex items-center gap-3 mb-1">
               <img
-                src={avatar.avatar_url}
+                src="https://github.com/ryuji-1to.png"
                 width={28}
                 height={28}
                 alt="my avatar"
