@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 
 const geist = Geist({
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700", "900"],
+  style: ["normal"],
 });
 
 export default function RootLayout({
