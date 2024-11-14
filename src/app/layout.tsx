@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   title: "Ryuji Ito",
 };
 
-const geist = Geist();
+const geist = Geist({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
