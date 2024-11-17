@@ -108,9 +108,9 @@ function Badge({ value }: { value: string }) {
   const parsed = v.safeParse(BadgeSchema, value);
   const badge = parsed.success ? parsed.output : "Other";
   const badgeStuff = {
-    Design: "🎨",
-    Dev: "💻",
-    Other: "🦊",
+    Design: "🎨 Design",
+    Dev: "💻 Dev",
+    Other: "🦊 Other",
   } as const satisfies Record<v.InferInput<typeof BadgeSchema>, string>;
 
   return (
@@ -125,7 +125,7 @@ function Badge({ value }: { value: string }) {
           "bg-indigo-50 dark:bg-indigo-400/10 ring-indigo-700/10 dark:ring-indigo-600/50 text-indigo-700 dark:text-indigo-500",
       )}
     >
-      {badgeStuff[badge]} {badge}
+      {badgeStuff[badge]}
     </span>
   );
 }
