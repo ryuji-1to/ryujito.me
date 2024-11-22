@@ -105,25 +105,20 @@ const BadgeSchema = v.union([
 function Badge({ value }: { value: string }) {
   const parsed = v.safeParse(BadgeSchema, value);
   const badge = parsed.success ? parsed.output : "Other";
-  const badgeStuff = {
-    Design: "🎨 Design",
-    Dev: "💻 Dev",
-    Other: "🦊 Other",
-  } as const satisfies Record<v.InferInput<typeof BadgeSchema>, string>;
 
   return (
     <span
       className={cn(
         "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset",
         badge === "Dev" &&
-          "bg-blue-50 dark:bg-blue-400/10 ring-blue-700/10 dark:ring-blue-600/50 text-blue-700 dark:text-blue-500",
+          "bg-blue-50 dark:bg-blue-400/10 ring-blue-700/10 dark:ring-0 text-blue-700 dark:text-blue-500",
         badge === "Design" &&
-          "bg-green-50 dark:bg-green-400/10 ring-green-700/10 dark:ring-green-600/50 text-green-700 dark:text-green-500",
+          "bg-green-50 dark:bg-green-400/10 ring-green-700/10 dark:ring-0  text-green-700 dark:text-green-500",
         badge === "Other" &&
-          "bg-indigo-50 dark:bg-indigo-400/10 ring-indigo-700/10 dark:ring-indigo-600/50 text-indigo-700 dark:text-indigo-500",
+          "bg-orange-50 dark:bg-orange-400/10 ring-orange-700/10 dark:ring-0 text-orange-700 dark:text-orange-500",
       )}
     >
-      {badgeStuff[badge]}
+      {badge}
     </span>
   );
 }
