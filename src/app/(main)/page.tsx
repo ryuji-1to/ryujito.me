@@ -4,7 +4,6 @@ import { readFile, readdir } from "node:fs/promises";
 import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import * as v from "valibot";
 import Link from "next/link";
-import { FiExternalLink } from "react-icons/fi";
 import { cn } from "@/share/lib";
 
 const PostSchema = v.object({
@@ -40,30 +39,29 @@ export default async function Home() {
       <div className="flex items-center justify-between mb-10">
         <div>
           <Link href="/about">
-            <div className="flex items-center gap-3 mb-1">
-              <img
-                src="https://github.com/ryuji-1to.png"
-                width={28}
-                height={28}
-                alt="my avatar"
-                className="rounded-full"
-              />
-              <Text as="h1" className="font-bold text-2xl">
-                Ryuji Ito
-              </Text>
-              <FiExternalLink className="dark:text-gray-300" />
-            </div>
-            <Text className="text-sm pl-3">Software Engineer</Text>
+            <Text as="h1" className="font-bold text-2xl">
+              Ryuji Ito
+            </Text>
+            <Text className="text-xs">Software Engineer</Text>
           </Link>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
+          <Link href="/about" title="about" aria-label="link for about">
+            <img
+              src="https://github.com/ryuji-1to.png"
+              width={24}
+              height={24}
+              alt="my avatar"
+              className="rounded-full"
+            />
+          </Link>
           <a
             href="https://github.com/ryuji-1to"
             target="_blank"
             rel="noreferrer"
             aria-label="link for ryuji's github account"
           >
-            <RiGithubFill className="dark:text-gray-50" size={22} />
+            <RiGithubFill className="dark:text-gray-50" size={24} />
           </a>
           <a
             href="https://twitter.com/ryuji_program"
