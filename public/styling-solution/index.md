@@ -10,7 +10,8 @@ tag: "Design"
 - [NextUI](https://nextui.org) （Tailwind CSS + React Aria Component）
 - [Chakra UI](https://www.chakra-ui.com)
 - [shadcn/ui](https://ui.shadcn.com) （Tailwind CSS + Radix）
-- [dotUI](https://dotui.org/docs/getting-started/introduction)（Tailwind CSS + React Aria Component。自動レスポンシブ対応）
+- [Justd](https://getjustd.com/) （tailwind css + React Aria Component）
+- [dotui](https://dotui.org/docs/getting-started/introduction)（Tailwind CSS + React Aria Component。自動レスポンシブ対応）
 - [tremor](https://tremor.so) （Tailwind CSS + Radix UI。管理画面など）
 - [React Spectrum](https://react-spectrum.adobe.com/react-spectrum/index.html)（Adobe製。管理画面など）
 - [Yamada UI](https://yamada-ui.com/ja)（Emotionで作られている）
