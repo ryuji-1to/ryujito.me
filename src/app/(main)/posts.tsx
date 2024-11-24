@@ -6,14 +6,20 @@ import { Text } from "@/share/components/text";
 import { cn } from "@/share/lib";
 import { FiExternalLink } from "react-icons/fi";
 
-async function getZennPosts() {
+type ZennPost = {
+  type: "zenn";
+  path: string;
+  title?: string;
+  date: Date;
+  tag: "Zenn";
+};
+
+async function getZennPosts(): Promise<ZennPost[]> {
   const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito", {
     next: { revalidate: 60 * 60 * 24 },
   });
   const data = await res.json();
-  console.log(JSON.stringify(data, null, 2));
-
-  return v.parse(
+  const validated = v.parse(
     v.array(
       v.object({
         title: v.optional(v.string()),
@@ -23,9 +29,24 @@ async function getZennPosts() {
     ),
     data.articles,
   );
+  return validated.map((d) => ({
+    type: "zenn",
+    path: d.path,
+    title: d.title,
+    date: new Date(d.published_at),
+    tag: "Zenn",
+  }));
 }
 
-async function getMdPosts() {
+type MdPosts = {
+  type: "md";
+  slug: string;
+  title: string;
+  date: Date;
+  tag?: string;
+};
+
+async function getMdPosts(): Promise<MdPosts[]> {
   const entries = await readdir("./public/", { withFileTypes: true });
   const posts = entries.filter((f) => f.isDirectory()).map((file) => file.name);
   const contents = await Promise.all(
@@ -40,7 +61,7 @@ async function getMdPosts() {
 
     return { slug, ...data };
   });
-  return v.parse(
+  const validated = v.parse(
     v.array(
       v.object({
         slug: v.string(),
@@ -51,48 +72,18 @@ async function getMdPosts() {
     ),
     data,
   );
+  return validated.map((d) => ({
+    type: "md",
+    ...d,
+  }));
 }
 
-type Posts = Readonly<
-  | {
-      type: "md";
-      slug: string;
-      title: string;
-      date: Date;
-      tag?: string;
-    }
-  | {
-      type: "zenn";
-      path: string;
-      title?: string;
-      date: Date;
-      tag: "Zenn";
-    }
->[];
-
-async function getPosts(): Promise<Posts> {
+async function getPosts() {
   const [mdPosts, zennPosts] = await Promise.all([
     getMdPosts(),
     getZennPosts(),
   ]);
-  const zennData = zennPosts.map(
-    (d) =>
-      ({
-        type: "zenn",
-        path: d.path,
-        title: d.title,
-        date: new Date(d.published_at),
-        tag: "Zenn",
-      }) as const,
-  );
-  const mdData = mdPosts.map(
-    (d) =>
-      ({
-        type: "md",
-        ...d,
-      }) as const,
-  );
-  return [...mdData, ...zennData].toSorted((a, b) => {
+  return [...mdPosts, ...zennPosts].toSorted((a, b) => {
     return a.date < b.date ? 1 : -1;
   });
 }
