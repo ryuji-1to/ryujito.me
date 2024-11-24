@@ -26,7 +26,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "antialiased dark:bg-gray-950 bg-gray-50 print:bg-white",
+          "antialiased dark:bg-gray-950 bg-gray-50 text-gray-800 dark:text-gray-200 print:bg-white",
           geist.className,
         )}
       >
