@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { Text } from "@/share/components/text";
 import { cn } from "@/share/lib";
+import { FiExternalLink } from "react-icons/fi";
 
 async function getZennPosts() {
   const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito", {
@@ -62,7 +63,7 @@ type Posts = Readonly<
     }
   | {
       type: "zenn";
-      slug: undefined;
+      path: string;
       title?: string;
       date: Date;
       tag: "Zenn";
@@ -78,7 +79,7 @@ async function getPosts(): Promise<Posts> {
     (d) =>
       ({
         type: "zenn",
-        slug: undefined,
+        path: d.path,
         title: d.title,
         date: new Date(d.published_at),
         tag: "Zenn",
@@ -121,12 +122,14 @@ export async function Posts() {
           ) : (
             <li key={d.title}>
               <a
-                href={`/posts/${d.slug}`}
+                href={`https://zenn.dev/${d.path}`}
                 className="w-fit block"
                 target="_blank"
                 rel="noreferrer"
               >
-                <Text className="font-medium">{d.title}</Text>
+                <Text className="font-medium flex items-center gap-2">
+                  {d.title} <FiExternalLink size={12} />
+                </Text>
                 <Text className="text-[11px] space-x-2">
                   <span>{d.date.toDateString()}</span>
                   {d.tag && <Badge value={d.tag} />}
