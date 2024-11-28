@@ -81,13 +81,13 @@ importers:
         version: 4.3.4(vite@6.0.0(@types/node@20.17.8)(jiti@1.21.6)(yaml@2.6.0))
       '@vitest/coverage-v8':
         specifier: ^2.1.4
-        version: 2.1.6(vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.6)(jiti@1.21.6)(yaml@2.6.0))
+        version: 2.1.6(vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.7)(jiti@1.21.6)(yaml@2.6.0))
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.20(postcss@8.4.49)
       happy-dom:
         specifier: ^15.7.4
-        version: 15.11.6
+        version: 15.11.7
       postcss:
         specifier: ^8
         version: 8.4.49
@@ -102,7 +102,7 @@ importers:
         version: 5.7.2
       vitest:
         specifier: ^2.1.2
-        version: 2.1.6(@types/node@20.17.8)(happy-dom@15.11.6)(jiti@1.21.6)(yaml@2.6.0)
+        version: 2.1.6(@types/node@20.17.8)(happy-dom@15.11.7)(jiti@1.21.6)(yaml@2.6.0)
 
 packages:
 
@@ -1114,8 +1114,8 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
-  happy-dom@15.11.6:
-    resolution: {integrity: sha512-elX7iUTu+5+3b2+NGQc0L3eWyq9jKhuJJ4GpOMxxT/c2pg9O3L5H3ty2VECX0XXZgRmmRqXyOK8brA2hDI6LsQ==}
+  happy-dom@15.11.7:
+    resolution: {integrity: sha512-KyrFvnl+J9US63TEzwoiJOQzZBJY7KgBushJA8X61DMbNsH+2ONkDuLDnCnwUiPTF42tLoEmrPyoqbenVA5zrg==}
     engines: {node: '>=18.0.0'}
 
   has-flag@4.0.0:
@@ -2517,7 +2517,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.1.6(vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.6)(jiti@1.21.6)(yaml@2.6.0))':
+  '@vitest/coverage-v8@2.1.6(vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.7)(jiti@1.21.6)(yaml@2.6.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -2531,7 +2531,7 @@ snapshots:
       std-env: 3.8.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.6(@types/node@20.17.8)(happy-dom@15.11.6)(jiti@1.21.6)(yaml@2.6.0)
+      vitest: 2.1.6(@types/node@20.17.8)(happy-dom@15.11.7)(jiti@1.21.6)(yaml@2.6.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -2860,7 +2860,7 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
-  happy-dom@15.11.6:
+  happy-dom@15.11.7:
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -3854,7 +3854,7 @@ snapshots:
       jiti: 1.21.6
       yaml: 2.6.0
 
-  vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.6)(jiti@1.21.6)(yaml@2.6.0):
+  vitest@2.1.6(@types/node@20.17.8)(happy-dom@15.11.7)(jiti@1.21.6)(yaml@2.6.0):
     dependencies:
       '@vitest/expect': 2.1.6
       '@vitest/mocker': 2.1.6(vite@6.0.0(@types/node@20.17.8)(jiti@1.21.6)(yaml@2.6.0))
@@ -3878,7 +3878,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.8
-      happy-dom: 15.11.6
+      happy-dom: 15.11.7
     transitivePeerDependencies:
       - jiti
       - less
