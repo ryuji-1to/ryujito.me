@@ -1,6 +1,5 @@
 import { readFile, readdir } from "node:fs/promises";
 import { Markdown } from "@/share/components/markdown";
-import { Text } from "@/share/components/text";
 import { formatMarkdown } from "@/share/lib";
 import matter from "gray-matter";
 import * as v from "valibot";
@@ -36,9 +35,7 @@ export default async function PostPage(props: {
     <ArticleLayout
       renderHeaderRight={() => {
         return (
-          <Text className="font-semibold text-xs">
-            {data.date.toDateString()}
-          </Text>
+          <p className="font-semibold text-xs">{data.date.toDateString()}</p>
         );
       }}
     >

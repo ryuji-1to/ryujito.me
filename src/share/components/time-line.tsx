@@ -3,5 +3,10 @@ export function TimeLine(props: { children: React.ReactNode[] }) {
 }
 
 export function TimeLineCard() {
-  return <div>timeline card</div>;
+  return (
+    <div className="border p-4 rounded-md">
+      <h2>Title</h2>
+      <p>description</p>
+    </div>
+  );
 }
