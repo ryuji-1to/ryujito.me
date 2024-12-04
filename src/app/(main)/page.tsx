@@ -1,4 +1,3 @@
-import { Text } from "@/share/components/text";
 import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import Link from "next/link";
 import { Posts } from "./posts";
@@ -9,10 +8,8 @@ export default function Home() {
       <div className="flex items-center justify-between mb-10">
         <div>
           <Link href="/about">
-            <Text as="h1" className="font-bold text-2xl">
-              Ryuji Ito
-            </Text>
-            <Text className="text-xs">Software Engineer</Text>
+            <h1 className="font-bold text-2xl">Ryuji Ito</h1>
+            <span className="text-xs">Software Engineer</span>
           </Link>
         </div>
         <div className="flex gap-4 items-center">

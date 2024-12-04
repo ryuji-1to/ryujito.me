@@ -2,7 +2,6 @@ import * as v from "valibot";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
-import { Text } from "@/share/components/text";
 import { cn } from "@/share/lib";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -103,11 +102,11 @@ export async function Posts() {
                 href={`/posts/${d.slug}`}
                 className="w-fit block"
               >
-                <Text className="font-medium">{d.title}</Text>
-                <Text className="text-[11px] space-x-2">
+                <div className="font-medium">{d.title}</div>
+                <span className="text-[11px] space-x-2">
                   <span>{d.date.toDateString()}</span>
                   {d.tag && <Badge value={d.tag} />}
-                </Text>
+                </span>
               </Link>
             </li>
           ) : (
@@ -118,13 +117,13 @@ export async function Posts() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Text className="font-medium flex items-center gap-2">
+                <span className="font-medium flex items-center gap-2">
                   {d.title} <FiExternalLink size={12} />
-                </Text>
-                <Text className="text-[11px] space-x-2">
+                </span>
+                <span className="text-[11px] space-x-2">
                   <span>{d.date.toDateString()}</span>
                   {d.tag && <Badge value={d.tag} />}
-                </Text>
+                </span>
               </a>
             </li>
           ),
