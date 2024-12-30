@@ -24,6 +24,9 @@
       "correctness": {
         "noUnusedImports": "error"
       },
+      "suspicious": {
+        "noConsoleLog": "error"
+      },
       "a11y": {
         "all": true
       }
