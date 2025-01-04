@@ -1,11 +1,11 @@
 import { RiGithubFill, RiTwitterXFill } from "react-icons/ri";
 import Link from "next/link";
-import { Posts } from "./posts";
+import { TimeLine } from "./timeline";
 
 export default function Home() {
   return (
     <div>
-      <div className="flex items-center justify-between mb-10">
+      <header className="flex items-center justify-between mb-10">
         <div>
           <Link href="/about">
             <h1 className="font-bold text-2xl">Ryuji Ito</h1>
@@ -39,8 +39,10 @@ export default function Home() {
             <RiTwitterXFill className="dark:text-gray-50" size={22} />
           </a>
         </div>
+      </header>
+      <div className="p-4">
+        <TimeLine />
       </div>
-      <Posts />
     </div>
   );
 }
