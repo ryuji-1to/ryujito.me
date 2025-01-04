@@ -18,8 +18,16 @@ export function Header() {
         <p>
           SNS links is{" "}
           <Link href="/about" className="text-blue-500">
-            here.
+            here
           </Link>
+          .
+        </p>
+        <p>
+          Posts is{" "}
+          <Link href="/posts" className="text-blue-500">
+            here
+          </Link>
+          .
         </p>
       </div>
     </header>
