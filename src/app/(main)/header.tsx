@@ -13,8 +13,7 @@ export function Header() {
         />
       </Link>
       <div className="text-gray-600 mt-4">
-        <p>My name is Ryuji Ito.</p>
-        <p>I'm Software Engineer at LY corp.</p>
+        <p>Ryuji Ito is a Software Engineer at LY corp.</p>
         <p>
           SNS links is{" "}
           <Link href="/about" className="text-blue-500">
