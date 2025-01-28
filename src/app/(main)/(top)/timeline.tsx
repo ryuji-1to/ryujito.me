@@ -36,19 +36,14 @@ const data: {
   description: string;
   date: `${number}-${number}-${number}`;
 }[] = [
-  { title: "？", description: "...", date: "2024-02-01" },
+  { title: "？", description: "...", date: "2025-02-01" },
   {
     title: "LINEヤフー株式会社 退職",
     description: "2年間ヤフーメール、3ヶ月間ヤフー検索のエンジニアとして働いた",
     date: "2024-01-31",
   },
   {
-    title: "LINEヤフー株式会社へ",
-    description: "LINEとヤフーが合併したのでLINEヤフーの社員に",
-    date: "2023-10-01",
-  },
-  {
-    title: "ヤフー株式会社 入社",
+    title: "ヤフー株式会社(現LINEヤフー) 入社",
     description:
       "ヤフーメールを開発する部署に配属され、2年ほどFE開発や技術刷新などを担当",
     date: "2022-04-01",
