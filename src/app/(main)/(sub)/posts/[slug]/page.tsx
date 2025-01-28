@@ -33,6 +33,7 @@ export default async function PostPage(props: {
 
   return (
     <ArticleLayout
+      backHref="/posts"
       renderHeaderRight={() => {
         return (
           <p className="font-semibold text-xs">{data.date.toDateString()}</p>
