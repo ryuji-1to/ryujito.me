@@ -36,7 +36,7 @@ const data: {
   description: string;
   date: `${number}-${number}-${number}`;
 }[] = [
-  { title: "？", description: "...", date: "2024-02-01" },
+  { title: "？", description: "...", date: "2025-02-01" },
   {
     title: "LINEヤフー株式会社 退職",
     description: "2年間ヤフーメール、3ヶ月間ヤフー検索のエンジニアとして働いた",

@@ -29,7 +29,7 @@ async function getZennPosts(): Promise<ZennPost[]> {
     ),
     data.articles,
   );
-  return validated.map((d) => ({
+  return validated.toReversed().map((d) => ({
     type: "zenn",
     path: d.path,
     title: d.title,
