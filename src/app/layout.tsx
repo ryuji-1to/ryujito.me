@@ -30,7 +30,7 @@ export default function RootLayout({
           geist.className,
         )}
       >
-        <div className="min-h-screen flex flex-col max-w-3xl mx-auto p-10">
+        <div className="min-h-screen flex flex-col max-w-2xl mx-auto p-10">
           {children}
         </div>
       </body>
