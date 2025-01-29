@@ -29,6 +29,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="description" content="Personal Website by Ryuji Ito" />
+        <link href="/favicon.png" rel="icon" />
       </head>
       {children}
     </html>

@@ -5,7 +5,7 @@ export function Profile() {
     <header>
       <Link href="/about" title="about" aria-label="link for about">
         <img
-          src="https://github.com/ryuji-1to.png"
+          src="/icon.jpg"
           width={56}
           height={56}
           alt="my avatar"
