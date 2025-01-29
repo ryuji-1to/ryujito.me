@@ -3,7 +3,6 @@ import { Markdown } from "@/share/components/markdown";
 import { formatMarkdown } from "@/share/lib";
 import matter from "gray-matter";
 import * as v from "valibot";
-import { ArticleLayout } from "../../article-layout";
 import { notFound } from "next/navigation";
 
 const Schema = v.object({
@@ -32,16 +31,14 @@ export default async function PostPage(props: {
   const data = await getPostBySlug(params.slug);
 
   return (
-    <ArticleLayout
-      backHref="/posts"
-      renderHeaderRight={() => {
-        return (
-          <p className="font-semibold text-xs">{data.date.toDateString()}</p>
-        );
-      }}
-    >
+    <article>
+      <header className="mb-16">
+        <p className="font-semibold text-xs w-fit ml-auto">
+          {data.date.toDateString()}
+        </p>
+      </header>
       <Markdown>{data.value}</Markdown>
-    </ArticleLayout>
+    </article>
   );
 }
 
