@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export function Header() {
+export function Profile() {
   return (
     <header>
       <Link href="/about" title="about" aria-label="link for about">
         <img
-          src="https://github.com/ryuji-1to.png"
+          src="/icon.jpg"
           width={56}
           height={56}
           alt="my avatar"

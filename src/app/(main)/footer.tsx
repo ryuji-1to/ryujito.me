@@ -3,7 +3,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-10 text-center">
+    <footer className="py-10 text-center">
       <small>
         ©{start}
         {currentYear > start ? ` - ${currentYear}` : ""} Ryuji Ito

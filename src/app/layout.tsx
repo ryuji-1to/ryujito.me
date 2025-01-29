@@ -20,20 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html
+      lang="ja"
+      className={cn(
+        "antialiased dark:bg-gray-950 bg-gray-50 text-gray-800 dark:text-gray-200 print:bg-white",
+        geist.className,
+      )}
+    >
       <head>
         <meta name="description" content="Personal Website by Ryuji Ito" />
+        <link href="/favicon.png" rel="icon" />
       </head>
-      <body
-        className={cn(
-          "antialiased dark:bg-gray-950 bg-gray-50 text-gray-800 dark:text-gray-200 print:bg-white",
-          geist.className,
-        )}
-      >
-        <div className="min-h-screen flex flex-col max-w-2xl mx-auto p-10">
-          {children}
-        </div>
-      </body>
+      {children}
     </html>
   );
 }
