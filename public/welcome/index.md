@@ -4,13 +4,13 @@ date: 2024-06-01
 tag: "Other"
 ---
 
-
-
 ## 技術スタック紹介
+
+---
 
 以下の技術を使用しています
 
---browser:start--  
+--browser:start--
 
 - **Next.js**
 - **Tailwind CSS**
@@ -21,7 +21,7 @@ tag: "Other"
 
 --browser:end--
 
-`public` 内のmdファイルに記事を書き、slugページで↓のように取得し表示しています
+`public` 内の md ファイルに記事を書き、slug ページで ↓ のように取得し表示しています
 
 ```tsx
 const Schema = v.object({
@@ -57,6 +57,5 @@ export default async function PostPage(props: {
   );
 }
 ```
-
 
 [GitHub リポジトリ - ryujito.me](https://github.com/ryuji-1to/ryujito.me)
