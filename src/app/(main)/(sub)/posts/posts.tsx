@@ -95,7 +95,7 @@ export async function Posts() {
                 <Link
                   prefetch={false}
                   href={`/posts/${d.slug}`}
-                  className="text-sm hover:underline"
+                  className="text-sm hover:underline dark:text-gray-300"
                 >
                   {d.title}
                 </Link>
@@ -110,7 +110,7 @@ export async function Posts() {
         <ul className="list-disc ml-4 space-y-2">
           {zennPosts.map((d) => (
             <li key={d.title}>
-              <span className="flex gap-4 w-full items-center justify-between">
+              <span className="flex gap-4 w-full items-center justify-between dark:text-gray-300">
                 <a
                   href={`https://zenn.dev/${d.path}`}
                   className="text-sm hover:underline"

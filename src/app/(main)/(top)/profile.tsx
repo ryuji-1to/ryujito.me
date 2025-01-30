@@ -12,22 +12,21 @@ export function Profile() {
           className="rounded-full"
         />
       </Link>
-      <div className="text-gray-600 mt-4">
+      <div className="text-gray-600 dark:text-gray-500 mt-4">
         <p>Ryuji Ito is a Software Engineer.</p>
-        <p>
-          SNS links is{" "}
-          <Link href="/about" className="text-blue-500">
-            here
-          </Link>
-          .
-        </p>
-        <p>
-          Posts is{" "}
-          <Link href="/posts" className="text-blue-500">
-            here
-          </Link>
-          .
-        </p>
+        <ul className="flex gap-1 text-sm">
+          <li>
+            <Link href="/about" className="text-blue-500 hover:underline">
+              SNS
+            </Link>
+          </li>
+          <li>/</li>
+          <li>
+            <Link href="/posts" className="text-blue-500 hover:underline">
+              Posts
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   );
