@@ -7,7 +7,9 @@ export function TimeLine() {
         <div key={d.title}>
           <div className="flex gap-8 items-center">
             <div className="w-[10px] h-[10px] bg-gray-400 dark:bg-gray-600 rounded-full" />
-            <span className="text-xs">{new Date(d.date).toDateString()}</span>
+            <span className="text-xs dark:text-gray-400">
+              {new Date(d.date).toDateString()}
+            </span>
           </div>
           <div className="flex gap-8 pl-1">
             <div
@@ -18,7 +20,9 @@ export function TimeLine() {
             />
             <div className="py-6 w-full">
               <div className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-5 w-full rounded-lg">
-                <h2 className="font-semibold mb-2">{d.title}</h2>
+                <h2 className="font-semibold mb-2 dark:text-gray-300">
+                  {d.title}
+                </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-[11px]">
                   {d.description}
                 </p>
@@ -36,16 +40,21 @@ const data: {
   description: string;
   date: `${number}-${number}-${number}`;
 }[] = [
-  { title: "？", description: "...", date: "2025-02-01" },
   {
-    title: "LINEヤフー株式会社 退職",
-    description: "2年間ヤフーメール、3ヶ月間ヤフー検索のエンジニアとして働いた",
+    title: "Joined Ikyu Corporation",
+    description: "Assigned to the development of the accommodation business.",
+    date: "2025-02-01",
+  },
+  {
+    title: "Left LY Corporation",
+    description:
+      "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search.",
     date: "2024-01-31",
   },
   {
-    title: "ヤフー株式会社(現LINEヤフー) 入社",
+    title: "Joined Yahoo! Japan (now LY Corporation)",
     description:
-      "ヤフーメールを開発する部署に配属され、2年ほどFE開発や技術刷新などを担当",
+      "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years.",
     date: "2022-04-01",
   },
 ];
