@@ -46,7 +46,7 @@ function replaceBrowser(htmlText: string) {
   const browserStart = "<p>--browser:start--</p>";
   const browserEnd = "<p>--browser:end--</p>";
   const start = `
-  <div class="bg-gray-50 dark:bg-gray-800 rounded drop-shadow-lg min-h-20">
+  <div class="bg-gray-50 dark:bg-gray-800 rounded-sm drop-shadow-lg min-h-20">
      <div class="h-6 bg-gray-200 dark:bg-gray-700 py-1 px-2 rounded-t">
         <div class="flex items-center h-full gap-1.5">
             <div class="rounded-full bg-red-500 h-2 w-2"></div>

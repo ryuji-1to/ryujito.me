@@ -12,7 +12,7 @@ export function Header() {
 
   const path = getPath(pathname);
   return (
-    <header className="sticky top-0 backdrop-blur-sm">
+    <header className="sticky top-0 backdrop-blur-xs">
       <div className="max-w-2xl mx-auto px-10 py-3 flex gap-1.5">
         <Link href="/">
           <img
