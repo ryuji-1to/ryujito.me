@@ -24,7 +24,7 @@
     "remark-rehype": "^11.1.0",
     "tailwind-merge": "^3.0.0",
     "unified": "^11.0.4",
-    "valibot": "^0.42.0"
+    "valibot": "^1.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
