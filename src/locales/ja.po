@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-04-12 14:54+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ja\n"
+
+#: src/app/(main)/(top)/profile.tsx:19
+msgid "Ryuji Ito is a Software Engineer."
+msgstr "Ryuji Ito is a Software Engineer."

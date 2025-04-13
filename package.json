@@ -9,9 +9,14 @@
     "lint": "biome check ./src",
     "lint:fix": "biome check ./src --fix --unsafe",
     "format": "biome format --write ./src",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "lingui:extract": "lingui extract",
+    "lingui:compile": "lingui compile"
   },
   "dependencies": {
+    "@lingui/core": "^5.3.0",
+    "@lingui/macro": "^5.3.0",
+    "@lingui/react": "^5.3.0",
     "@shikijs/rehype": "^2.0.0",
     "clsx": "^2.1.0",
     "gray-matter": "^4.0.3",
@@ -22,12 +27,16 @@
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^3.0.0",
     "unified": "^11.0.4",
     "valibot": "^1.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@lingui/cli": "^5.3.0",
+    "@lingui/loader": "^5.3.0",
+    "@lingui/swc-plugin": "^5.5.1",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@testing-library/dom": "^10.4.0",

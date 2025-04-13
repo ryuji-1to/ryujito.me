@@ -13,7 +13,7 @@ export function Profile() {
         />
       </Link>
       <div className="text-gray-600 dark:text-gray-500 mt-4">
-        <p>Ryuji Ito is a Software Engineer.</p>
+        <p>Ryuji Ito is a Frontend Designer.</p>
         <ul className="flex gap-1 text-sm">
           <li>
             <Link href="/about" className="text-blue-500 hover:underline">
