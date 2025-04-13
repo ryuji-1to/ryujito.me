@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import Link from "next/link";
 
 export function Profile() {
@@ -13,7 +14,10 @@ export function Profile() {
         />
       </Link>
       <div className="text-gray-600 dark:text-gray-500 mt-4">
-        <p>Ryuji Ito is a Frontend Designer.</p>
+        <p>
+          <Trans>Ryuji Ito is a Frontend Designer</Trans>{" "}
+          <span role="img">🎨🧑‍💻</span>
+        </p>
         <ul className="flex gap-1 text-sm">
           <li>
             <Link href="/about" className="text-blue-500 hover:underline">

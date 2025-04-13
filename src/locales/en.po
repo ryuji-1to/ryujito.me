@@ -6,7 +6,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/app/(main)/(top)/profile.tsx:19
-msgid "Ryuji Ito is a Software Engineer."
-msgstr ""
+#: src/app/(main)/(top)/timeline.tsx:49
+msgid "Assigned to the development of the accommodation business."
+msgstr "Assigned to the development of the accommodation business."
+
+#: src/app/(main)/(top)/timeline.tsx:59
+msgid "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years."
+msgstr "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years."
+
+#: src/app/(main)/(top)/timeline.tsx:48
+msgid "Joined Ikyu Corporation"
+msgstr "Joined Ikyu Corporation"
+
+#: src/app/(main)/(top)/timeline.tsx:58
+msgid "Joined Yahoo! Japan (now LY Corporation)"
+msgstr "Joined Yahoo! Japan (now LY Corporation)"
+
+#: src/app/(main)/(top)/timeline.tsx:53
+msgid "Left LY Corporation"
+msgstr "Left LY Corporation"
+
+#: src/app/(main)/(top)/profile.tsx:18
+msgid "Ryuji Ito is a Frontend Designer"
+msgstr "Ryuji Ito is a Frontend Designer"
+
+#: src/app/(main)/(top)/timeline.tsx:54
+msgid "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search"
+msgstr "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search"

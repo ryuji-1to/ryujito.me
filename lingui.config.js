@@ -1,10 +1,8 @@
-import { defineConfig } from "@lingui/conf";
-
-export default defineConfig({
+module.exports = {
   locales: ["ja", "en"],
-  sourceLocale: "ja",
+  sourceLocale: "en",
   fallbackLocales: {
-    default: "ja",
+    default: "en",
   },
   catalogs: [
     {
@@ -12,4 +10,4 @@ export default defineConfig({
       include: ["src/"],
     },
   ],
-});
+};

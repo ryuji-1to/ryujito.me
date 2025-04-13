@@ -27,7 +27,7 @@ const geist = Geist({
 
 export default async function RootLayout(props: Props) {
   const result = v.safeParse(LocalesSchema, (await props.params).lang);
-  const lang = result.success ? result.output : "ja";
+  const lang = result.success ? result.output : "en";
 
   initLingui(lang);
   return (

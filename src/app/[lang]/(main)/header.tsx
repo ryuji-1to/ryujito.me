@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
   const pathname = usePathname();
+  const path = getPath(pathname);
 
-  if (pathname === "/") {
+  if (path === "") {
+    // TODO
     return null;
   }
 
-  const path = getPath(pathname);
   return (
     <header className="sticky top-0 backdrop-blur-xs">
       <div className="max-w-2xl mx-auto px-10 py-3 flex gap-1.5">
@@ -31,10 +32,13 @@ export function Header() {
 }
 
 function getPath(pathname: string) {
-  if (pathname.startsWith("/posts")) {
+  // 先頭に /en や /ja などの2文字の言語コードがあれば除去
+  const pathWithoutLocale = pathname.replace(/^\/(en|ja)(?=\/|$)/, "");
+
+  if (pathWithoutLocale.startsWith("/posts")) {
     return "posts";
   }
-  if (pathname.startsWith("/about")) {
+  if (pathWithoutLocale.startsWith("/about")) {
     return "about";
   }
   return "";

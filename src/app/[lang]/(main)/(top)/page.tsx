@@ -6,7 +6,7 @@ import { LocalesSchema } from "@/app/i18n";
 
 export default async function Home(props: PageLangParam) {
   const result = v.safeParse(LocalesSchema, (await props.params).lang);
-  const lang = result.success ? result.output : "ja";
+  const lang = result.success ? result.output : "en";
   initLingui(lang);
 
   return (
