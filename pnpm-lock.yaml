@@ -70,6 +70,9 @@ importers:
       '@lingui/cli':
         specifier: ^5.3.0
         version: 5.3.0(typescript@5.8.3)
+      '@lingui/conf':
+        specifier: ^5.3.0
+        version: 5.3.0(typescript@5.8.3)
       '@lingui/loader':
         specifier: ^5.3.0
         version: 5.3.0(typescript@5.8.3)(webpack@5.99.5)
