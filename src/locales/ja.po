@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: src/app/(main)/(top)/timeline.tsx:49
+msgid "Assigned to the development of the accommodation business."
+msgstr "一休.com、Y!トラベルのフロントエンド開発に従事"
+
+#: src/app/(main)/(top)/timeline.tsx:59
+msgid "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years."
+msgstr "Yahooメールの開発チームに配属され、約2年間フロントエンド開発と技術のモダン化に取り組む"
+
+#: src/app/(main)/(top)/timeline.tsx:48
+msgid "Joined Ikyu Corporation"
+msgstr "株式会社一休に入社"
+
+#: src/app/(main)/(top)/timeline.tsx:58
+msgid "Joined Yahoo! Japan (now LY Corporation)"
+msgstr "Yahoo! JAPAN（現：LINEヤフー株式会社）に入社"
+
+#: src/app/(main)/(top)/timeline.tsx:53
+msgid "Left LY Corporation"
+msgstr "LINEヤフー株式会社を退職"
+
+#: src/app/(main)/(top)/profile.tsx:18
+msgid "Ryuji Ito is a Frontend Designer"
+msgstr "フロントエンドのエンジニアとデザインをしています"
+
+#: src/app/(main)/(top)/timeline.tsx:54
+msgid "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search"
+msgstr "Yahooメールで2年間、Yahoo検索で3か月間エンジニアとして勤務"
