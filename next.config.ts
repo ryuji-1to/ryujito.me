@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 // import { locales } from "./lingui.config";
-// TODO: redirect
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -9,6 +8,9 @@ const nextConfig: NextConfig = {
   //   locales,
   //   defaultLocale: "en",
   //   localeDetection: false,
+  // },
+  // async redirects() {
+  //   return [{ source: "/", destination: "/home", permanent: true }];
   // },
   turbopack: {
     rules: {
