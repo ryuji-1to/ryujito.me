@@ -2,6 +2,7 @@ import * as v from "valibot";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
+import { i18n } from "@lingui/core";
 
 type ZennPost = {
   type: "zenn";
@@ -87,30 +88,32 @@ export async function Posts() {
   return (
     <div className="space-y-40">
       <section>
-        <h2 className="mb-8">Posts</h2>
-        <ul className="list-disc ml-16 space-y-8 dark:marker:text-gray-50">
+        <h2 className="mb-8 font-medium">Posts</h2>
+        <ul className="list-disc ml-16 space-y-8 dark:marker:text-gray-4">
           {mdPosts.map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
                 <Link
                   prefetch={false}
                   href={`/posts/${d.slug}`}
-                  className="text-sm hover:underline dark:text-gray-300"
+                  className="text-sm hover:underline dark:text-gray-5"
                 >
                   {d.title}
                 </Link>
-                <span className="text-xs">{d.date.toDateString()}</span>
+                <span className="text-xs">
+                  {i18n.date(d.date.toDateString())}
+                </span>
               </span>
             </li>
           ))}
         </ul>
       </section>
       <section>
-        <h2 className="mb-8">Zenn</h2>
-        <ul className="list-disc ml-16 space-y-8">
+        <h2 className="mb-8 font-medium">Zenn</h2>
+        <ul className="list-disc ml-16 space-y-8 dark:marker:text-gray-4">
           {zennPosts.map((d) => (
             <li key={d.title}>
-              <span className="flex gap-16 w-full items-center justify-between dark:text-gray-300">
+              <span className="flex gap-16 w-full items-center justify-between dark:text-gray-5">
                 <a
                   href={`https://zenn.dev/${d.path}`}
                   className="text-sm hover:underline"
@@ -119,7 +122,9 @@ export async function Posts() {
                 >
                   {d.title}
                 </a>
-                <span className="text-xs">{d.date.toDateString()}</span>
+                <span className="text-xs">
+                  {i18n.date(new Date(d.date).toLocaleString())}
+                </span>
               </span>
             </li>
           ))}
@@ -128,7 +133,3 @@ export async function Posts() {
     </div>
   );
 }
-
-// <section>
-
-// </section>

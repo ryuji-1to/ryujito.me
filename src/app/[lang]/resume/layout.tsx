@@ -4,12 +4,10 @@ export const metadata: Metadata = {
   title: "Ryuji Ito | Resume",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className="print:bg-white max-w-3xl mx-auto p-40">{children}</div>
-  );
+  return <div className="max-w-3xl mx-auto p-40">{children}</div>;
 }

@@ -10,24 +10,24 @@ export function TimeLine() {
       {data.map((d, i) => (
         <div key={d.title.id}>
           <div className="flex gap-16 items-center">
-            <div className="w-[10px] h-[10px] bg-gray-400 dark:bg-gray-600 rounded-full" />
-            <span className="text-xs dark:text-gray-400">
+            <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-gray-6 rounded-full" />
+            <span className="text-xs dark:text-gray-6">
               {i18n.date(new Date(d.date).toDateString())}
             </span>
           </div>
           <div className="flex gap-24 pl-[4px]">
             <div
               className={cn(
-                i !== data.length - 1 && "bg-gray-300 dark:bg-gray-700",
+                i !== data.length - 1 && "bg-gray-6 dark:bg-gray-10",
                 "w-[2px]",
               )}
             />
             <div className="py-24 w-full">
-              <section className="bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-24 w-full rounded-6">
-                <h2 className="font-semibold mb-8 dark:text-gray-300">
+              <section className="bg-gray-2 dark:bg-gray-11 border border-gray-6 dark:border-gray-10 p-24 w-full rounded-6">
+                <h2 className="font-semibold mb-8 dark:text-gray-1">
                   <Trans id={d.title.id} />
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-xxs">
+                <p className="text-gray-11 dark:text-gray-2 text-xxs">
                   <Trans id={d.description.id} />
                 </p>
               </section>

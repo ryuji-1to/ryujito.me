@@ -13,20 +13,20 @@ export function Profile() {
           className="rounded-full"
         />
       </Link>
-      <div className="text-gray-600 dark:text-gray-500 mt-16">
+      <div className="mt-16">
         <p>
           <Trans>Ryuji Ito is a Frontend Designer</Trans>{" "}
           <span role="img">🎨🧑‍💻</span>
         </p>
         <ul className="flex gap-4 text-sm">
           <li>
-            <Link href="/about" className="text-blue-500 hover:underline">
+            <Link href="/about" className=" hover:underline">
               SNS
             </Link>
           </li>
           <li>/</li>
           <li>
-            <Link href="/posts" className="text-blue-500 hover:underline">
+            <Link href="/posts" className="hover:underline">
               Posts
             </Link>
           </li>
