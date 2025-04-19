@@ -89,14 +89,14 @@ export async function Posts() {
     <div className="space-y-40">
       <section>
         <h2 className="mb-8 font-medium">Posts</h2>
-        <ul className="list-disc ml-16 space-y-8 dark:marker:text-gray-4">
+        <ul className="list-disc ml-16 space-y-8">
           {mdPosts.map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
                 <Link
                   prefetch={false}
                   href={`/posts/${d.slug}`}
-                  className="text-sm hover:underline dark:text-gray-5"
+                  className="text-sm hover:underline"
                 >
                   {d.title}
                 </Link>
@@ -110,10 +110,10 @@ export async function Posts() {
       </section>
       <section>
         <h2 className="mb-8 font-medium">Zenn</h2>
-        <ul className="list-disc ml-16 space-y-8 dark:marker:text-gray-4">
+        <ul className="list-disc ml-16 space-y-8">
           {zennPosts.map((d) => (
             <li key={d.title}>
-              <span className="flex gap-16 w-full items-center justify-between dark:text-gray-5">
+              <span className="flex gap-16 w-full items-center justify-between">
                 <a
                   href={`https://zenn.dev/${d.path}`}
                   className="text-sm hover:underline"

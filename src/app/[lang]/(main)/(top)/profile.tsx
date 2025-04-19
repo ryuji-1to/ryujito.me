@@ -21,10 +21,10 @@ export function Profile() {
         <ul className="flex gap-4 text-sm">
           <li>
             <Link href="/about" className=" hover:underline">
-              SNS
+              About
             </Link>
           </li>
-          <li>/</li>
+          <li className="text-gray-8 dark:text-dark-gray-8">/</li>
           <li>
             <Link href="/posts" className="hover:underline">
               Posts

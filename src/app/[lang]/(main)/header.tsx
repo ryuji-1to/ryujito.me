@@ -24,8 +24,8 @@ export function Header() {
             className="rounded-full"
           />
         </Link>
-        <span className="text-gray-8 dark:text-gray-4">/</span>
-        <Link href={`/${path}`} className="text-gray-11 dark:text-gray-4">
+        <span className="text-gray-8 dark:text-dark-gray-8">/</span>
+        <Link href={`/${path}`} className="text-gray-12 dark:text-dark-gray-12">
           {path}
         </Link>
       </div>

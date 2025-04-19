@@ -5,24 +5,23 @@ type Props = {
 };
 
 function replaceSmall(htmlText: string) {
-  const cardStartTag = "<p>--small:start--</p>";
-  const cardEndTag = "<p>--small:end--</p>";
-  const cardStartDiv = `<div style='font-size:12px !important;'>
-    `;
+  const smallStartTag = "<p>--small:start--</p>";
+  const smallEndTag = "<p>--small:end--</p>";
+  const cardStartDiv = `<div class="text-xs">`;
   const cardEndDiv = "</div>";
-  if (!htmlText.includes(cardStartTag) || !htmlText.includes(cardEndTag)) {
+  if (!htmlText.includes(smallStartTag) || !htmlText.includes(smallEndTag)) {
     return htmlText;
   }
   return htmlText
-    .replaceAll(cardStartTag, cardStartDiv)
-    .replaceAll(cardEndTag, cardEndDiv);
+    .replaceAll(smallStartTag, cardStartDiv)
+    .replaceAll(smallEndTag, cardEndDiv);
 }
 
 function replaceCard(htmlText: string) {
   const cardStartTag = "<p>--card:start--</p>";
   const cardEndTag = "<p>--card:end--</p>";
   const cardStartDiv =
-    "<div class='bg-gray-2 dark:bg-gray-11 border border-gray-5 dark:border-gray-10 py-8 px-24 my-16 rounded-8'>";
+    "<div class='bg-gray-2 dark:bg-dark-gray-2 border border-gray-5 dark:border-dark-gray-5 py-8 px-24 my-16 rounded-8'>";
   const cardEndDiv = "</div>";
   if (!htmlText.includes(cardStartTag) || !htmlText.includes(cardEndTag)) {
     return htmlText;
@@ -46,12 +45,12 @@ function replaceBrowser(htmlText: string) {
   const browserStart = "<p>--browser:start--</p>";
   const browserEnd = "<p>--browser:end--</p>";
   const start = `
-  <div class="bg-gray-1 dark:bg-gray-10 rounded-4 drop-shadow-lg min-h-64">
-     <div class="h-24 bg-gray-2 dark:bg-gray-11 py-4 px-8 rounded-t-4">
+  <div class="bg-gray-1 dark:bg-dark-gray-1 border border-gray-4 dark:border-dark-gray-4 rounded-4 drop-shadow-lg min-h-64">
+     <div class="h-24 bg-gray-4 dark:bg-dark-gray-4 py-4 px-8 rounded-t-4">
         <div class="flex items-center h-full gap-4">
-            <div class="rounded-full bg-red-500 h-8 w-8"></div>
-            <div class="rounded-full bg-amber-500 h-8 w-8"></div>
-            <div class="rounded-full bg-green-500 h-8 w-8"></div>
+            <div class="rounded-full bg-red dark:bg-dark-red h-8 w-8"></div>
+            <div class="rounded-full bg-orange dark:bg-dark-orange h-8 w-8"></div>
+            <div class="rounded-full bg-green dark:bg-dark-green h-8 w-8"></div>
         </div>
       </div>
       <div class="px-8 py-4">

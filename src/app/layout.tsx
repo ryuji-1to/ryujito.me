@@ -29,11 +29,12 @@ export default async function RootLayout(props: Props) {
   const result = v.safeParse(LocalesSchema, (await props.params).lang);
   const lang = result.success ? result.output : "en";
   initLingui(lang);
+
   return (
     <html
       lang={lang}
       className={cn(
-        "antialiased dark:bg-gray-12 bg-gray-1 text-gray-12 dark:text-gray-1 print:bg-white",
+        "antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white",
         geist.className,
       )}
     >
