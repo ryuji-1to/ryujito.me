@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700", "900"],
+  weight: ["400", "600", "700", "900"],
   style: ["normal"],
 });
 

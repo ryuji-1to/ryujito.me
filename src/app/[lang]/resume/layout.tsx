@@ -10,6 +10,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="print:bg-white max-w-3xl mx-auto p-10">{children}</div>
+    <div className="print:bg-white max-w-3xl mx-auto p-40">{children}</div>
   );
 }

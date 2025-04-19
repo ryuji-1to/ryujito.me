@@ -10,7 +10,7 @@ export default async function Home(props: PageLangParam) {
   initLingui(lang);
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-64">
       <Profile />
       <TimeLine />
     </div>

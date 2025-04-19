@@ -32,7 +32,7 @@ export default async function PostPage(props: {
 
   return (
     <article>
-      <header className="mb-16">
+      <header className="mb-64">
         <p className="font-semibold text-xs w-fit ml-auto">
           {data.date.toDateString()}
         </p>
