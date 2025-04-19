@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 backdrop-blur-xs">
-      <div className="max-w-2xl mx-auto px-10 py-3 flex gap-1.5">
+      <div className="max-w-2xl mx-auto px-40 py-16 flex gap-4">
         <Link href="/">
           <img
             src="/icon.jpg"
@@ -24,8 +24,10 @@ export function Header() {
             className="rounded-full"
           />
         </Link>
-        <span className="text-gray-400">/</span>
-        <Link href={`/${path}`}>{path}</Link>
+        <span className="text-gray-8 dark:text-dark-gray-8">/</span>
+        <Link href={`/${path}`} className="text-gray-12 dark:text-dark-gray-12">
+          {path}
+        </Link>
       </div>
     </header>
   );

@@ -3,10 +3,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-10 text-center">
+    <footer className="py-40 text-center">
       <small>
-        ©{start}
-        {currentYear > start ? ` - ${currentYear}` : ""} Ryuji Ito
+        © {start}
+        {currentYear > start && ` - ${currentYear}`} Ryuji Ito
       </small>
     </footer>
   );

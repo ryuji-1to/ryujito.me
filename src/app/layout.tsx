@@ -21,20 +21,20 @@ export const metadata: Metadata = {
 const geist = Geist({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700", "900"],
+  weight: ["400", "600", "700", "900"],
   style: ["normal"],
 });
 
 export default async function RootLayout(props: Props) {
   const result = v.safeParse(LocalesSchema, (await props.params).lang);
   const lang = result.success ? result.output : "en";
-
   initLingui(lang);
+
   return (
     <html
       lang={lang}
       className={cn(
-        "antialiased dark:bg-gray-950 bg-gray-50 text-gray-800 dark:text-gray-200 print:bg-white",
+        "antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white",
         geist.className,
       )}
     >
