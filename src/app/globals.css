@@ -1,7 +1,45 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
-
 @custom-variant dark (@media (prefers-color-scheme: dark));
+
+@theme {
+  /* Font Size */
+  --text-*: initial;
+  --text-xxs: calc(1rem * 8 / 12);
+  --text-xs: calc(1rem * 8 / 10);
+  --text-sm: calc(1rem * 8 / 9);
+  --text-base: calc(1rem * 8 / 8);
+  --text-md: calc(1rem * 8 / 7);
+  --text-lg: calc(1rem * 8 / 6);
+  --text-xl: calc(1rem * 8 / 5);
+  --text-2xl: calc(1rem * 8 / 4);
+  --text-3xl: calc(1rem * 8 / 3);
+  --text-4xl: calc(1rem * 8 / 2);
+
+  /* line height */
+  --leading-*: initial;
+  --leading-1: calc(1rem * 0.75);
+  --leading-2: calc(1rem * 1);
+  --leading-3: calc(1rem * 1.25);
+  --leading-4: calc(1rem * 1.5);
+  --leading-5: calc(1rem * 1.75);
+  --leading-6: calc(1rem * 2);
+  --leading-7: calc(1rem * 3);
+  --leading-8: calc(1rem * 4);
+
+  /* Spacing */
+  --spacing-p-0: 0rem;
+  --spacing-p-1: calc(0.5rem / 8);
+  --spacing-p-2: calc(0.5rem / 4);
+  --spacing-p-3: calc(0.5rem / 2);
+  --spacing-p-4: calc(0.5rem * 1);
+  --spacing-p-5: calc(0.5rem * 2);
+  --spacing-p-6: calc(0.5rem * 3);
+  --spacing-p-7: calc(0.5rem * 5);
+  --spacing-p-8: calc(0.5rem * 8);
+  --spacing-p-9: calc(0.5rem * 13);
+  --spacing-p-10: calc(0.5rem * 21);
+}
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
