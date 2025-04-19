@@ -3,6 +3,23 @@
 @custom-variant dark (@media (prefers-color-scheme: dark));
 
 @theme {
+  /* Neutral Color */
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-1: oklch(0.99 0 0); /* #fcfcfc */
+  --color-gray-2: oklch(0.98 0 0); /* #f9f9f9 */
+  --color-gray-3: oklch(0.96 0 0); /* #f0f0f0 */
+  --color-gray-4: oklch(0.93 0 0); /* #e8e8e8 */
+  --color-gray-5: oklch(0.91 0 0); /* #e0e0e0 */
+  --color-gray-6: oklch(0.89 0 0); /* #d9d9d9 */
+  --color-gray-7: oklch(0.85 0 0); /* #cecece */
+  --color-gray-8: oklch(0.79 0 0); /* #bbbbbb */
+  --color-gray-9: oklch(0.64 0 0); /* #8d8d8d */
+  --color-gray-10: oklch(0.61 0 0); /* #838383 */
+  --color-gray-11: oklch(0.5 0 0); /* #646464 */
+  --color-gray-12: oklch(0.24 0 0); /* #202020 */
+
   /* Font Size */
   --text-*: initial;
   --text-xxs: calc(1rem * 8 / 12); /* ≒10.67px | ≒0.6667rem */
@@ -16,29 +33,30 @@
   --text-3xl: calc(1rem * 8 / 3); /* ≒42.67px | ≒2.667rem */
   --text-4xl: calc(1rem * 8 / 2); /* 64.00px | 4rem */
 
-  /* line height */
+  /* Line Height */
   --leading-*: initial;
-  --leading-12: calc(1rem * 0.75); /* 12.00px | 0.75rem */
-  --leading-16: calc(1rem * 1); /* 16.00px | 1rem */
-  --leading-20: calc(1rem * 1.25); /* 20.00px | 1.25rem */
-  --leading-24: calc(1rem * 1.5); /* 24.00px | 1.5rem */
-  --leading-28: calc(1rem * 1.75); /* 28.00px | 1.75rem */
-  --leading-32: calc(1rem * 2); /* 32.00px | 2rem */
-  --leading-48: calc(1rem * 3); /* 48.00px | 3rem */
-  --leading-64: calc(1rem * 4); /* 64.00px | 4rem */
+  --leading-12: calc(1rem * 0.75); /* 12px | 0.75rem */
+  --leading-16: calc(1rem * 1); /* 16px | 1rem */
+  --leading-20: calc(1rem * 1.25); /* 20px | 1.25rem */
+  --leading-24: calc(1rem * 1.5); /* 24px | 1.5rem */
+  --leading-28: calc(1rem * 1.75); /* 28px | 1.75rem */
+  --leading-32: calc(1rem * 2); /* 32px | 2rem */
+  --leading-48: calc(1rem * 3); /* 48px | 3rem */
+  --leading-64: calc(1rem * 4); /* 64px | 4rem */
 
   /* Spacing */
-  --spacing-0: 0rem; /* 0.00px | 0rem */
-  --spacing-1: calc(0.5rem / 8); /* 1.00px | 0.0625rem */
-  --spacing-2: calc(0.5rem / 4); /* 2.00px | 0.125rem */
-  --spacing-4: calc(0.5rem / 2); /* 4.00px | 0.25rem */
-  --spacing-8: calc(0.5rem * 1); /* 8.00px | 0.5rem */
-  --spacing-16: calc(0.5rem * 2); /* 16.00px | 1rem */
-  --spacing-24: calc(0.5rem * 3); /* 24.00px | 1.5rem */
-  --spacing-40: calc(0.5rem * 5); /* 40.00px | 2.5rem */
-  --spacing-64: calc(0.5rem * 8); /* 64.00px | 4rem */
-  --spacing-104: calc(0.5rem * 13); /* 104.00px | 6.5rem */
-  --spacing-168: calc(0.5rem * 21); /* 168.00px | 10.5rem */
+  --spacing-*: initial;
+  --spacing-0: 0px;
+  --spacing-1: calc(8px / 8); /* 1px */
+  --spacing-2: calc(8px / 4); /* 2px */
+  --spacing-4: calc(8px / 2); /* 4px */
+  --spacing-8: calc(8px * 1); /* 8px */
+  --spacing-16: calc(8px * 2); /* 16px */
+  --spacing-24: calc(8px * 3); /* 24px */
+  --spacing-40: calc(8px * 5); /* 40px */
+  --spacing-64: calc(8px * 8); /* 64px */
+  --spacing-104: calc(8px * 13); /* 104px */
+  --spacing-168: calc(8px * 21); /* 168px */
 
   /* Border Radius */
   --radius-*: initial;
@@ -55,14 +73,6 @@
   --radius-full: 9999px;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -71,37 +81,37 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
-}
 
-.prose p > code {
-  background-color: lightgray;
-  color: black;
-  padding: 1px 4px;
-  border-radius: 4px;
-}
-
-@media (prefers-color-scheme: dark) {
   .prose p > code {
-    background-color: #98a1ad33;
-    color: #eee;
+    background-color: lightgray;
+    color: black;
     padding: 1px 4px;
     border-radius: 4px;
   }
-}
 
-.prose p > code::after {
-  content: none;
-}
+  @media (prefers-color-scheme: dark) {
+    .prose p > code {
+      background-color: #98a1ad33;
+      color: #eee;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+  }
 
-.prose p > code::before {
-  content: none;
-}
+  .prose p > code::after {
+    content: none;
+  }
 
-.print-only {
-  display: none;
-}
-@media print {
+  .prose p > code::before {
+    content: none;
+  }
+
   .print-only {
-    display: block;
+    display: none;
+  }
+  @media print {
+    .print-only {
+      display: block;
+    }
   }
 }
