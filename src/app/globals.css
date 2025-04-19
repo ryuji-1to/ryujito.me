@@ -7,18 +7,39 @@
   --color-*: initial;
   --color-white: #fff;
   --color-black: #000;
-  --color-gray-1: oklch(0.99 0 0); /* #fcfcfc */
-  --color-gray-2: oklch(0.98 0 0); /* #f9f9f9 */
-  --color-gray-3: oklch(0.96 0 0); /* #f0f0f0 */
-  --color-gray-4: oklch(0.93 0 0); /* #e8e8e8 */
-  --color-gray-5: oklch(0.91 0 0); /* #e0e0e0 */
-  --color-gray-6: oklch(0.89 0 0); /* #d9d9d9 */
-  --color-gray-7: oklch(0.85 0 0); /* #cecece */
-  --color-gray-8: oklch(0.79 0 0); /* #bbbbbb */
-  --color-gray-9: oklch(0.64 0 0); /* #8d8d8d */
-  --color-gray-10: oklch(0.61 0 0); /* #838383 */
-  --color-gray-11: oklch(0.5 0 0); /* #646464 */
-  --color-gray-12: oklch(0.24 0 0); /* #202020 */
+  /* For light theme */
+  --color-gray-1: oklch(99.2% 0 none); /* #fcfcfc */
+  --color-gray-2: oklch(98.1% 0 none); /* #f9f9f9 */
+  --color-gray-3: oklch(95.5% 0 none); /* #f0f0f0 */
+  --color-gray-4: oklch(93.1% 0 none); /* #e8e8e8 */
+  --color-gray-5: oklch(90.9% 0 none); /* #e1e1e1 */
+  --color-gray-6: oklch(88.5% 0 none); /* #d9d9d9 */
+  --color-gray-7: oklch(85.1% 0 none); /* #cecece */
+  --color-gray-8: oklch(79.2% 0 none); /* #bbbbbb */
+  --color-gray-9: oklch(63.9% 0 none); /* #8c8c8c */
+  --color-gray-10: oklch(60.5% 0 none); /* #818181 */
+  --color-gray-11: oklch(50.1% 0 none); /* #636363 */
+  --color-gray-12: oklch(24% 0 none); /* #1f1f1f */
+  /* For dark theme */
+  --color-dark-gray-1: oklch(17.8% 0 none); /* #111111 */
+  --color-dark-gray-2: oklch(21.3% 0 none); /* #191919 */
+  --color-dark-gray-3: oklch(25.3% 0 none); /* #222222 */
+  --color-dark-gray-4: oklch(28.3% 0 none); /* #292929 */
+  --color-dark-gray-5: oklch(31.2% 0 none); /* #313131 */
+  --color-dark-gray-6: oklch(34.9% 0 none); /* #3a3a3a */
+  --color-dark-gray-7: oklch(40.1% 0 none); /* #484848 */
+  --color-dark-gray-8: oklch(49% 0 none); /* #606060 */
+  --color-dark-gray-9: oklch(53.5% 0 none); /* #6d6d6d */
+  --color-dark-gray-10: oklch(58.1% 0 none); /* #7a7a7a */
+  --color-dark-gray-11: oklch(76.7% 0 none); /* #b3b3b3 */
+  --color-dark-gray-12: oklch(94.8% 0 none); /* #eeeeee */
+  /* For Accent Color */
+  --color-red: oklch(66% 0.2267 26.03); /* #ff4040 */
+  --color-orange: oklch(89% 0.183881 96.6097); /* #ffda00 */
+  --color-green: oklch(75% 0.1876 130.93); /* #83c52e */
+  --color-dark-red: oklch(62% 0.1665 23.24); /* #d95555 */
+  --color-dark-orange: oklch(85% 0.174 94.84); /* #f2cb05 */
+  --color-dark-green: oklch(67% 0.162 129.46); /* #73a626 */
 
   /* Font Size */
   --text-*: initial;
@@ -73,45 +94,33 @@
   --radius-full: 9999px;
 }
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+.prose p > code {
+  @apply text-xs;
+  background-color: lightgray;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
 
+@media (prefers-color-scheme: dark) {
   .prose p > code {
-    background-color: lightgray;
-    color: black;
-    padding: 1px 4px;
-    border-radius: 4px;
+    background-color: #98a1ad33;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .prose p > code {
-      background-color: #98a1ad33;
-      color: #eee;
-      padding: 1px 4px;
-      border-radius: 4px;
-    }
-  }
+.prose p > code::after {
+  content: none;
+}
 
-  .prose p > code::after {
-    content: none;
-  }
+.prose p > code::before {
+  content: none;
+}
 
-  .prose p > code::before {
-    content: none;
-  }
+.print-only {
+  display: none;
+}
 
+@media print {
   .print-only {
-    display: none;
-  }
-  @media print {
-    .print-only {
-      display: block;
-    }
+    display: block;
   }
 }
