@@ -5,40 +5,54 @@
 @theme {
   /* Font Size */
   --text-*: initial;
-  --text-xxs: calc(1rem * 8 / 12);
-  --text-xs: calc(1rem * 8 / 10);
-  --text-sm: calc(1rem * 8 / 9);
-  --text-base: calc(1rem * 8 / 8);
-  --text-md: calc(1rem * 8 / 7);
-  --text-lg: calc(1rem * 8 / 6);
-  --text-xl: calc(1rem * 8 / 5);
-  --text-2xl: calc(1rem * 8 / 4);
-  --text-3xl: calc(1rem * 8 / 3);
-  --text-4xl: calc(1rem * 8 / 2);
+  --text-xxs: calc(1rem * 8 / 12); /* ≒10.67px | ≒0.6667rem */
+  --text-xs: calc(1rem * 8 / 10); /* 12.80px | 0.8rem */
+  --text-sm: calc(1rem * 8 / 9); /* ≒14.22px | ≒0.8889rem */
+  --text-base: calc(1rem * 8 / 8); /* 16.00px | 1rem */
+  --text-md: calc(1rem * 8 / 7); /* ≒18.29px | ≒1.143rem */
+  --text-lg: calc(1rem * 8 / 6); /* ≒21.33px | ≒1.333rem */
+  --text-xl: calc(1rem * 8 / 5); /* 25.60px | 1.6rem */
+  --text-2xl: calc(1rem * 8 / 4); /* 32.00px | 2rem */
+  --text-3xl: calc(1rem * 8 / 3); /* ≒42.67px | ≒2.667rem */
+  --text-4xl: calc(1rem * 8 / 2); /* 64.00px | 4rem */
 
   /* line height */
   --leading-*: initial;
-  --leading-1: calc(1rem * 0.75);
-  --leading-2: calc(1rem * 1);
-  --leading-3: calc(1rem * 1.25);
-  --leading-4: calc(1rem * 1.5);
-  --leading-5: calc(1rem * 1.75);
-  --leading-6: calc(1rem * 2);
-  --leading-7: calc(1rem * 3);
-  --leading-8: calc(1rem * 4);
+  --leading-12: calc(1rem * 0.75); /* 12.00px | 0.75rem */
+  --leading-16: calc(1rem * 1); /* 16.00px | 1rem */
+  --leading-20: calc(1rem * 1.25); /* 20.00px | 1.25rem */
+  --leading-24: calc(1rem * 1.5); /* 24.00px | 1.5rem */
+  --leading-28: calc(1rem * 1.75); /* 28.00px | 1.75rem */
+  --leading-32: calc(1rem * 2); /* 32.00px | 2rem */
+  --leading-48: calc(1rem * 3); /* 48.00px | 3rem */
+  --leading-64: calc(1rem * 4); /* 64.00px | 4rem */
 
   /* Spacing */
-  --spacing-p-0: 0rem;
-  --spacing-p-1: calc(0.5rem / 8);
-  --spacing-p-2: calc(0.5rem / 4);
-  --spacing-p-3: calc(0.5rem / 2);
-  --spacing-p-4: calc(0.5rem * 1);
-  --spacing-p-5: calc(0.5rem * 2);
-  --spacing-p-6: calc(0.5rem * 3);
-  --spacing-p-7: calc(0.5rem * 5);
-  --spacing-p-8: calc(0.5rem * 8);
-  --spacing-p-9: calc(0.5rem * 13);
-  --spacing-p-10: calc(0.5rem * 21);
+  --spacing-0: 0rem; /* 0.00px | 0rem */
+  --spacing-1: calc(0.5rem / 8); /* 1.00px | 0.0625rem */
+  --spacing-2: calc(0.5rem / 4); /* 2.00px | 0.125rem */
+  --spacing-4: calc(0.5rem / 2); /* 4.00px | 0.25rem */
+  --spacing-8: calc(0.5rem * 1); /* 8.00px | 0.5rem */
+  --spacing-16: calc(0.5rem * 2); /* 16.00px | 1rem */
+  --spacing-24: calc(0.5rem * 3); /* 24.00px | 1.5rem */
+  --spacing-40: calc(0.5rem * 5); /* 40.00px | 2.5rem */
+  --spacing-64: calc(0.5rem * 8); /* 64.00px | 4rem */
+  --spacing-104: calc(0.5rem * 13); /* 104.00px | 6.5rem */
+  --spacing-168: calc(0.5rem * 21); /* 168.00px | 10.5rem */
+
+  /* Border Radius */
+  --radius-*: initial;
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-full: 9999px;
 }
 
 /*
