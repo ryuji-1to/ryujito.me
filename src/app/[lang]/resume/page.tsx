@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 export default async function Resume(props: PageLangParam) {
   await initLinguiFromParams(props.params);
   const data = await getFormattedMarkdown("resume.md");
-  return <Markdown>{data.value}</Markdown>;
+  return <Markdown>hoge</Markdown>;
 }
