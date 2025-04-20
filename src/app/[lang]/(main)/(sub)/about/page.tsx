@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 
 export default async function AboutPage() {
   const data = await getFormattedMarkdown("about.md");
-  return <Markdown>hoge</Markdown>;
+  return <Markdown>{data.content}</Markdown>;
 }

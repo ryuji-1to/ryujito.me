@@ -14,7 +14,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export async function formatMarkdown(html: string) {
+export async function formatMarkdown(
+  html: Parameters<(typeof unified)["process"]>[0],
+) {
   return await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -30,9 +32,11 @@ export async function formatMarkdown(html: string) {
 }
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  const { content, data } = matter(
-    await readFile(path.join(process.cwd(), `public/${filePath}`), "utf8"),
+  const f = await readFile(
+    path.join(process.cwd(), `public/${filePath}`),
+    "utf8",
   );
-  const file = await formatMarkdown(content);
-  return { content, ...file, ...data };
+  const { content, data } = matter(f);
+  // const file = await formatMarkdown(f);
+  return { content, ...data };
 }
