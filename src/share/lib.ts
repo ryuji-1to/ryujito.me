@@ -1,4 +1,3 @@
-import { readFile, readdir } from "node:fs/promises";
 import rehypeShiki from "@shikijs/rehype";
 import { type ClassValue, clsx } from "clsx";
 import matter from "gray-matter";
@@ -8,6 +7,8 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { twMerge } from "tailwind-merge";
 import { unified } from "unified";
+import path from "node:path";
+import { readFileSync } from "node:fs";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -29,10 +30,8 @@ export async function formatMarkdown(html: string) {
 }
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  await readdir("public");
-  const { content, data } = matter(
-    await readFile(`public/${filePath}`, "utf8"),
-  );
+  const f = readFileSync(path.join(process.cwd(), `public/${filePath}`));
+  const { content, data } = matter(f);
   const file = await formatMarkdown(content);
   return { content, ...file, ...data };
 }
