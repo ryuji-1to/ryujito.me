@@ -2,7 +2,7 @@ import * as v from "valibot";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
-import { i18n } from "@lingui/core";
+import type { I18n } from "@lingui/core";
 
 type ZennPost = {
   type: "zenn";
@@ -79,7 +79,7 @@ async function getMdPosts(): Promise<MdPosts[]> {
   }));
 }
 
-export async function Posts() {
+export async function Posts(props: { i18n: I18n }) {
   const [mdPosts, zennPosts] = await Promise.all([
     getMdPosts(),
     getZennPosts(),
@@ -101,7 +101,7 @@ export async function Posts() {
                   {d.title}
                 </Link>
                 <span className="text-xs">
-                  {i18n.date(d.date.toDateString())}
+                  {props.i18n.date(d.date.toDateString())}
                 </span>
               </span>
             </li>
@@ -123,7 +123,7 @@ export async function Posts() {
                   {d.title}
                 </a>
                 <span className="text-xs">
-                  {i18n.date(new Date(d.date).toLocaleString())}
+                  {props.i18n.date(new Date(d.date).toLocaleString())}
                 </span>
               </span>
             </li>

@@ -7,6 +7,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page(props: PageLangParam) {
-  await initLinguiFromParams(props.params);
-  return <Posts />;
+  const i18n = await initLinguiFromParams(props.params);
+  return <Posts i18n={i18n} />;
 }
