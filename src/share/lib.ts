@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import rehypeShiki from "@shikijs/rehype";
 import { type ClassValue, clsx } from "clsx";
 import matter from "gray-matter";
@@ -29,11 +29,27 @@ export async function formatMarkdown(html: string) {
     .process(html);
 }
 
-export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  console.info(path.join(process.cwd(), `public/${filePath}`));
-  const { content, data } = matter(
-    await readFile(path.join(process.cwd(), `public/${filePath}`), "utf8"),
-  );
+// export async function getFormattedMarkdown(filePath: `${string}.md`) {
+//   const { content, data } = matter(
+//     await readFile(path.join(process.cwd(), `public/${filePath}`), "utf8"),
+//   );
+//   const file = await formatMarkdown(content);
+//   return { content, ...file, ...data };
+// }
+
+export async function getFormattedMarkdown(fileName: `${string}.md`) {
+  const dir = path.join(process.cwd(), "public");
+  const entries = await readdir(dir, {
+    withFileTypes: true,
+  });
+
+  const targetFile = entries.find((entry) => entry.name === fileName);
+  if (!targetFile) {
+    throw new Error(`File not found: ${fileName} in directory ${targetFile}`);
+  }
+  const fileContent = await readFile(`${dir}/${fileName}`, "utf8");
+  const { content, data } = matter(fileContent);
   const file = await formatMarkdown(content);
+
   return { content, ...file, ...data };
 }
