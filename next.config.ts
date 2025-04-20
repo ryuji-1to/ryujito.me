@@ -21,7 +21,6 @@ const nextConfig: NextConfig = {
     },
   },
   experimental: {
-    nodeMiddleware: true,
     swcPlugins: [["@lingui/swc-plugin", {}]],
   },
   webpack: (config) => {
