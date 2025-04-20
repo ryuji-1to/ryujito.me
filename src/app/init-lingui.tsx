@@ -17,5 +17,6 @@ export function initLingui(lang: SupportedLocales) {
 export async function initLinguiFromParams(params: Promise<{ lang: string }>) {
   const result = v.safeParse(LocalesSchema, (await params).lang);
   const lang = result.success ? result.output : "en";
-  return initLingui(lang);
+  const i18n = initLingui(lang);
+  return { i18n, lang };
 }

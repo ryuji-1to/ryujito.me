@@ -1,11 +1,8 @@
-import { Geist } from "next/font/google";
 import type { Metadata } from "next";
 import "../globals.css";
-import { cn } from "@/share/lib";
 import { LinguiClientProvider } from "../lingui-client-provider";
-import { initLingui } from "../init-lingui";
-import { allMessages, LocalesSchema } from "../i18n";
-import * as v from "valibot";
+import { initLinguiFromParams } from "../init-lingui";
+import { allMessages } from "../i18n";
 
 type Props = {
   params: Promise<{
@@ -18,37 +15,13 @@ export const metadata: Metadata = {
   title: "Ryuji Ito",
 };
 
-const geist = Geist({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "600", "700", "900"],
-  style: ["normal"],
-});
-
-// export async function generateStaticParams() {
-//   return linguiConfig.locales.map((lang) => ({ lang }))
-// }
-//
-// export async function generateMetadata(props: PageLangParam) {
-//   const i18n = getI18nInstance((await props.params).lang)
-//
-//   return {
-//     title: i18n._(msg`Translation Demo`)
-//   }
-// }
-
 export default async function RootLayout(props: Props) {
-  const result = v.safeParse(LocalesSchema, (await props.params).lang);
-  const lang = result.success ? result.output : "en";
-  initLingui(lang);
+  const { lang } = await initLinguiFromParams(props.params);
 
   return (
     <html
       lang={lang}
-      className={cn(
-        "antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white",
-        geist.className,
-      )}
+      className="font-sans antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white"
     >
       <head>
         <meta name="description" content="Personal Website by Ryuji Ito" />

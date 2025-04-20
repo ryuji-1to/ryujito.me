@@ -91,8 +91,10 @@ export async function Posts() {
 
   return (
     <div className="space-y-40">
-      <section>
-        <h2 className="mb-8 font-medium">Posts</h2>
+      <section aria-labelledby="md-posts">
+        <h2 id="md-posts" className="mb-8 font-medium">
+          Posts
+        </h2>
         <ul className="list-disc ml-16 space-y-8">
           {mdPosts.map((d) => (
             <li key={d.title}>
@@ -112,8 +114,10 @@ export async function Posts() {
           ))}
         </ul>
       </section>
-      <section>
-        <h2 className="mb-8 font-medium">Zenn</h2>
+      <section aria-labelledby="zenn-posts">
+        <h2 id="zenn-posts" className="mb-8 font-medium">
+          Zenn
+        </h2>
         <ul className="list-disc ml-16 space-y-8">
           {zennPosts.map((d) => (
             <li key={d.title}>

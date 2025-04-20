@@ -1,17 +1,19 @@
 import { cn } from "@/share/lib";
-import type { I18n, MessageDescriptor } from "@lingui/core";
+import type { MessageDescriptor } from "@lingui/core";
 import { msg } from "@lingui/core/macro";
 import { Trans } from "@lingui/react";
+import { i18n } from "@lingui/core";
+import { Fragment } from "react";
 
-export function TimeLine(props: { i18n: I18n }) {
+export function TimeLine() {
   return (
     <div>
       {data.map((d, i) => (
-        <div key={d.title.id}>
+        <Fragment key={d.title.id}>
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
             <span className="text-xs">
-              {props.i18n.date(new Date(d.date).toDateString())}
+              {i18n.date(new Date(d.date).toDateString())}
             </span>
           </div>
           <div className="flex gap-24 pl-[4px]">
@@ -22,8 +24,14 @@ export function TimeLine(props: { i18n: I18n }) {
               )}
             />
             <div className="py-24 w-full">
-              <section className="bg-gray-2 dark:bg-dark-gray-2 border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6">
-                <h2 className="font-semibold mb-8 dark:text-gray-1">
+              <section
+                aria-labelledby={d.title.id}
+                className="bg-gray-2 dark:bg-dark-gray-2 border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6"
+              >
+                <h2
+                  id={d.title.id}
+                  className="font-semibold mb-8 dark:text-gray-1"
+                >
                   <Trans id={d.title.id} />
                 </h2>
                 <p className="text-gray-11 dark:text-dark-gray-11 text-xxs">
@@ -32,7 +40,7 @@ export function TimeLine(props: { i18n: I18n }) {
               </section>
             </div>
           </div>
-        </div>
+        </Fragment>
       ))}
     </div>
   );

@@ -30,7 +30,7 @@ export default async function PostPage(
     params: Promise<{ slug: string }>;
   },
 ) {
-  const i18n = await initLinguiFromParams(props.params);
+  const { i18n } = await initLinguiFromParams(props.params);
   const data = await getPostBySlug((await props.params).slug);
 
   return (
