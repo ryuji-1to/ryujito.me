@@ -54,6 +54,11 @@
   --text-3xl: calc(1rem * 8 / 3); /* ≒42.67px | ≒2.667rem */
   --text-4xl: calc(1rem * 8 / 2); /* 64.00px | 4rem */
 
+  /* Font Family */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Noto Sans JP",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+
   /* Line Height */
   --leading-*: initial;
   --leading-12: calc(1rem * 0.75); /* 12px | 0.75rem */

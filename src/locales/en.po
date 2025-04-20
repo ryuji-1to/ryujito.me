@@ -13,30 +13,34 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(main)/(top)/timeline.tsx:49
+#: src/app/[lang]/(main)/(top)/timeline.tsx:56
 msgid "Assigned to the development of the accommodation business."
 msgstr "Assigned to the development of the accommodation business."
 
-#: src/app/(main)/(top)/timeline.tsx:59
+#: src/app/[lang]/(main)/(top)/timeline.tsx:66
 msgid "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years."
 msgstr "Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years."
 
-#: src/app/(main)/(top)/timeline.tsx:48
+#: src/app/[lang]/(main)/(top)/profile.tsx:14
+msgid "avatar"
+msgstr "my profile avatar"
+
+#: src/app/[lang]/(main)/(top)/timeline.tsx:55
 msgid "Joined Ikyu Corporation"
 msgstr "Joined Ikyu Corporation"
 
-#: src/app/(main)/(top)/timeline.tsx:58
+#: src/app/[lang]/(main)/(top)/timeline.tsx:65
 msgid "Joined Yahoo! Japan (now LY Corporation)"
 msgstr "Joined Yahoo! Japan (now LY Corporation)"
 
-#: src/app/(main)/(top)/timeline.tsx:53
+#: src/app/[lang]/(main)/(top)/timeline.tsx:60
 msgid "Left LY Corporation"
 msgstr "Left LY Corporation"
 
-#: src/app/(main)/(top)/profile.tsx:18
+#: src/app/[lang]/(main)/(top)/profile.tsx:20
 msgid "Ryuji Ito is a Frontend Designer"
 msgstr "Ryuji Ito is a Frontend Designer"
 
-#: src/app/(main)/(top)/timeline.tsx:54
+#: src/app/[lang]/(main)/(top)/timeline.tsx:61
 msgid "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search"
 msgstr "Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search"

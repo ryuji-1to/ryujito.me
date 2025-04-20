@@ -1,7 +1,9 @@
+import { useLingui } from "@lingui/react/macro";
 import { Trans } from "@lingui/react/macro";
 import Link from "next/link";
 
 export function Profile() {
+  const { t } = useLingui();
   return (
     <header>
       <Link href="/about" title="about" aria-label="link for about">
@@ -9,14 +11,16 @@ export function Profile() {
           src="/icon.jpg"
           width={56}
           height={56}
-          alt="my avatar"
+          alt={t`avatar`}
           className="rounded-full"
         />
       </Link>
       <div className="mt-16">
         <p>
           <Trans>Ryuji Ito is a Frontend Designer</Trans>{" "}
-          <span role="img">🎨🧑‍💻</span>
+          <span role="img" aria-hidden>
+            🎨🧑‍💻
+          </span>
         </p>
         <ul className="flex gap-4 text-sm">
           <li>
