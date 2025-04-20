@@ -1,10 +1,9 @@
 import { cn } from "@/share/lib";
-import type { MessageDescriptor } from "@lingui/core";
+import type { I18n, MessageDescriptor } from "@lingui/core";
 import { msg } from "@lingui/core/macro";
 import { Trans } from "@lingui/react";
-import { i18n } from "@lingui/core";
 
-export function TimeLine() {
+export function TimeLine(props: { i18n: I18n }) {
   return (
     <div>
       {data.map((d, i) => (
@@ -12,7 +11,7 @@ export function TimeLine() {
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
             <span className="text-xs">
-              {i18n.date(new Date(d.date).toDateString())}
+              {props.i18n.date(new Date(d.date).toDateString())}
             </span>
           </div>
           <div className="flex gap-24 pl-[4px]">

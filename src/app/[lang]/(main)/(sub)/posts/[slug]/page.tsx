@@ -4,7 +4,6 @@ import { formatMarkdown } from "@/share/lib";
 import matter from "gray-matter";
 import * as v from "valibot";
 import { notFound } from "next/navigation";
-import { i18n } from "@lingui/core";
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 
 const Schema = v.object({
@@ -31,7 +30,7 @@ export default async function PostPage(
     params: Promise<{ slug: string }>;
   },
 ) {
-  await initLinguiFromParams(props.params);
+  const i18n = await initLinguiFromParams(props.params);
   const data = await getPostBySlug((await props.params).slug);
 
   return (

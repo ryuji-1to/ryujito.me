@@ -37,8 +37,8 @@ const geist = Geist({
 //   }
 // }
 
-export default async function RootLayout({ params, children }: Props) {
-  const result = v.safeParse(LocalesSchema, (await params).lang);
+export default async function RootLayout(props: Props) {
+  const result = v.safeParse(LocalesSchema, (await props.params).lang);
   const lang = result.success ? result.output : "en";
   initLingui(lang);
 
@@ -59,7 +59,7 @@ export default async function RootLayout({ params, children }: Props) {
           initialLocale={lang}
           initialMessages={allMessages[lang]}
         >
-          {children}
+          {props.children}
         </LinguiClientProvider>
       </body>
     </html>
