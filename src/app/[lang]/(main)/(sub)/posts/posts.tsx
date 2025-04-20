@@ -3,6 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
 import type { I18n } from "@lingui/core";
+import path from "node:path";
 
 type ZennPost = {
   type: "zenn";
@@ -46,10 +47,13 @@ type MdPosts = {
 };
 
 async function getMdPosts(): Promise<MdPosts[]> {
-  const entries = await readdir("./public/", { withFileTypes: true });
+  const dir = path.join(process.cwd(), "public");
+  const entries = await readdir(dir, {
+    withFileTypes: true,
+  });
   const posts = entries.filter((f) => f.isDirectory()).map((file) => file.name);
   const contents = await Promise.all(
-    posts.map((post) => readFile(`./public/${post}/index.md`, "utf-8")),
+    posts.map((post) => readFile(`${dir}/${post}/index.md`, "utf-8")),
   );
   const data = posts.map((slug, i) => {
     const content = contents[i];

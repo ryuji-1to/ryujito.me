@@ -8,6 +8,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { twMerge } from "tailwind-merge";
 import { unified } from "unified";
+import path from "node:path";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,7 +31,7 @@ export async function formatMarkdown(html: string) {
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
   const { content, data } = matter(
-    await readFile(`./public/${filePath}`, "utf8"),
+    await readFile(path.join(process.cwd(), `public/${filePath}`), "utf8"),
   );
   const file = await formatMarkdown(content);
   return { content, ...file, ...data };
