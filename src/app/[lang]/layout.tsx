@@ -1,10 +1,10 @@
 import { Geist } from "next/font/google";
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { cn } from "@/share/lib";
-import { LinguiClientProvider } from "./lingui-client-provider";
-import { initLingui } from "./init-lingui";
-import { allMessages, LocalesSchema } from "./i18n";
+import { LinguiClientProvider } from "../lingui-client-provider";
+import { initLingui } from "../init-lingui";
+import { allMessages, LocalesSchema } from "../i18n";
 import * as v from "valibot";
 
 type Props = {
@@ -25,8 +25,20 @@ const geist = Geist({
   style: ["normal"],
 });
 
-export default async function RootLayout(props: Props) {
-  const result = v.safeParse(LocalesSchema, (await props.params).lang);
+// export async function generateStaticParams() {
+//   return linguiConfig.locales.map((lang) => ({ lang }))
+// }
+//
+// export async function generateMetadata(props: PageLangParam) {
+//   const i18n = getI18nInstance((await props.params).lang)
+//
+//   return {
+//     title: i18n._(msg`Translation Demo`)
+//   }
+// }
+
+export default async function RootLayout({ params, children }: Props) {
+  const result = v.safeParse(LocalesSchema, (await params).lang);
   const lang = result.success ? result.output : "en";
   initLingui(lang);
 
@@ -47,7 +59,7 @@ export default async function RootLayout(props: Props) {
           initialLocale={lang}
           initialMessages={allMessages[lang]}
         >
-          {props.children}
+          {children}
         </LinguiClientProvider>
       </body>
     </html>
