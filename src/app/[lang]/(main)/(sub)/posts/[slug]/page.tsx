@@ -1,22 +1,22 @@
 import { readFile, readdir } from "node:fs/promises";
 import { Markdown } from "@/share/components/markdown";
-import { formatMarkdown } from "@/share/lib";
 import matter from "gray-matter";
 import * as v from "valibot";
 import { notFound } from "next/navigation";
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
+import { markdownToHtml } from "@/share/lib";
 
 const Schema = v.object({
   date: v.date(),
-  value: v.string(),
+  html: v.string(),
 });
 
 async function getPostBySlug(slug: string) {
   const filename = `./public/${slug}/index.md`;
   try {
     const { content, data } = matter(await readFile(filename, "utf8"));
-    const file = await formatMarkdown(content);
-    return v.parse(Schema, { content, ...file, ...data });
+    const html = await markdownToHtml(content);
+    return v.parse(Schema, { html, ...data });
   } catch (error) {
     if (error instanceof v.ValiError) {
       throw new Error("validation failed");
@@ -40,7 +40,7 @@ export default async function PostPage(
           {i18n.date(data.date.toDateString())}
         </p>
       </header>
-      <Markdown>{data.value}</Markdown>
+      <Markdown>{data.html}</Markdown>
     </article>
   );
 }

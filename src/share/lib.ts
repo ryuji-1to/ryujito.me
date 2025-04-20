@@ -1,37 +1,37 @@
 import { readFile } from "node:fs/promises";
-import rehypeShiki from "@shikijs/rehype";
 import { type ClassValue, clsx } from "clsx";
 import matter from "gray-matter";
-import rehypeStringify from "rehype-stringify";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
 import { twMerge } from "tailwind-merge";
-import { unified } from "unified";
+import path from "node:path";
+import MarkdownIt from "markdown-it-async";
+import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
+import { codeToHtml } from "shiki";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export async function formatMarkdown(html: string) {
-  return await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(remarkGfm)
-    .use(rehypeShiki, {
+export async function markdownToHtml(content: string) {
+  const md = MarkdownIt();
+  md.use(
+    fromAsyncCodeToHtml(codeToHtml, {
       themes: {
         light: "github-dark",
         dark: "dracula",
       },
-    })
-    .use(rehypeStringify)
-    .process(html);
+    }),
+  );
+  const html = await md.renderAsync(content);
+  return html;
 }
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  const { content, data } = matter(
-    await readFile(`./public/${filePath}`, "utf8"),
+  const f = await readFile(
+    path.join(process.cwd(), `public/${filePath}`),
+    "utf8",
   );
-  const file = await formatMarkdown(content);
-  return { content, ...file, ...data };
+  const { content, data } = matter(f);
+  const html = await markdownToHtml(content);
+
+  return { content, html, ...data };
 }

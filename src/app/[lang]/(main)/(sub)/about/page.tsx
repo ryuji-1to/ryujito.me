@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 export default async function AboutPage(props: PageLangParam) {
   await initLinguiFromParams(props.params);
   const data = await getFormattedMarkdown("about.md");
-  return <Markdown>{data.value}</Markdown>;
+  return <Markdown>{data.html}</Markdown>;
 }
