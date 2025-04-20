@@ -30,7 +30,7 @@ export async function formatMarkdown(html: string) {
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
   const { content, data } = matter(
-    await readFile(`./public/${filePath}`, "utf8"),
+    await readFile(`public/${filePath}`, "utf8"),
   );
   const file = await formatMarkdown(content);
   return { content, ...file, ...data };
