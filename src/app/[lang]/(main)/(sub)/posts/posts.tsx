@@ -127,7 +127,7 @@ export async function Posts() {
                   {d.title}
                 </a>
                 <span className="text-xs">
-                  {props.i18n.date(new Date(d.date).toLocaleString())}
+                  {i18n.date(new Date(d.date).toLocaleString())}
                 </span>
               </span>
             </li>
