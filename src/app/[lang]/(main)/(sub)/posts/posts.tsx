@@ -2,7 +2,7 @@ import * as v from "valibot";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
-import { i18n, type I18n } from "@lingui/core";
+import { i18n } from "@lingui/core";
 import path from "node:path";
 
 type ZennPost = {
