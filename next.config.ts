@@ -20,7 +20,6 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  output: "standalone",
   experimental: {
     swcPlugins: [["@lingui/swc-plugin", {}]],
   },
