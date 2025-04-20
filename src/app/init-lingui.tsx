@@ -1,6 +1,7 @@
 import { setI18n } from "@lingui/react/server";
 import { getI18nInstance, LocalesSchema, type SupportedLocales } from "./i18n";
 import * as v from "valibot";
+import { i18n } from "@lingui/core";
 
 export type PageLangParam = {
   params: Promise<{ lang: string }>;
@@ -9,6 +10,7 @@ export type PageLangParam = {
 export function initLingui(lang: SupportedLocales) {
   const instance = getI18nInstance(lang);
   setI18n(instance);
+  i18n.activate(lang);
   return instance;
 }
 
