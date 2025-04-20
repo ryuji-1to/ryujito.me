@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import rehypeShiki from "@shikijs/rehype";
 import { type ClassValue, clsx } from "clsx";
 import matter from "gray-matter";
@@ -31,7 +31,6 @@ export async function formatMarkdown(html: string) {
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
   const url = path.resolve(process.cwd(), "public");
-  await readdir(url);
   const f = await readFile(`${url}/${filePath}`, "utf8");
   const { content, data } = matter(f);
   const file = await formatMarkdown(content);
