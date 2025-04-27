@@ -63,7 +63,7 @@ export async function generateMetadata(props: {
   const { data } = matter(file);
 
   return {
-    title: `Ryuji Ito | ${data.title}`,
+    title: `${data.title} | Ryuji Ito`,
     description: data.description || "",
   };
 }
