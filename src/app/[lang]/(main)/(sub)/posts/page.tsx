@@ -3,7 +3,7 @@ import { Posts } from "./posts";
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 
 export const metadata: Metadata = {
-  title: "Ryuji Ito | Posts",
+  title: "Posts | Ryuji Ito",
 };
 
 export default async function Page(props: PageLangParam) {
