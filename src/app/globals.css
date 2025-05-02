@@ -137,3 +137,15 @@
     display: block;
   }
 }
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px theme("colors.white"),
+    0 0 0 4px theme("colors.gray.9"); 
+  border-radius: theme("radius.2");
+}
