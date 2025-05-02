@@ -1,0 +1,83 @@
+/**
+ * TODO: from design-system
+ */
+
+:root {
+  --color-neutral-gray-light-1: oklch(0.991 0 0);
+  --color-neutral-gray-light-2: oklch(0.982 0 0);
+  --color-neutral-gray-light-3: oklch(0.955 0 0);
+  --color-neutral-gray-light-4: oklch(0.931 0 0);
+  --color-neutral-gray-light-5: oklch(0.91 0 0);
+  --color-neutral-gray-light-6: oklch(0.885 0 0);
+  --color-neutral-gray-light-7: oklch(0.851 0 0);
+  --color-neutral-gray-light-8: oklch(0.792 0 0);
+  --color-neutral-gray-light-9: oklch(0.64 0 0);
+  --color-neutral-gray-light-10: oklch(0.603 0 0);
+  --color-neutral-gray-light-11: oklch(0.5 0 0);
+  --color-neutral-gray-light-12: oklch(0.239 0 0);
+  --color-neutral-gray-dark-1: oklch(0.178 0 0);
+  --color-neutral-gray-dark-2: oklch(0.213 0 0);
+  --color-neutral-gray-dark-3: oklch(0.252 0 0);
+  --color-neutral-gray-dark-4: oklch(0.281 0 0);
+  --color-neutral-gray-dark-5: oklch(0.313 0 0);
+  --color-neutral-gray-dark-6: oklch(0.348 0 0);
+  --color-neutral-gray-dark-7: oklch(0.402 0 0);
+  --color-neutral-gray-dark-8: oklch(0.489 0 0);
+  --color-neutral-gray-dark-9: oklch(0.535 0 0);
+  --color-neutral-gray-dark-10: oklch(0.58 0 0);
+  --color-neutral-gray-dark-11: oklch(0.767 0 0);
+  --color-neutral-gray-dark-12: oklch(0.949 0 0);
+  --spacing-0: 0px;
+  --spacing-1: 1px;
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-64: 64px;
+  --spacing-104: 104px;
+  --spacing-168: 168px;
+  --font-size-1: 0.667rem;
+  --font-size-2: 0.8rem;
+  --font-size-3: 0.887rem;
+  --font-size-4: 1rem;
+  --font-size-5: 1.1431rem;
+  --font-size-6: 1.3331rem;
+  --font-size-7: 1.6rem;
+  --font-size-8: 2rem;
+  --font-size-9: 2.6675rem;
+  --font-size-10: 4rem;
+  --font-family-sans: -apple-system, BlinkMacSystemFont, Inter, "Noto Sans JP",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-weight-regular: 450;
+  --font-weight-medium: 550;
+  --font-weight-semibold: 650;
+  --font-weight-bold: 700;
+  --line-height-1: 0.75rem;
+  --line-height-2: 1rem;
+  --line-height-3: 1.25rem;
+  --line-height-4: 1.5rem;
+  --line-height-5: 1.75rem;
+  --line-height-6: 2rem;
+  --line-height-7: 2.5rem;
+  --line-height-8: 3rem;
+  --line-height-9: 3.5rem;
+  --line-height-10: 4rem;
+  --border-radius-0: 0px;
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-6: 6px;
+  --border-radius-8: 8px;
+  --border-radius-12: 12px;
+  --border-radius-16: 16px;
+  --border-radius-20: 20px;
+  --border-radius-24: 24px;
+  --border-radius-32: 32px;
+  --border-radius-full: 9999px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-6: 6px;
+}

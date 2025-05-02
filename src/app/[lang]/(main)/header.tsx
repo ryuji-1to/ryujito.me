@@ -20,12 +20,16 @@ export function Header() {
             src="/icon.jpg"
             width={24}
             height={24}
-            alt="my avatar"
+            alt="トップページに戻る"
             className="rounded-full"
           />
         </Link>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
-        <Link href={`/${path}`} className="text-gray-12 dark:text-dark-gray-12">
+        <Link
+          href={`/${path}`}
+          className="text-gray-12 dark:text-dark-gray-12"
+          aria-current="page"
+        >
           {path}
         </Link>
       </div>

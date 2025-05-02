@@ -6,7 +6,12 @@ export function Profile() {
   const { t } = useLingui();
   return (
     <header>
-      <Link href="/about" title="about" aria-label="link for about">
+      <Link
+        href="/about"
+        title="about"
+        aria-label="トップページに戻る"
+        className="block w-fit"
+      >
         <img
           src="/icon.jpg"
           width={56}
