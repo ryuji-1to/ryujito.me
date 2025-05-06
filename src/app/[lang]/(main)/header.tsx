@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 backdrop-blur-xs">
-      <div className="max-w-2xl mx-auto px-40 py-16 flex gap-4">
+      <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4">
         <Link href="/">
           <img
             src="/icon.jpg"

@@ -102,12 +102,17 @@ export async function Posts() {
                 <Link
                   prefetch={false}
                   href={`/posts/${d.slug}`}
-                  className="text-sm hover:underline"
+                  className="text-sm hover:underline line-clamp-1"
                 >
                   {d.title}
                 </Link>
-                <span className="text-xs">
+                <span className="text-xs hidden sm:block">
                   {i18n.date(d.date.toDateString())}
+                </span>
+                <span className="text-xs sm:hidden">
+                  {i18n.date(d.date, {
+                    dateStyle: "short",
+                  })}
                 </span>
               </span>
             </li>
@@ -124,14 +129,19 @@ export async function Posts() {
               <span className="flex gap-16 w-full items-center justify-between">
                 <a
                   href={`https://zenn.dev/${d.path}`}
-                  className="text-sm hover:underline"
+                  className="text-sm hover:underline line-clamp-1"
                   target="_blank"
                   rel="noreferrer"
                 >
                   {d.title}
                 </a>
-                <span className="text-xs">
-                  {i18n.date(new Date(d.date).toLocaleString())}
+                <span className="text-xs hidden sm:block">
+                  {i18n.date(d.date.toDateString())}
+                </span>
+                <span className="text-xs sm:hidden">
+                  {i18n.date(d.date, {
+                    dateStyle: "short",
+                  })}
                 </span>
               </span>
             </li>
