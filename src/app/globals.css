@@ -5,7 +5,6 @@
 
 @theme {
   /* --*: initial; */
-
   --color-*: initial;
   --color-white: #fff;
   --color-black: #000;
@@ -60,7 +59,7 @@
   --text-4xl: var(--font-size10); /* 64.00px | 4rem */
 
   /* Font Family */
-  --font-*: initial;
+  /* --font-*: initial; */
   --font-sans: var(--font-family-sans);
 
   /* Line Height */
@@ -146,6 +145,6 @@
   outline: none;
   box-shadow:
     0 0 0 2px theme("colors.white"),
-    0 0 0 4px theme("colors.gray.9"); 
+    0 0 0 4px theme("colors.gray.9");
   border-radius: theme("radius.2");
 }
