@@ -12,9 +12,9 @@ export function TimeLine() {
         <Fragment key={d.title.id}>
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
-            <span className="text-xs">
+            <time dateTime={d.date} className="text-xs">
               {i18n.date(new Date(d.date).toDateString())}
-            </span>
+            </time>
           </div>
           <div className="flex gap-24 pl-[4px]">
             <div
