@@ -6,8 +6,12 @@ export function Footer() {
     <footer className="py-40 text-center">
       <small>
         &copy; <time>{start}</time>
-        {currentYear > start && " - "}
-        {currentYear > start && <time>{currentYear}</time>}
+        {currentYear > start && (
+          <>
+            {" - "}
+            <time>{currentYear}</time>
+          </>
+        )}{" "}
         Ryuji Ito
       </small>
     </footer>
