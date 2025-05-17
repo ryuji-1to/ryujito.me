@@ -106,14 +106,20 @@ export async function Posts() {
                 >
                   {d.title}
                 </Link>
-                <span className="text-xs hidden sm:block">
+                <time
+                  dateTime={d.date.toLocaleDateString()}
+                  className="text-xs hidden sm:block"
+                >
                   {i18n.date(d.date.toDateString())}
-                </span>
-                <span className="text-xs sm:hidden">
+                </time>
+                <time
+                  dateTime={d.date.toLocaleDateString()}
+                  className="text-xs sm:hidden"
+                >
                   {i18n.date(d.date, {
                     dateStyle: "short",
                   })}
-                </span>
+                </time>
               </span>
             </li>
           ))}
@@ -135,14 +141,20 @@ export async function Posts() {
                 >
                   {d.title}
                 </a>
-                <span className="text-xs hidden sm:block">
+                <time
+                  dateTime={d.date.toLocaleDateString()}
+                  className="text-xs hidden sm:block"
+                >
                   {i18n.date(d.date.toDateString())}
-                </span>
-                <span className="text-xs sm:hidden">
+                </time>
+                <time
+                  dateTime={d.date.toLocaleDateString()}
+                  className="text-xs sm:hidden"
+                >
                   {i18n.date(d.date, {
                     dateStyle: "short",
                   })}
-                </span>
+                </time>
               </span>
             </li>
           ))}

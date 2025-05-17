@@ -30,14 +30,16 @@ export default async function PostPage(
     params: Promise<{ slug: string }>;
   },
 ) {
-  const { i18n } = await initLinguiFromParams(props.params);
+  const { i18n, lang } = await initLinguiFromParams(props.params);
   const data = await getPostBySlug((await props.params).slug);
 
   return (
     <article>
       <header className="mb-64">
         <p className="font-semibold text-xs w-fit ml-auto">
-          {i18n.date(data.date.toDateString())}
+          <time dateTime={data.date.toLocaleDateString(lang)}>
+            {i18n.date(data.date.toDateString())}
+          </time>
         </p>
       </header>
       <Markdown>{data.html}</Markdown>
