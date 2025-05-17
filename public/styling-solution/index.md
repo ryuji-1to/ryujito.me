@@ -28,7 +28,7 @@ tag: "Design"
 ### ベースソリューション
 
 - CSS Modules
-- [Tailwind CSS](https://tailwindcss.com/) (v4 からは zero config で使用できそう)
+- [Tailwind CSS](https://tailwindcss.com/)
 - CSS in JS
   - [stylex](https://stylexjs.com/) （Meta 公式。バンドラーの問題で Next.js App Router と一緒に使いづらい）
   - [Panda CSS](https://panda-css.com/) （Chakra UI が開発しているゼロランタイム CSS in JS）
