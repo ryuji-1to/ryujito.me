@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="py-40 text-center">
       <small>
-        © {start}
+        &copy; {start}
         {currentYear > start && ` - ${currentYear}`} Ryuji Ito
       </small>
     </footer>
