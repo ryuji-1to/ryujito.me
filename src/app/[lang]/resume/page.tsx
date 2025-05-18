@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Resume | Ryuji Ito",
+  robots: "noindex, nofollow",
 };
 
 export default async function Resume(props: PageLangParam) {

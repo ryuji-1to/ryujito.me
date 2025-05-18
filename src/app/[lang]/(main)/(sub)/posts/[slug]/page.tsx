@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import * as v from "valibot";
 import { notFound } from "next/navigation";
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
+import type { Metadata } from "next";
 import { markdownToHtml } from "@/share/lib";
 
 const Schema = v.object({
@@ -59,7 +60,7 @@ export async function generateMetadata(props: {
   params: Promise<{
     slug: string;
   }>;
-}) {
+}): Promise<Metadata> {
   const params = await props.params;
   const file = await readFile(`./public/${params.slug}/index.md`, "utf8");
   const { data } = matter(file);

@@ -27,7 +27,9 @@ export default async function RootLayout(props: Props) {
       >
         <head>
           <meta name="description" content="Personal Website by Ryuji Ito" />
+          <meta name="author" content="Ryuji Ito" />
           <link href="/favicon.png" rel="icon" />
+          <link rel="canonical" href="https://ryujito.me" />
         </head>
         <body id="body" tabIndex={-1}>
           <LinguiClientProvider
