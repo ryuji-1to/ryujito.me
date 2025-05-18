@@ -3,17 +3,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-40 text-center">
-      <small>
-        &copy; <time>{start}</time>
-        {currentYear > start && (
-          <>
-            {" - "}
-            <time>{currentYear}</time>
-          </>
-        )}{" "}
-        Ryuji Ito
-      </small>
+    <footer className="py-40">
+      <p className="text-center">
+        <small>
+          &copy; <time>{start}</time>
+          {currentYear > start && (
+            <>
+              {" - "}
+              <time>{currentYear}</time>
+            </>
+          )}{" "}
+          Ryuji Ito
+        </small>
+      </p>
     </footer>
   );
 }

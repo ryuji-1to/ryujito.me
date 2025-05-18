@@ -24,7 +24,7 @@ export function TimeLine() {
               )}
             />
             <div className="py-24 w-full">
-              <section
+              <article
                 aria-labelledby={d.title.id}
                 className="bg-gray-2 dark:bg-dark-gray-2 border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6"
               >
@@ -37,7 +37,7 @@ export function TimeLine() {
                 <p className="text-gray-11 dark:text-dark-gray-11 text-xxs">
                   <Trans id={d.description.id} />
                 </p>
-              </section>
+              </article>
             </div>
           </div>
         </Fragment>
