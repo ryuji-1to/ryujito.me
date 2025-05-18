@@ -18,6 +18,7 @@ export function Profile() {
           height={56}
           alt={t`avatar`}
           className="rounded-full"
+          decoding="async"
         />
       </Link>
       <div className="mt-16">
