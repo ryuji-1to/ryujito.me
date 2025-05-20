@@ -12,14 +12,18 @@ export function Profile() {
         aria-label="トップページに戻る"
         className="block w-fit"
       >
-        <img
-          src="/icon.jpg"
-          width={56}
-          height={56}
-          alt={t`avatar`}
-          className="rounded-full"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/icon.webp" type="image/webp" />
+          <source srcSet="/icon.jpg" type="image/jpeg" />
+          <img
+            src="/icon.jpg"
+            width={56}
+            height={56}
+            alt={t`avatar`}
+            className="rounded-full"
+            decoding="async"
+          />
+        </picture>
       </Link>
       <div className="mt-16">
         <p>
