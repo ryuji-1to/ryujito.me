@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { i18n } from "@lingui/core";
 import path from "node:path";
+import { LinkIndicator } from "@/share/components/link-indicator";
 
 type ZennPost = {
   type: "zenn";
@@ -119,7 +120,16 @@ export async function Posts() {
                   href={`/posts/${d.slug}`}
                   className="text-sm hover:underline line-clamp-1"
                 >
-                  {d.title}
+                  <LinkIndicator
+                    fallback={
+                      <span className="text-gray-11">
+                        {d.title}&nbsp;
+                        <span className="animate-spin inline-block">🌀</span>
+                      </span>
+                    }
+                  >
+                    {d.title}
+                  </LinkIndicator>
                 </Link>
                 <time
                   dateTime={d.date.toLocaleDateString()}
