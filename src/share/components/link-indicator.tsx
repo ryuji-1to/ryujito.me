@@ -9,9 +9,12 @@ type Props = {
 
 export function LinkIndicator(props: Props) {
   const { pending } = useLinkStatus();
-  return pending ? (
-    <div aria-label="loading">{props.fallback}</div>
-  ) : (
-    props.children
+  return (
+    <>
+      <span className="sr-only" aria-live="polite">
+        {pending ? "ローディング中" : null}
+      </span>
+      {pending ? props.fallback : props.children}
+    </>
   );
 }
