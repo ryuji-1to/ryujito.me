@@ -45,6 +45,9 @@ importers:
       remark-rehype:
         specifier: ^11.1.0
         version: 11.1.2
+      rustlike-ts:
+        specifier: ^1.1.0
+        version: 1.1.0
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -2448,6 +2451,9 @@ packages:
   run-async@2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
     engines: {node: '>=0.12.0'}
+
+  rustlike-ts@1.1.0:
+    resolution: {integrity: sha512-BpQeWp+36VgJdrWS+nR4eesgzgrJ495YY7vLMe472EWDWOriFTW2lJq2QFRB08+2G+tVb0gPmEX0W1VNo/jZAQ==}
 
   rxjs@6.6.7:
     resolution: {integrity: sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==}
@@ -5148,6 +5154,8 @@ snapshots:
       fsevents: 2.3.3
 
   run-async@2.4.1: {}
+
+  rustlike-ts@1.1.0: {}
 
   rxjs@6.6.7:
     dependencies:

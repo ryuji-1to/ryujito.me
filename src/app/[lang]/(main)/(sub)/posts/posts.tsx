@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { Ok, Err, type Result } from "rustlike-ts";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
@@ -14,14 +15,17 @@ type ZennPost = {
 
 const ZENN_URL = "https://zenn.dev/api/articles?username=ryuji_ito";
 
-async function getZennPosts(): Promise<ZennPost[]> {
+async function getZennPosts(): Promise<Result<ZennPost[], undefined>> {
   const res = await fetch(ZENN_URL, {
     next: {
       revalidate: 24 * 60 * 10,
     },
   });
+  if (!res.ok) {
+    return Err(undefined);
+  }
   const data = await res.json();
-  const validated = v.parse(
+  const validated = v.safeParse(
     v.array(
       v.object({
         title: v.optional(v.string()),
@@ -31,22 +35,28 @@ async function getZennPosts(): Promise<ZennPost[]> {
     ),
     data.articles,
   );
-  return validated.toReversed().map((d) => ({
-    type: "zenn",
-    path: d.path,
-    title: d.title,
-    date: new Date(d.published_at),
-  }));
+  if (!validated.success) {
+    return Err(undefined);
+  }
+
+  return Ok(
+    validated.output.toReversed().map((d) => ({
+      type: "zenn",
+      path: d.path,
+      title: d.title,
+      date: new Date(d.published_at),
+    })),
+  );
 }
 
-type MdPosts = {
+type MdPost = {
   type: "md";
   slug: string;
   title: string;
   date: Date;
 };
 
-async function getMdPosts(): Promise<MdPosts[]> {
+async function getMdPosts(): Promise<Result<MdPost[], undefined>> {
   const dir = path.join(process.cwd(), "public");
   const entries = await readdir(dir, {
     withFileTypes: true,
@@ -58,7 +68,7 @@ async function getMdPosts(): Promise<MdPosts[]> {
   const data = posts.map((slug, i) => {
     const content = contents[i];
     if (!content) {
-      throw new Error("content not found");
+      return;
     }
 
     const { data } = matter(content);
@@ -66,7 +76,7 @@ async function getMdPosts(): Promise<MdPosts[]> {
     return { slug, ...data };
   });
 
-  const validated = v.parse(
+  const validated = v.safeParse(
     v.array(
       v.object({
         slug: v.string(),
@@ -76,11 +86,16 @@ async function getMdPosts(): Promise<MdPosts[]> {
     ),
     data,
   );
+  if (!validated.success) {
+    return Err(undefined);
+  }
 
-  return validated.map((d) => ({
-    type: "md",
-    ...d,
-  }));
+  return Ok(
+    validated.output.map((d) => ({
+      type: "md",
+      ...d,
+    })),
+  );
 }
 
 export async function Posts() {
@@ -96,7 +111,7 @@ export async function Posts() {
           Posts
         </h2>
         <ul className="list-disc ml-16 space-y-8">
-          {mdPosts.map((d) => (
+          {mdPosts.unwrapOr([]).map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
                 <Link
@@ -130,7 +145,7 @@ export async function Posts() {
           Zenn
         </h2>
         <ul className="list-disc ml-16 space-y-8">
-          {zennPosts.map((d) => (
+          {zennPosts.unwrapOr([]).map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
                 <a
