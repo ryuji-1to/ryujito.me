@@ -67,15 +67,11 @@ export default async function PostPage(
 }
 
 export async function generateStaticParams() {
-  try {
-    const entries = await readdir("./public/", { withFileTypes: true });
-    const dirs = entries
-      .filter((entry) => entry.isDirectory())
-      .map((entry) => entry.name);
-    return dirs.map((dir) => ({ slug: dir }));
-  } catch {
-    return { slug: "" };
-  }
+  const entries = await readdir("./public/", { withFileTypes: true });
+  const dirs = entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
+  return dirs.map((dir) => ({ slug: dir }));
 }
 
 export async function generateMetadata(props: {
@@ -83,18 +79,12 @@ export async function generateMetadata(props: {
     slug: string;
   }>;
 }): Promise<Metadata> {
-  try {
-    const params = await props.params;
-    const file = await readFile(`./public/${params.slug}/index.md`, "utf8");
-    const { data } = matter(file);
+  const params = await props.params;
+  const file = await readFile(`./public/${params.slug}/index.md`, "utf8");
+  const { data } = matter(file);
 
-    return {
-      title: `${data.title} | Ryuji Ito`,
-      description: data.description || "",
-    };
-  } catch {
-    return {
-      title: "Ryuji Ito",
-    };
-  }
+  return {
+    title: `${data.title} | Ryuji Ito`,
+    description: data.description || "",
+  };
 }
