@@ -1,6 +1,20 @@
+"use client";
+
 import { useLinkStatus } from "next/link";
 
-export function LinkIndicator() {
+type Props = {
+  children: React.ReactNode;
+  fallback: React.ReactNode;
+};
+
+export function LinkIndicator(props: Props) {
   const { pending } = useLinkStatus();
-  return pending ? <div aria-label="loading">loading...</div> : null;
+  return (
+    <>
+      <span className="sr-only" aria-live="polite">
+        {pending ? "ローディング中" : null}
+      </span>
+      {pending ? props.fallback : props.children}
+    </>
+  );
 }
