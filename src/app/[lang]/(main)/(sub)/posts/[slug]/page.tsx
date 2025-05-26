@@ -23,11 +23,9 @@ async function getPostBySlug(
   try {
     const { content, data } = matter(await readFile(filename, "utf8"));
     const html = await markdownToHtml(content);
-    return Ok(v.parse(Schema, { html, ...data }));
-  } catch (error) {
-    if (error instanceof v.ValiError) {
-      return Err(VALIDATION_ERROR);
-    }
+    const validated = v.safeParse(Schema, { html, ...data });
+    return validated.success ? Ok(validated.output) : Err(VALIDATION_ERROR);
+  } catch {
     return Err(NOT_FOUND);
   }
 }

@@ -7,7 +7,7 @@ type Props = {
   fallback: React.ReactNode;
 };
 
-export function LinkIndicator(props: Props) {
+export function NavigationIndicator(props: Props) {
   const { pending } = useLinkStatus();
   return (
     <>
