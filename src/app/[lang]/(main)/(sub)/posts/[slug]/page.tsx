@@ -7,6 +7,7 @@ import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 import type { Metadata } from "next";
 import { markdownToHtml } from "@/share/lib";
 import { Err, Ok, type Result } from "rustlike-ts";
+import { NOT_FOUND, VALIDATION_ERROR } from "@/share/constants";
 
 const Schema = v.object({
   date: v.date(),
@@ -17,17 +18,25 @@ type Slug = v.InferOutput<typeof Schema>;
 
 async function getPostBySlug(
   slug: string,
-): Promise<Result<Slug, "ValidationError" | "NotFound">> {
+): Promise<Result<Slug, typeof VALIDATION_ERROR | typeof NOT_FOUND>> {
   const filename = `./public/${slug}/index.md`;
   try {
     const { content, data } = matter(await readFile(filename, "utf8"));
     const html = await markdownToHtml(content);
-    return Ok(v.parse(Schema, { html, ...data }));
-  } catch (error) {
-    if (error instanceof v.ValiError) {
-      return Err("ValidationError");
-    }
-    return Err("NotFound");
+    const validated = v.safeParse(Schema, { html, ...data });
+    return validated.success ? Ok(validated.output) : Err(VALIDATION_ERROR);
+  } catch {
+    return Err(NOT_FOUND);
+  }
+}
+
+function handleError(error: typeof VALIDATION_ERROR | typeof NOT_FOUND) {
+  if (error === NOT_FOUND) {
+    notFound();
+  }
+
+  if (error === VALIDATION_ERROR) {
+    throw error;
   }
 }
 
@@ -41,13 +50,7 @@ export default async function PostPage(
 
   if (result.isErr()) {
     const error = result.expectErr("should error");
-    if (error === "NotFound") {
-      return notFound();
-    }
-
-    if (error === "ValidationError") {
-      throw error;
-    }
+    return handleError(error);
   }
 
   const data = result.unwrap();

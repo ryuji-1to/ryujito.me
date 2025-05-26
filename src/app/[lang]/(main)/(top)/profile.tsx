@@ -1,3 +1,4 @@
+import { NavigationIndicator } from "@/share/components/navigation-indicator";
 import { useLingui } from "@lingui/react/macro";
 import { Trans } from "@lingui/react/macro";
 import Link from "next/link";
@@ -36,13 +37,29 @@ export function Profile() {
           <ul className="flex gap-4 text-sm">
             <li>
               <Link href="/about" className="underline">
-                About
+                <NavigationIndicator
+                  fallback={
+                    <span className="text-gray-11 dark:text-dark-gray-11">
+                      About
+                    </span>
+                  }
+                >
+                  About
+                </NavigationIndicator>
               </Link>
             </li>
             <li className="text-gray-8 dark:text-dark-gray-8">/</li>
             <li>
               <Link href="/posts" className="underline">
-                Posts
+                <NavigationIndicator
+                  fallback={
+                    <span className="text-gray-11 dark:text-dark-gray-11">
+                      Posts
+                    </span>
+                  }
+                >
+                  Posts
+                </NavigationIndicator>
               </Link>
             </li>
           </ul>
