@@ -10,7 +10,7 @@ export function Profile() {
       <Link
         href="/about"
         title="about"
-        aria-label="トップページに戻る"
+        aria-label={t`トップページに戻る`}
         className="block w-fit"
       >
         <picture>
@@ -28,7 +28,7 @@ export function Profile() {
       </Link>
       <div className="mt-16">
         <p>
-          <Trans>Ryuji Ito is a Frontend Designer</Trans>{" "}
+          <Trans>Ryuji Ito is a Frontend Designer</Trans>&nbsp;
           <span role="img" aria-hidden>
             🎨🧑‍💻
           </span>
@@ -40,11 +40,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-gray-11 dark:text-dark-gray-11">
-                      About
+                      <Trans>About</Trans>
                     </span>
                   }
                 >
-                  About
+                  <Trans>About</Trans>
                 </NavigationIndicator>
               </Link>
             </li>
@@ -54,11 +54,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-gray-11 dark:text-dark-gray-11">
-                      Posts
+                      <Trans>Posts</Trans>
                     </span>
                   }
                 >
-                  Posts
+                  <Trans>Posts</Trans>
                 </NavigationIndicator>
               </Link>
             </li>
