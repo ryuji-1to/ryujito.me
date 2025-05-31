@@ -118,13 +118,13 @@ export async function Posts() {
                 <Link
                   prefetch={false}
                   href={`/posts/${d.slug}`}
-                  className="text-sm hover:underline line-clamp-1"
+                  className="text-sm underline line-clamp-1"
                 >
                   <NavigationIndicator
                     fallback={
                       <span className="text-gray-11 dark:text-dark-gray-11">
-                        {d.title}&nbsp;
                         <span className="animate-spin inline-block">🌀</span>
+                        &nbsp;{d.title}
                       </span>
                     }
                   >
@@ -160,11 +160,18 @@ export async function Posts() {
               <span className="flex gap-16 w-full items-center justify-between">
                 <a
                   href={`https://zenn.dev/${d.path}`}
-                  className="text-sm hover:underline line-clamp-1"
+                  className="text-sm underline"
                   target="_blank"
                   rel="noreferrer"
                 >
                   {d.title}
+                  <img
+                    width={16}
+                    height={16}
+                    src="/external-link.svg"
+                    alt="(別タブで開きます)"
+                    className="inline-block ml-4 align-sub"
+                  />
                 </a>
                 <time
                   dateTime={d.date.toLocaleDateString()}
