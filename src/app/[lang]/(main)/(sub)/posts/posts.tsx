@@ -3,9 +3,10 @@ import { Ok, Err, type Result } from "rustlike-ts";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
-import { i18n } from "@lingui/core";
+// import { i18n } from "@lingui/core";
 import path from "node:path";
 import { NavigationIndicator } from "@/share/components/navigation-indicator";
+import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
 
 type ZennPost = {
   type: "zenn";
@@ -14,15 +15,19 @@ type ZennPost = {
   date: Date;
 };
 
-async function getZennPosts(): Promise<Result<ZennPost[], undefined>> {
+async function getZennPosts(): Promise<
+  Result<ZennPost[], typeof UNEXPECTED_ERROR | typeof VALIDATION_ERROR>
+> {
   const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito", {
     next: {
       revalidate: 24 * 60 * 10,
     },
   });
+
   if (!res.ok) {
-    return Err(undefined);
+    return Err(UNEXPECTED_ERROR);
   }
+
   const data = await res.json();
   const validated = v.safeParse(
     v.array(
@@ -34,8 +39,9 @@ async function getZennPosts(): Promise<Result<ZennPost[], undefined>> {
     ),
     data.articles,
   );
+
   if (!validated.success) {
-    return Err(undefined);
+    return Err(VALIDATION_ERROR);
   }
 
   return Ok(
@@ -55,7 +61,9 @@ type MdPost = {
   date: Date;
 };
 
-async function getMdPosts(): Promise<Result<MdPost[], undefined>> {
+async function getMdPosts(): Promise<
+  Result<MdPost[], typeof VALIDATION_ERROR>
+> {
   const dir = path.join(process.cwd(), "public");
   const entries = await readdir(dir, {
     withFileTypes: true,
@@ -86,7 +94,7 @@ async function getMdPosts(): Promise<Result<MdPost[], undefined>> {
     data,
   );
   if (!validated.success) {
-    return Err(undefined);
+    return Err(VALIDATION_ERROR);
   }
 
   return Ok(
@@ -109,7 +117,7 @@ export async function Posts() {
         <h2 id="md-posts" className="mb-8 font-medium">
           Posts
         </h2>
-        <ul className="list-disc ml-16 space-y-8">
+        <ul className="ml-16 space-y-8">
           {mdPosts.unwrapOr([]).map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
@@ -117,28 +125,28 @@ export async function Posts() {
                   <NavigationIndicator
                     fallback={
                       <span className="text-gray-11 dark:text-dark-gray-11">
+                        {d.title}&nbsp;
                         <span className="animate-spin inline-block">🌀</span>
-                        &nbsp;{d.title}
                       </span>
                     }
                   >
                     {d.title}
                   </NavigationIndicator>
                 </Link>
-                <time
-                  dateTime={d.date.toLocaleDateString()}
-                  className="text-xs hidden sm:block"
-                >
-                  {i18n.date(d.date.toDateString())}
-                </time>
-                <time
-                  dateTime={d.date.toLocaleDateString()}
-                  className="text-xs sm:hidden"
-                >
-                  {i18n.date(d.date, {
-                    dateStyle: "short",
-                  })}
-                </time>
+                {/* <time */}
+                {/*   dateTime={d.date.toLocaleDateString()} */}
+                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 hidden sm:block" */}
+                {/* > */}
+                {/*   {i18n.date(d.date.toDateString())} */}
+                {/* </time> */}
+                {/* <time */}
+                {/*   dateTime={d.date.toLocaleDateString()} */}
+                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 sm:hidden" */}
+                {/* > */}
+                {/*   {i18n.date(d.date, { */}
+                {/*     dateStyle: "short", */}
+                {/*   })} */}
+                {/* </time> */}
               </span>
             </li>
           ))}
@@ -148,7 +156,7 @@ export async function Posts() {
         <h2 id="zenn-posts" className="mb-8 font-medium">
           Zenn
         </h2>
-        <ul className="list-disc ml-16 space-y-8">
+        <ul className="ml-16 space-y-8">
           {zennPosts.unwrapOr([]).map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
@@ -167,20 +175,20 @@ export async function Posts() {
                     className="inline-block ml-4"
                   />
                 </a>
-                <time
-                  dateTime={d.date.toLocaleDateString()}
-                  className="text-xs hidden sm:block"
-                >
-                  {i18n.date(d.date.toDateString())}
-                </time>
-                <time
-                  dateTime={d.date.toLocaleDateString()}
-                  className="text-xs sm:hidden"
-                >
-                  {i18n.date(d.date, {
-                    dateStyle: "short",
-                  })}
-                </time>
+                {/* <time */}
+                {/*   dateTime={d.date.toLocaleDateString()} */}
+                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 hidden sm:block" */}
+                {/* > */}
+                {/*   {i18n.date(d.date.toDateString())} */}
+                {/* </time> */}
+                {/* <time */}
+                {/*   dateTime={d.date.toLocaleDateString()} */}
+                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 sm:hidden" */}
+                {/* > */}
+                {/*   {i18n.date(d.date, { */}
+                {/*     dateStyle: "short", */}
+                {/*   })} */}
+                {/* </time> */}
               </span>
             </li>
           ))}

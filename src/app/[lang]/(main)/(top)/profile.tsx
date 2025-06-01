@@ -15,7 +15,6 @@ export function Profile() {
       >
         <picture>
           <source srcSet="/icon.webp" type="image/webp" />
-          <source srcSet="/icon.jpg" type="image/jpeg" />
           <img
             src="/icon.jpg"
             width={56}

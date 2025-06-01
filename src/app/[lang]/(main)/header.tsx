@@ -1,14 +1,15 @@
 "use client";
 
+import { useLingui } from "@lingui/react/macro";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function Header() {
   const pathname = usePathname();
   const path = getPath(pathname);
+  const { t } = useLingui();
 
   if (path === "") {
-    // TODO
     return null;
   }
 
@@ -17,13 +18,17 @@ export function Header() {
       <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4">
         <Link href="/" aria-label="トップページに戻る">
           <h1>
-            <img
-              src="/icon.jpg"
-              width={24}
-              height={24}
-              alt="犬のアイコン"
-              className="rounded-full"
-            />
+            <picture>
+              <source srcSet="/icon.webp" type="image/webp" />
+              <img
+                src="/icon.jpg"
+                width={24}
+                height={24}
+                alt={t`avatar`}
+                className="rounded-full"
+                decoding="async"
+              />
+            </picture>
           </h1>
         </Link>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
