@@ -14,10 +14,8 @@ type ZennPost = {
   date: Date;
 };
 
-const ZENN_URL = "https://zenn.dev/api/articles?username=ryuji_ito";
-
 async function getZennPosts(): Promise<Result<ZennPost[], undefined>> {
-  const res = await fetch(ZENN_URL, {
+  const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito", {
     next: {
       revalidate: 24 * 60 * 10,
     },
@@ -115,11 +113,7 @@ export async function Posts() {
           {mdPosts.unwrapOr([]).map((d) => (
             <li key={d.title}>
               <span className="flex gap-16 w-full items-center justify-between">
-                <Link
-                  prefetch={false}
-                  href={`/posts/${d.slug}`}
-                  className="text-sm underline line-clamp-1"
-                >
+                <Link href={`/posts/${d.slug}`} className="text-sm underline">
                   <NavigationIndicator
                     fallback={
                       <span className="text-gray-11 dark:text-dark-gray-11">
@@ -166,11 +160,11 @@ export async function Posts() {
                 >
                   {d.title}
                   <img
-                    width={16}
-                    height={16}
+                    width={12}
+                    height={12}
                     src="/external-link.svg"
                     alt="(別タブで開きます)"
-                    className="inline-block ml-4 align-sub"
+                    className="inline-block ml-4"
                   />
                 </a>
                 <time
