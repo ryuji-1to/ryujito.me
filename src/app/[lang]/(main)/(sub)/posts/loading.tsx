@@ -1,4 +1,9 @@
+import { Spinner } from "@/share/components/spinner";
+
 export default function Loading() {
-  // TODO
-  return <div>loading...</div>;
+  return (
+    <div className="grid place-items-center mt-40">
+      <Spinner className="size-24" />
+    </div>
+  );
 }
