@@ -1,6 +1,6 @@
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 import { Markdown } from "@/share/components/markdown";
-import { getFormattedMarkdown } from "@/share/lib";
+import { getFormattedMarkdown } from "@/share/lib.server";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
