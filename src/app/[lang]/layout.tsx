@@ -23,7 +23,7 @@ export default async function RootLayout(props: Props) {
     <RouteChangeFocus>
       <html
         lang={lang}
-        className="font-sans antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white"
+        className="font-ud antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white"
       >
         <head>
           <meta name="description" content="Personal Website by Ryuji Ito" />
