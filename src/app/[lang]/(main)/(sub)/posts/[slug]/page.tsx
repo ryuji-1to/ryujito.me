@@ -5,7 +5,7 @@ import * as v from "valibot";
 import { notFound } from "next/navigation";
 import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 import type { Metadata } from "next";
-import { markdownToHtml } from "@/share/lib";
+import { markdownToHtml } from "@/share/lib.server";
 import { Err, Ok, type Result } from "rustlike-ts";
 import { NOT_FOUND, VALIDATION_ERROR } from "@/share/constants";
 
