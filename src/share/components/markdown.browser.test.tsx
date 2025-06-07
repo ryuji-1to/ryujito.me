@@ -30,7 +30,7 @@ describe("share/components/markdown", () => {
     <p>--small:end--</p>
     `;
     const expected = `
-    <div style="font-size:12px !important;">
+    <div class="text-xs">
     <div>test</div>
     </div>
     `;
@@ -47,7 +47,7 @@ describe("share/components/markdown", () => {
     <p>--card:end--</p>
     `;
     const expected = `
-    <div class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 py-2 px-5 my-2 rounded-lg">
+    <div class="bg-gray-2 dark:bg-dark-gray-2 border border-gray-5 dark:border-dark-gray-5 py-8 px-24 my-16 rounded-8">
     <div>test</div>
     </div>
     `;
@@ -63,15 +63,15 @@ describe("share/components/markdown", () => {
     <p>--browser:end--</p>
     `;
     const expected = `
-    <div class="bg-gray-50 dark:bg-gray-800 rounded-sm drop-shadow-lg min-h-20">
-      <div class="h-6 bg-gray-200 dark:bg-gray-700 py-1 px-2 rounded-t">
-        <div class="flex items-center h-full gap-1.5">
-            <div class="rounded-full bg-red-500 h-2 w-2"></div>
-            <div class="rounded-full bg-amber-500 h-2 w-2"></div>
-            <div class="rounded-full bg-green-500 h-2 w-2"></div>
+    <div class="bg-gray-1 dark:bg-dark-gray-1 border border-gray-4 dark:border-dark-gray-4 rounded-4 drop-shadow-lg min-h-64">
+      <div class="h-24 bg-gray-4 dark:bg-dark-gray-4 py-4 px-8 rounded-t-4">
+        <div class="flex items-center h-full gap-4">
+            <div class="rounded-full bg-red dark:bg-dark-red h-8 w-8"></div>
+            <div class="rounded-full bg-orange dark:bg-dark-orange h-8 w-8"></div>
+            <div class="rounded-full bg-green dark:bg-dark-green h-8 w-8"></div>
         </div>
       </div>
-      <div class="px-4 py-1">
+      <div class="px-8 py-4">
         <div>test</div>
       </div>
     </div>
