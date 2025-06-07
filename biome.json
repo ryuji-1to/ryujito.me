@@ -31,7 +31,7 @@
         "noConsoleLog": "error"
       },
       "a11y": {
-        "all": true
+        "recommended": true
       }
     }
   }
