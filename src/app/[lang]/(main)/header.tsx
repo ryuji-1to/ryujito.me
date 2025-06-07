@@ -34,7 +34,7 @@ export function Header() {
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
         <Link
           href={`/${path}`}
-          className="text-gray-12 dark:text-dark-gray-12 underline"
+          className="text-gray-12 dark:text-dark-gray-12"
           aria-current="page"
         >
           {path}
