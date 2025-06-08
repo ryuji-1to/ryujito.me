@@ -1,12 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    disableStaticImages: true,
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   turbopack: {
     rules: {
       "*.po": {
         loaders: ["@lingui/loader"],
+        as: "*.js",
+      },
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
         as: "*.js",
       },
     },
@@ -20,6 +27,10 @@ const nextConfig: NextConfig = {
       use: {
         loader: "@lingui/loader",
       },
+    });
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
     });
 
     return config;
