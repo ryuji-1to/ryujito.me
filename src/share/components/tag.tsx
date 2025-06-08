@@ -12,13 +12,13 @@ type TagWithOnClick = React.ComponentProps<"button"> & {
 
 type Props = TagWithOnClick | TagWithOnRemove;
 
-export function Tag({ className, ...props }: Props) {
+export function Tag({ className, children, ...props }: Props) {
   const commonClassName = cn(
     "bg-gray-4 flex items-center w-fit px-8 py-2 rounded-full",
     className,
   );
   if (props.onClick) {
-    const { onClick, children, ...restProps } = props;
+    const { onClick, ...restProps } = props;
     return (
       <button {...restProps} className={commonClassName} onClick={onClick}>
         {children}
@@ -26,12 +26,18 @@ export function Tag({ className, ...props }: Props) {
     );
   }
 
-  const { onRemove, children, ...restProps } = props;
+  const { onRemove, title, ...restProps } = props;
+  const ariaLabel = title ? `${title}を削除` : "このタグを削除";
   return (
     <span {...restProps} className={commonClassName}>
       {children}
       {onRemove && (
-        <button type="button" className="ml-4" onClick={onRemove}>
+        <button
+          type="button"
+          className="ml-4"
+          onClick={onRemove}
+          aria-label={ariaLabel}
+        >
           x
         </button>
       )}
