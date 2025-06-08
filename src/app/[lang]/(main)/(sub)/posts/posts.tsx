@@ -3,7 +3,7 @@ import { Ok, Err, type Result } from "rustlike-ts";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import Link from "next/link";
-// import { i18n } from "@lingui/core";
+import ExternalLinkIcon from "@/assets/external-link.svg";
 import path from "node:path";
 import { NavigationIndicator } from "@/share/components/navigation-indicator";
 import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
@@ -125,7 +125,7 @@ export async function Posts() {
                 <Link href={`/posts/${d.slug}`} className="text-sm underline">
                   <NavigationIndicator
                     fallback={
-                      <span className="text-gray-11 dark:text-dark-gray-11 space-x-4">
+                      <span className="text-gray-11 dark:text-dark-gray-12 space-x-4">
                         {d.title}
                         &nbsp;
                         <Spinner className="inline-block size-16 ml-4" />
@@ -135,20 +135,6 @@ export async function Posts() {
                     {d.title}
                   </NavigationIndicator>
                 </Link>
-                {/* <time */}
-                {/*   dateTime={d.date.toLocaleDateString()} */}
-                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 hidden sm:block" */}
-                {/* > */}
-                {/*   {i18n.date(d.date.toDateString())} */}
-                {/* </time> */}
-                {/* <time */}
-                {/*   dateTime={d.date.toLocaleDateString()} */}
-                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 sm:hidden" */}
-                {/* > */}
-                {/*   {i18n.date(d.date, { */}
-                {/*     dateStyle: "short", */}
-                {/*   })} */}
-                {/* </time> */}
               </span>
             </li>
           ))}
@@ -169,28 +155,11 @@ export async function Posts() {
                   rel="noreferrer"
                 >
                   {d.title}
-                  <img
-                    width={12}
-                    height={12}
-                    src="/external-link.svg"
-                    alt="(別タブで開きます)"
-                    className="inline-block ml-4"
+                  <ExternalLinkIcon
+                    className="size-16 inline-block ml-4 dark:fill-dark-gray-12"
+                    aria-label="(別タブで開きます)"
                   />
                 </a>
-                {/* <time */}
-                {/*   dateTime={d.date.toLocaleDateString()} */}
-                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 hidden sm:block" */}
-                {/* > */}
-                {/*   {i18n.date(d.date.toDateString())} */}
-                {/* </time> */}
-                {/* <time */}
-                {/*   dateTime={d.date.toLocaleDateString()} */}
-                {/*   className="text-xxs text-gray-11 dark:text-dark-gray-11 sm:hidden" */}
-                {/* > */}
-                {/*   {i18n.date(d.date, { */}
-                {/*     dateStyle: "short", */}
-                {/*   })} */}
-                {/* </time> */}
               </span>
             </li>
           ))}
