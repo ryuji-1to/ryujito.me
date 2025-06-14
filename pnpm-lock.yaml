@@ -93,7 +93,7 @@ importers:
         version: 16.3.0(@testing-library/dom@10.4.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(types-react-dom@19.0.0)(types-react@19.0.0-rc.1)
       '@types/negotiator':
         specifier: ^0.6.3
-        version: 0.6.3
+        version: 0.6.4
       '@types/node':
         specifier: ^22.0.0
         version: 22.15.18
@@ -1696,8 +1696,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/negotiator@0.6.3':
-    resolution: {integrity: sha512-JkXTOdKs5MF086b/pt8C3+yVp3iDUwG635L7oCH6HvJvvr6lSUU5oe/gLXnPEfYRROHjJIPgCV6cuAg8gGkntQ==}
+  '@types/negotiator@0.6.4':
+    resolution: {integrity: sha512-elf6BsTq+AkyNsb2h5cGNst2Mc7dPliVoAPm1fXglC/BM3f2pFA40BaSSv3E5lyHteEawVKLP+8TwiY1DMNb3A==}
 
   '@types/node@22.15.18':
     resolution: {integrity: sha512-v1DKRfUdyW+jJhZNEI1PYy29S2YRxMV5AOO/x/SjKmW0acCIOqmbj6Haf9eHAhsPmrhlHSxEhv/1WszcLWV4cg==}
@@ -5228,7 +5228,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/negotiator@0.6.3': {}
+  '@types/negotiator@0.6.4': {}
 
   '@types/node@22.15.18':
     dependencies:
