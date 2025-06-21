@@ -5,7 +5,9 @@ name: "Next.js Bundle Analysis"
 
 on:
   pull_request:
-    paths: src
+    paths:
+      - 'src/**'
+      - 'package.json'
   push:
     branches:
       - main # change this if your default branch is named differently
