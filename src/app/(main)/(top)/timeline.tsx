@@ -1,19 +1,19 @@
 import { cn } from "@/share/lib";
-import type { MessageDescriptor } from "@lingui/core";
-import { msg } from "@lingui/core/macro";
-import { Trans } from "@lingui/react";
-import { i18n } from "@lingui/core";
+// import type { MessageDescriptor } from "@lingui/core";
+// import { msg } from "@lingui/core/macro";
+// import { Trans } from "@lingui/react";
 import { Fragment } from "react";
 
 export function TimeLine() {
   return (
     <div>
       {data.map((d, i) => (
-        <Fragment key={d.title.id}>
+        <Fragment key={d.title}>
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
             <time dateTime={d.date} className="text-xs">
-              {i18n.date(new Date(d.date).toDateString())}
+              {/* {i18n.date(new Date(d.date).toDateString())} */}
+              {new Date(d.date).toDateString()}
             </time>
           </div>
           <div className="flex gap-24 pl-[4px]">
@@ -25,17 +25,17 @@ export function TimeLine() {
             />
             <div className="py-24 w-full">
               <article
-                aria-labelledby={d.title.id}
+                aria-labelledby={d.title}
                 className="bg-gray-2 dark:bg-dark-gray-2 border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6"
               >
                 <h2
-                  id={d.title.id}
+                  id={d.title}
                   className="font-semibold mb-8 dark:text-gray-1"
                 >
-                  <Trans id={d.title.id} />
+                  {d.title}
                 </h2>
                 <p className="text-gray-11 dark:text-dark-gray-11 text-xxs">
-                  <Trans id={d.description.id} />
+                  {d.description}
                 </p>
               </article>
             </div>
@@ -47,23 +47,25 @@ export function TimeLine() {
 }
 
 const data: {
-  title: MessageDescriptor;
-  description: MessageDescriptor;
+  title: string;
+  description: string;
   date: `${number}-${number}-${number}`;
 }[] = [
   {
-    title: msg`Joined Ikyu Corporation`,
-    description: msg`Assigned to the development of the accommodation business.`,
+    title: "株式会社一休に入社",
+    description:
+      "一休.com、Y!トラベルのフロントエンド開発、RESZAIKO台帳の開発に従事",
     date: "2025-02-01",
   },
   {
-    title: msg`Left LY Corporation`,
-    description: msg`Worked as an engineer for two years on Yahoo Mail and for three months on Yahoo Search`,
+    title: "LINEヤフー株式会社を退職",
+    description: "Yahooメールで2年間、Yahoo検索で3か月間エンジニアとして勤務",
     date: "2024-01-31",
   },
   {
-    title: msg`Joined Yahoo! Japan (now LY Corporation)`,
-    description: msg`Assigned to the Yahoo Mail development team, where I worked on front-end development and technology modernization for about two years.`,
+    title: "Yahoo! JAPAN（現：LINEヤフー株式会社）に入社",
+    description:
+      "Yahooメールの開発チームに配属され、約2年間フロントエンド開発と技術のモダン化に取り組む",
     date: "2022-04-01",
   },
 ];

@@ -3,7 +3,6 @@ import { Markdown } from "@/share/components/markdown";
 import matter from "gray-matter";
 import * as v from "valibot";
 import { notFound } from "next/navigation";
-import { initLinguiFromParams, type PageLangParam } from "@/app/init-lingui";
 import type { Metadata } from "next";
 import { markdownToHtml } from "@/share/lib.server";
 import { Err, Ok, type Result } from "rustlike-ts";
@@ -40,12 +39,9 @@ function handleError(error: typeof VALIDATION_ERROR | typeof NOT_FOUND) {
   }
 }
 
-export default async function PostPage(
-  props: PageLangParam & {
-    params: Promise<{ slug: string }>;
-  },
-) {
-  const { i18n, lang } = await initLinguiFromParams(props.params);
+export default async function PostPage(props: {
+  params: Promise<{ slug: string }>;
+}) {
   const result = await getPostBySlug((await props.params).slug);
 
   if (result.isErr()) {
@@ -59,8 +55,8 @@ export default async function PostPage(
     <article>
       <header className="mb-64">
         <p className="font-semibold text-xs w-fit ml-auto">
-          <time dateTime={data.date.toLocaleDateString(lang)}>
-            {i18n.date(data.date.toDateString())}
+          <time dateTime={data.date.toLocaleDateString()}>
+            {data.date.toDateString()}
           </time>
         </p>
       </header>

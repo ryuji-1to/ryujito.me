@@ -1,16 +1,15 @@
 import { NavigationIndicator } from "@/share/components/navigation-indicator";
-import { useLingui } from "@lingui/react/macro";
-import { Trans } from "@lingui/react/macro";
 import Link from "next/link";
 
 export function Profile() {
-  const { t } = useLingui();
+  // const { t } = useLingui();
   return (
     <header>
       <Link
         href="/about"
         title="about"
-        aria-label={t`トップページに戻る`}
+        // aria-label={t`トップページに戻る`}
+        aria-label="トップページに戻る"
         className="block w-fit"
       >
         <picture>
@@ -19,7 +18,8 @@ export function Profile() {
             src="/icon.jpg"
             width={56}
             height={56}
-            alt={t`avatar`}
+            // alt={t`avatar`}
+            alt="プロフィール画像"
             className="rounded-full"
             decoding="async"
           />
@@ -27,7 +27,7 @@ export function Profile() {
       </Link>
       <div className="mt-16">
         <p>
-          <Trans>Ryuji Ito is a Frontend Designer</Trans>&nbsp;
+          フロントエンドのエンジニアとデザイナーをしています&nbsp;
           <span role="img" aria-hidden>
             🎨🧑‍💻
           </span>
@@ -39,11 +39,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-gray-11 dark:text-dark-gray-11">
-                      <Trans>About</Trans>
+                      About
                     </span>
                   }
                 >
-                  <Trans>About</Trans>
+                  About
                 </NavigationIndicator>
               </Link>
             </li>
@@ -53,11 +53,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-gray-11 dark:text-dark-gray-11">
-                      <Trans>Posts</Trans>
+                      Posts
                     </span>
                   }
                 >
-                  <Trans>Posts</Trans>
+                  Posts
                 </NavigationIndicator>
               </Link>
             </li>
