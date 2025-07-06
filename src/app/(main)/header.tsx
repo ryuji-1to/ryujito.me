@@ -1,13 +1,13 @@
 "use client";
 
-import { useLingui } from "@lingui/react/macro";
+// import { useLingui } from "@lingui/react/macro";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function Header() {
   const pathname = usePathname();
   const path = getPath(pathname);
-  const { t } = useLingui();
+  // const { t } = useLingui();
 
   if (path === "") {
     return null;
@@ -24,7 +24,8 @@ export function Header() {
                 src="/icon.jpg"
                 width={24}
                 height={24}
-                alt={t`avatar`}
+                // alt={t`avatar`}
+                alt="プロフィール画像"
                 className="rounded-full"
                 decoding="async"
               />
