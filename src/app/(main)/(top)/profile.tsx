@@ -2,13 +2,11 @@ import { NavigationIndicator } from "@/share/components/navigation-indicator";
 import Link from "next/link";
 
 export function Profile() {
-  // const { t } = useLingui();
   return (
     <header>
       <Link
         href="/about"
         title="about"
-        // aria-label={t`トップページに戻る`}
         aria-label="トップページに戻る"
         className="block w-fit"
       >
@@ -18,7 +16,6 @@ export function Profile() {
             src="/icon.jpg"
             width={56}
             height={56}
-            // alt={t`avatar`}
             alt="プロフィール画像"
             className="rounded-full"
             decoding="async"
