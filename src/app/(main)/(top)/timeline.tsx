@@ -1,7 +1,4 @@
 import { cn } from "@/share/lib";
-// import type { MessageDescriptor } from "@lingui/core";
-// import { msg } from "@lingui/core/macro";
-// import { Trans } from "@lingui/react";
 import { Fragment } from "react";
 
 export function TimeLine() {
@@ -12,7 +9,6 @@ export function TimeLine() {
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
             <time dateTime={d.date} className="text-xs">
-              {/* {i18n.date(new Date(d.date).toDateString())} */}
               {new Date(d.date).toDateString()}
             </time>
           </div>
