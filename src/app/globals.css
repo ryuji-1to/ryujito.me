@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap");
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @custom-variant dark (@media (prefers-color-scheme: dark));
@@ -62,7 +62,8 @@
   /* Font Family */
   /* --font-*: initial; */
   --font-sans: var(--font-family-sans);
-  --font-ud: -apple-system, BlinkMacSystemFont, Inter, "BIZ UDGothic", sans-serif;
+  --font-ud: -apple-system, BlinkMacSystemFont, Inter, "BIZ UDGothic",
+    sans-serif;
 
   /* Line Height */
   --leading-*: initial;
@@ -139,8 +140,8 @@
   }
 }
 
-*:focus {
-  outline: none;
+p {
+  max-width: 80ch;
 }
 
 *:focus-visible {
