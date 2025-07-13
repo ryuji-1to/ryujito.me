@@ -24,6 +24,11 @@
   --color-gray-11: var(--color-gray-light-11); /* #636363 */
   --color-gray-12: var(--color-gray-light-12); /* #1f1f1f */
 
+  --color-main-bg: var(--color-gray-light-1);
+  --color-sub-bg: var(--color-gray-light-2);
+  --color-main-text: var(--color-gray-light-12);
+  --color-sub-text: var(--color-gray-light-11);
+
   /* For dark theme */
   --color-dark-gray-1: var(--color-gray-dark-1); /* #111111 */
   --color-dark-gray-2: var(--color-gray-dark-2); /* #191919 */
@@ -37,6 +42,11 @@
   --color-dark-gray-10: var(--color-gray-dark-10); /* #7a7a7a */
   --color-dark-gray-11: var(--color-gray-dark-11); /* #b3b3b3 */
   --color-dark-gray-12: var(--color-gray-dark-12); /* #eeeeee */
+
+  --color-dark-main-bg: var(--color-gray-dark-1);
+  --color-dark-sub-bg: var(--color-gray-dark-2);
+  --color-dark-main-text: var(--color-gray-dark-12);
+  --color-dark-sub-text: var(--color-gray-dark-11);
 
   /* For Accent Color */
   --color-red: oklch(66% 0.2267 26.03); /* #ff4040 */

@@ -35,7 +35,7 @@ export function Profile() {
               <Link href="/about" className="underline">
                 <NavigationIndicator
                   fallback={
-                    <span className="text-gray-11 dark:text-dark-gray-11">
+                    <span className="text-sub-text dark:text-dark-sub-text">
                       About
                     </span>
                   }
@@ -44,12 +44,12 @@ export function Profile() {
                 </NavigationIndicator>
               </Link>
             </li>
-            <li className="text-gray-8 dark:text-dark-gray-8">/</li>
+            <li className="text-sub-text dark:text-dark-sub-text">/</li>
             <li>
               <Link href="/posts" className="underline">
                 <NavigationIndicator
                   fallback={
-                    <span className="text-gray-11 dark:text-dark-gray-11">
+                    <span className="text-sub-text dark:text-dark-sub-text">
                       Posts
                     </span>
                   }

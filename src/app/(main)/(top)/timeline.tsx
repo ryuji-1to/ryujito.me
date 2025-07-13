@@ -8,7 +8,7 @@ export function TimeLine() {
         <Fragment key={d.title}>
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
-            <time dateTime={d.date} className="text-xs">
+            <time dateTime={d.date} className="text-xs text-main-text">
               {new Date(d.date).toDateString()}
             </time>
           </div>
@@ -22,15 +22,12 @@ export function TimeLine() {
             <div className="py-24 w-full">
               <article
                 aria-labelledby={d.title}
-                className="bg-gray-2 dark:bg-dark-gray-2 border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6"
+                className="bg-sub-bg dark:bg-dark-sub-bg border border-gray-6 dark:border-dark-gray-6 p-24 w-full rounded-6"
               >
-                <h2
-                  id={d.title}
-                  className="font-semibold mb-8 dark:text-gray-1"
-                >
+                <h2 id={d.title} className="font-semibold mb-8">
                   {d.title}
                 </h2>
-                <p className="text-gray-11 dark:text-dark-gray-11 text-xxs">
+                <p className="text-sub-text dark:text-dark-sub-text text-xxs">
                   {d.description}
                 </p>
               </article>
