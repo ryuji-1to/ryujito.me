@@ -4,7 +4,7 @@ export function Footer() {
 
   return (
     <footer className="py-40">
-      <p className="text-center">
+      <p className="text-center mx-auto">
         <small>
           &copy; <time>{start}</time>
           {currentYear > start && (
