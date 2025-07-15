@@ -125,7 +125,7 @@ export async function Posts() {
                 <Link href={`/posts/${d.slug}`} className="text-sm underline">
                   <NavigationIndicator
                     fallback={
-                      <span className="text-gray-11 dark:text-dark-gray-12 space-x-4">
+                      <span className="text-sub-text dark:text-dark-sub-text space-x-4">
                         {d.title}
                         &nbsp;
                         <Spinner className="inline-block size-16 ml-4" />

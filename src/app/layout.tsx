@@ -18,7 +18,7 @@ export default function RootLayout(props: Props) {
     <RouteChangeFocus>
       <html
         lang="ja"
-        className="font-ud antialiased dark:bg-black dark:text-dark-gray-12 bg-white text-gray-12  print:bg-white"
+        className="font-ud antialiased dark:bg-dark-main-bg dark:text-dark-main-text bg-main-bg text-main-text  print:bg-white"
       >
         <head>
           <meta name="description" content="Personal Website by Ryuji Ito" />
