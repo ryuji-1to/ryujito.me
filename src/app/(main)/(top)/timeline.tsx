@@ -8,7 +8,10 @@ export function TimeLine() {
         <Fragment key={d.title}>
           <div className="flex gap-16 items-center">
             <div className="w-[10px] h-[10px] bg-gray-8 dark:bg-dark-gray-8 rounded-full" />
-            <time dateTime={d.date} className="text-xs text-main-text">
+            <time
+              dateTime={d.date}
+              className="text-xs text-main-text dark:text-dark-main-text"
+            >
               {new Date(d.date).toDateString()}
             </time>
           </div>
