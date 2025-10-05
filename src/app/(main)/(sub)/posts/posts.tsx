@@ -8,6 +8,7 @@ import path from "node:path";
 import { NavigationIndicator } from "@/share/components/navigation-indicator";
 import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
 import { Spinner } from "@/share/components/spinner";
+import { formatDate } from "@/share/utils";
 
 type ZennPost = {
   type: "zenn";
@@ -99,10 +100,10 @@ async function getMdPosts(): Promise<
   }
 
   return Ok(
-    validated.output.map((d) => ({
+    validated.output.toSorted((a,b)=>a.date > b.date ? -1 : 1).map((d) => ({
       type: "md",
       ...d,
-    })),
+    }))
   );
 }
 
@@ -135,6 +136,7 @@ export async function Posts() {
                     {d.title}
                   </NavigationIndicator>
                 </Link>
+                <time className="text-xs text-sub-text font-mono" dateTime={d.date.toLocaleDateString()}>{formatDate(d.date)}</time>
               </span>
             </li>
           ))}

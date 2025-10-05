@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { markdownToHtml } from "@/share/lib.server";
 import { Err, Ok, type Result } from "rustlike-ts";
 import { NOT_FOUND, VALIDATION_ERROR } from "@/share/constants";
+import { formatDate } from "@/share/utils";
 
 const Schema = v.object({
   date: v.date(),
@@ -56,7 +57,7 @@ export default async function PostPage(props: {
       <header className="mb-64">
         <p className="font-semibold text-xs w-fit ml-auto">
           <time dateTime={data.date.toLocaleDateString()}>
-            {data.date.toDateString()}
+            {formatDate(data.date)}
           </time>
         </p>
       </header>
