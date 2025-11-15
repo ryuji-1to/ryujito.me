@@ -3,21 +3,25 @@ title: About Me
 date: 2024-03-29
 ---
 
-## About
+## 私について
 
-Ryuji Ito is a software engineer.
+- ソフトウェアエンジニア・デザイナーです
+- ヤフー株式会社（現LINEヤフー株式会社）でフロントエンドエンジニアとしてキャリアをスタートし、Yahoo!メールやYahoo!検索のフロントエンド開発に2年半ほど携わりました
+- 株式会社一休に転職し、一休.com の開発に4ヶ月ほど携わった後、toB事業のRESZAIKOに異動し、仕様検討・デザイン・開発に従事しています
 
-Started my career as a frontend engineer at Yahoo! Japan Corporation (now LY Corporation), working on Yahoo! Mail and Yahoo Search frontend development.
-Later transitioned to Ikyu Corporation, where I work as both an engineer and designer.
+### できること・好きなこと
 
-## Interests
+- **フロントエンド開発**
+  - TypeScript, React が好きです
+- **UIデザイン**
+  - アクセシビリティを意識したUIデザインや配色を考えることが好きです
+  - インクルーシブ・ユニバーサルなデザインを考えることが好きです
+- **アクセシビリティ**
+  - 誰もがwebを使えるようにすることに興味があります
 
-- UI Design
-- Frontend Development
-- Accessibility
+### 得意ではないこと
 
-## Contact
-
-- [X](https://x.com/ryuji_1to)
-- [BlueSky](https://bsky.app/profile/ryuji-ito.bsky.social)
-- [Github](https://github.com/ryuji-1to)
+- **バックエンド**
+  - 必要に応じて対応できるが得意ではない
+- **1人で仕事をすること**
+  - オンラインよりもオフラインの方が好きです
