@@ -100,12 +100,16 @@ async function getMdPosts(): Promise<
   }
 
   return Ok(
-    validated.output.toSorted((a,b)=>a.date > b.date ? -1 : 1).map((d) => ({
-      type: "md",
-      ...d,
-    }))
+    validated.output
+      .toSorted((a, b) => (a.date > b.date ? -1 : 1))
+      .map((d) => ({
+        type: "md",
+        ...d,
+      })),
   );
 }
+
+type Post = MdPost | ZennPost;
 
 export async function Posts() {
   const [mdPosts, zennPosts] = await Promise.all([
@@ -113,55 +117,55 @@ export async function Posts() {
     getZennPosts(),
   ]);
 
+  const allPosts: Post[] = [
+    ...mdPosts.unwrapOr([]),
+    ...zennPosts.unwrapOr([]),
+  ].sort((a, b) => b.date.getTime() - a.date.getTime());
+
   return (
     <div className="space-y-40">
-      <section aria-labelledby="md-posts">
-        <h2 id="md-posts" className="mb-8 font-medium">
+      <section aria-labelledby="all-posts">
+        <h2 id="all-posts" className="mb-8 font-medium">
           Posts
         </h2>
-        <ul className="ml-16 space-y-8">
-          {mdPosts.unwrapOr([]).map((d) => (
-            <li key={d.title}>
+        <ul className="ml-4 space-y-16">
+          {allPosts.map((d) => (
+            <li key={d.type === "md" ? d.slug : d.path}>
               <span className="flex gap-16 w-full items-center justify-between">
-                <Link href={`/posts/${d.slug}`} className="text-sm underline">
-                  <NavigationIndicator
-                    fallback={
-                      <span className="text-sub-text dark:text-dark-sub-text space-x-4">
-                        {d.title}
-                        &nbsp;
-                        <Spinner className="inline-block size-16 ml-4" />
-                      </span>
-                    }
+                {d.type === "md" ? (
+                  <Link href={`/posts/${d.slug}`} className="text-sm underline">
+                    <NavigationIndicator
+                      fallback={
+                        <span className="text-sub-text dark:text-dark-sub-text space-x-4">
+                          {d.title}
+                          &nbsp;
+                          <Spinner className="inline-block size-16 ml-4" />
+                        </span>
+                      }
+                    >
+                      {d.title}
+                    </NavigationIndicator>
+                  </Link>
+                ) : (
+                  <a
+                    href={`https://zenn.dev/${d.path}`}
+                    className="text-sm underline"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     {d.title}
-                  </NavigationIndicator>
-                </Link>
-                <time className="text-xs text-sub-text font-mono" dateTime={d.date.toLocaleDateString()}>{formatDate(d.date)}</time>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section aria-labelledby="zenn-posts">
-        <h2 id="zenn-posts" className="mb-8 font-medium">
-          Zenn
-        </h2>
-        <ul className="ml-16 space-y-8">
-          {zennPosts.unwrapOr([]).map((d) => (
-            <li key={d.title}>
-              <span className="flex gap-16 w-full items-center justify-between">
-                <a
-                  href={`https://zenn.dev/${d.path}`}
-                  className="text-sm underline"
-                  target="_blank"
-                  rel="noreferrer"
+                    <ExternalLinkIcon
+                      className="size-16 inline-block ml-4 dark:fill-dark-gray-12"
+                      aria-label="(別タブで開きます)"
+                    />
+                  </a>
+                )}
+                <time
+                  className="text-xs text-sub-text font-mono"
+                  dateTime={d.date.toLocaleDateString()}
                 >
-                  {d.title}
-                  <ExternalLinkIcon
-                    className="size-16 inline-block ml-4 dark:fill-dark-gray-12"
-                    aria-label="(別タブで開きます)"
-                  />
-                </a>
+                  {formatDate(d.date)}
+                </time>
               </span>
             </li>
           ))}
