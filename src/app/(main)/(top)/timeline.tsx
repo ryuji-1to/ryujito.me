@@ -2,6 +2,11 @@ import { cn } from "@/share/lib";
 import { Fragment } from "react";
 
 export function TimeLine() {
+  const formatter = new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
   return (
     <div>
       {data.map((d, i) => (
@@ -12,7 +17,7 @@ export function TimeLine() {
               dateTime={d.date}
               className="text-xs text-main-text dark:text-dark-main-text"
             >
-              {new Date(d.date).toDateString()}
+              {formatter.format(new Date(d.date))}
             </time>
           </div>
           <div className="flex gap-24 pl-[4px]">
