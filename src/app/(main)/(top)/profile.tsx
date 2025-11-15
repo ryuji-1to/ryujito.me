@@ -4,12 +4,7 @@ import Link from "next/link";
 export function Profile() {
   return (
     <header>
-      <Link
-        href="/about"
-        title="about"
-        aria-label="トップページに戻る"
-        className="block w-fit"
-      >
+      <Link href="/about" title="about" className="block w-fit">
         <picture>
           <source srcSet="/icon.webp" type="image/webp" />
           <img
@@ -36,11 +31,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-sub-text dark:text-dark-sub-text">
-                      About
+                      自己紹介
                     </span>
                   }
                 >
-                  About
+                  自己紹介
                 </NavigationIndicator>
               </Link>
             </li>
@@ -50,11 +45,11 @@ export function Profile() {
                 <NavigationIndicator
                   fallback={
                     <span className="text-sub-text dark:text-dark-sub-text">
-                      Posts
+                      ブログ
                     </span>
                   }
                 >
-                  Posts
+                  ブログ
                 </NavigationIndicator>
               </Link>
             </li>

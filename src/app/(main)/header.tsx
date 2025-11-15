@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 backdrop-blur-xs">
-      <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4">
+      <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4 items-center">
         <Link href="/" aria-label="トップページに戻る">
           <h1>
             <picture>
@@ -32,7 +32,7 @@ export function Header() {
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
         <Link
           href={`/${path}`}
-          className="text-main-text dark:text-dark-main-text"
+          className="text-main-text dark:text-dark-main-text text-sm"
           aria-current="page"
         >
           {path}
@@ -47,10 +47,10 @@ function getPath(pathname: string) {
   const pathWithoutLocale = pathname.replace(/^\/(en|ja)(?=\/|$)/, "");
 
   if (pathWithoutLocale.startsWith("/posts")) {
-    return "posts";
+    return "ブログ";
   }
   if (pathWithoutLocale.startsWith("/about")) {
-    return "about";
+    return "自己紹介";
   }
   return "";
 }
