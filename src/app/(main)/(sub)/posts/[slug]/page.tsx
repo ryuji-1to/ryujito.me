@@ -16,7 +16,7 @@ const Schema = v.object({
 
 type Slug = v.InferOutput<typeof Schema>;
 
-async function getPostBySlug(
+export async function getPostBySlug(
   slug: string,
 ): Promise<Result<Slug, typeof VALIDATION_ERROR | typeof NOT_FOUND>> {
   const filename = `./public/${slug}/index.md`;
@@ -86,17 +86,17 @@ export async function generateMetadata(props: {
   return {
     title: `${data.title} | Ryuji Ito`,
     description: data.description || "",
-    openGraph:{
+    openGraph: {
       images: [
         {
           url: `/api/og?title=${encodeURIComponent(data.title)}`,
           width: 1200,
           height: 630,
-        }
+        },
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: data.title,
       images: [`/api/og?title=${encodeURIComponent(data.title)}`],
     },
