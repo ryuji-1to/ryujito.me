@@ -86,19 +86,5 @@ export async function generateMetadata(props: {
   return {
     title: `${data.title} | Ryuji Ito`,
     description: data.description || "",
-    openGraph: {
-      images: [
-        {
-          url: `/api/og?title=${encodeURIComponent(data.title)}`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: data.title,
-      images: [`/api/og?title=${encodeURIComponent(data.title)}`],
-    },
   };
 }
