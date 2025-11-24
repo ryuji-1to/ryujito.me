@@ -16,7 +16,7 @@ const Schema = v.object({
 
 type Slug = v.InferOutput<typeof Schema>;
 
-export async function getPostBySlug(
+async function getPostBySlug(
   slug: string,
 ): Promise<Result<Slug, typeof VALIDATION_ERROR | typeof NOT_FOUND>> {
   const filename = `./public/${slug}/index.md`;
