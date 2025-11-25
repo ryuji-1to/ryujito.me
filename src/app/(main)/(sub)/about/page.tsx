@@ -3,7 +3,7 @@ import { getFormattedMarkdown } from "@/share/lib.server";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | Ryuji Ito",
+  title: "自己紹介 | Ryuji Ito",
 };
 
 export default async function AboutPage() {
