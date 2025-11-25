@@ -126,7 +126,7 @@ export async function Posts() {
     <div className="space-y-40">
       <section aria-labelledby="all-posts">
         <h2 id="all-posts" className="mb-8 font-medium">
-          Posts
+          記事一覧
         </h2>
         <ul className="ml-4 space-y-16">
           {allPosts.map((d) => (
