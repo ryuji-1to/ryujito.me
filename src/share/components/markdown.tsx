@@ -1,3 +1,17 @@
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
 type Props = {
   children: NonNullable<
     React.ComponentProps<"div">["dangerouslySetInnerHTML"]
@@ -59,6 +73,29 @@ function replaceBrowser(htmlText: string) {
   return htmlText.replaceAll(browserStart, start).replaceAll(browserEnd, end);
 }
 
+function replaceHtmlContent(htmlText: string) {
+  const browserStart = "<p>--html:start--</p>";
+  const browserEnd = "<p>--html:end--</p>";
+
+  const startIndex = htmlText.indexOf(browserStart);
+  const endIndex = htmlText.indexOf(browserEnd);
+
+  if (startIndex === -1 || endIndex === -1) {
+    return "";
+  }
+
+  if (startIndex >= endIndex) {
+    return "";
+  }
+
+  const regex = new RegExp(
+    `${escapeRegExp(browserStart)}(.*?)${escapeRegExp(browserEnd)}`,
+    "gs",
+  );
+
+  return htmlText.replace(regex, (_, content) => decodeHtmlEntities(content));
+}
+
 function replaceHtml(
   htmlText: string,
   methods: ((htmlText: string) => string)[],
@@ -76,11 +113,13 @@ export function Markdown(props: Props) {
     replaceSmall,
     replaceMark,
     replaceBrowser,
+    replaceHtmlContent,
   ]);
+
   return (
     <div
-      className="prose prose-md dark:prose-invert prose-h1:text-balance"
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+      className="prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:border-b prose-h2:pb-16 prose-h2:border-b-gray-6 prose-p:empty:hidden"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: true
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
