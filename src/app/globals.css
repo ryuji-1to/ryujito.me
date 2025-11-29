@@ -121,22 +121,38 @@
 
 .prose p > code {
   @apply text-xs;
-  background-color: lightgray;
+  background-color: theme("colors.gray.4");
   padding: 2px 4px;
   border-radius: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .prose p > code {
-    background-color: #98a1ad33;
-  }
-}
 
 .prose p > code::after {
   content: none;
 }
 
 .prose p > code::before {
+  content: none;
+}
+
+.prose li {
+  position: relative;
+  padding-left: .65lh;
+}
+
+.prose li::before{
+  position: absolute;
+  top: 0.4lh;
+  content: "";
+  left: 0.1lh;
+  display: inline-flex;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid theme("colors.gray.10") 
+}
+
+.prose li::marker {
   content: none;
 }
 
@@ -160,4 +176,14 @@ p {
     0 0 0 2px theme("colors.white"),
     0 0 0 4px theme("colors.gray.12");
   border-radius: theme("radius.2");
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose p > code {
+    background-color: theme('colors.dark.gray.4');
+  }
+
+ .prose li::before{
+  border-color: theme("colors.dark.gray.10");
+ }
 }
