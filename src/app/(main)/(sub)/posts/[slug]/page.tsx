@@ -1,12 +1,13 @@
-import { readFile, readdir } from "node:fs/promises";
-import { Markdown } from "@/share/components/markdown";
+import { readdir, readFile } from "node:fs/promises";
 import matter from "gray-matter";
-import * as v from "valibot";
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { markdownToHtml } from "@/share/lib.server";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Err, Ok, type Result } from "rustlike-ts";
+import * as v from "valibot";
+import { Markdown } from "@/share/components/markdown";
 import { NOT_FOUND, VALIDATION_ERROR } from "@/share/constants";
+import { markdownToHtml } from "@/share/lib.server";
 import { formatDate } from "@/share/utils";
 
 const Schema = v.object({
@@ -54,7 +55,15 @@ export default async function PostPage(props: {
 
   return (
     <article>
-      <header className="mb-64">
+      <header className="mb-64 flex items-center">
+        <p>
+          <Link
+            href="/posts"
+            className="text-xs text-sub-text dark:text-dark-sub-text"
+          >
+            ← 記事一覧に戻る
+          </Link>
+        </p>
         <p className="font-semibold text-xs w-fit ml-auto">
           <time dateTime={data.date.toLocaleDateString()}>
             {formatDate(data.date)}
