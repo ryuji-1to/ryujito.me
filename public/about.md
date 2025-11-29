@@ -1,5 +1,5 @@
 ---
-title: About Me
+title: 自己紹介
 date: 2024-03-29
 ---
 
