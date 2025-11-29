@@ -1,13 +1,13 @@
-import * as v from "valibot";
-import { Ok, Err, type Result } from "rustlike-ts";
-import { readFile, readdir } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
+import path from "node:path";
 import matter from "gray-matter";
 import Link from "next/link";
+import { Err, Ok, type Result } from "rustlike-ts";
+import * as v from "valibot";
 import ExternalLinkIcon from "@/assets/external-link.svg";
-import path from "node:path";
 import { NavigationIndicator } from "@/share/components/navigation-indicator";
-import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
 import { Spinner } from "@/share/components/spinner";
+import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
 import { formatDate } from "@/share/utils";
 
 type ZennPost = {
@@ -77,7 +77,7 @@ async function getMdPosts(): Promise<
   const data = posts.map((slug, i) => {
     const content = contents[i];
     if (!content) {
-      return;
+      return null;
     }
 
     const { data } = matter(content);
@@ -95,6 +95,7 @@ async function getMdPosts(): Promise<
     ),
     data,
   );
+
   if (!validated.success) {
     return Err(VALIDATION_ERROR);
   }

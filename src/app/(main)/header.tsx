@@ -7,7 +7,7 @@ export function Header() {
   const pathname = usePathname();
   const path = getPath(pathname);
 
-  if (path === "") {
+  if (path === null) {
     return null;
   }
 
@@ -31,26 +31,27 @@ export function Header() {
         </Link>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
         <Link
-          href={`/${path}`}
+          href={`/${path.path}`}
           className="text-main-text dark:text-dark-main-text text-sm"
           aria-current="page"
         >
-          {path}
+          {path.label}
         </Link>
       </div>
     </header>
   );
 }
 
+// TODO
 function getPath(pathname: string) {
   // 先頭に /en や /ja などの2文字の言語コードがあれば除去
   const pathWithoutLocale = pathname.replace(/^\/(en|ja)(?=\/|$)/, "");
 
   if (pathWithoutLocale.startsWith("/posts")) {
-    return "ブログ";
+    return { path: "/posts", label: "ブログ" };
   }
   if (pathWithoutLocale.startsWith("/about")) {
-    return "自己紹介";
+    return { path: "/about", label: "自己紹介" };
   }
-  return "";
+  return null;
 }
