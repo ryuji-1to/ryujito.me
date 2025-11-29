@@ -48,7 +48,7 @@ export default async function PostPage(props: {
 
   if (result.isErr()) {
     const error = result.expectErr("should error");
-    return handleError(error);
+    handleError(error);
   }
 
   const data = result.unwrap();
