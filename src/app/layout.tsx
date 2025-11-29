@@ -3,9 +3,6 @@ import "./globals.css";
 import { RouteChangeFocus } from "./route-change-focus";
 
 type Props = {
-  params: Promise<{
-    lang: string;
-  }>;
   children: React.ReactNode;
 };
 
