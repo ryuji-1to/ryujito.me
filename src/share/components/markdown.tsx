@@ -80,12 +80,8 @@ function replaceHtmlContent(htmlText: string) {
   const startIndex = htmlText.indexOf(browserStart);
   const endIndex = htmlText.indexOf(browserEnd);
 
-  if (startIndex === -1 || endIndex === -1) {
-    return "";
-  }
-
-  if (startIndex >= endIndex) {
-    return "";
+  if (startIndex === -1 || endIndex === -1 || startIndex >= endIndex) {
+    return htmlText;
   }
 
   const regex = new RegExp(
