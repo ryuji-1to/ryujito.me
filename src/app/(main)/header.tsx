@@ -12,7 +12,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 backdrop-blur-xs">
+    <header className="sticky top-0 backdrop-blur-xs z-[calc(1/0)]">
       <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4 items-center">
         <Link href="/" aria-label="トップページに戻る">
           <h1>
