@@ -11,7 +11,9 @@ export async function generateHomeImage() {
   return generateImage(
     <div
       style={{
+        padding: 40,
         display: "flex",
+        flexDirection: "column",
         width: "100%",
         height: "100%",
         backgroundColor: "rgb(40, 44, 53)",
@@ -21,25 +23,34 @@ export async function generateHomeImage() {
       <div
         style={{
           display: "flex",
-          fontSize: 150,
+          fontSize: 40,
           width: "100%",
-          height: "100%",
-          flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
-          gap: 80,
+          paddingBottom: 20,
         }}
       >
         <img
           alt="Ryuji Ito"
           src="https://github.com/ryuji-1to.png"
           style={{
-            height: 120,
-            width: 120,
+            height: 80,
+            width: 80,
             borderRadius: "50%",
             marginLeft: 20,
           }}
         />
+      </div>
+      <div
+        style={{
+          fontSize: 90,
+          display: "flex",
+          alignItems: "center",
+          flex: 1,
+          paddingBottom: 30,
+        }}
+      >
+        Ryuji Ito
       </div>
     </div>,
   );
