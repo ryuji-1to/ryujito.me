@@ -42,9 +42,7 @@ export function Header() {
   );
 }
 
-// TODO
 function getPath(pathname: string) {
-  // 先頭に /en や /ja などの2文字の言語コードがあれば除去
   const pathWithoutLocale = pathname.replace(/^\/(en|ja)(?=\/|$)/, "");
 
   if (pathWithoutLocale.startsWith("/posts")) {
