@@ -31,7 +31,7 @@ export function Header() {
         </Link>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
         <Link
-          href={`/${path.path}`}
+          href={path.path}
           className="text-main-text dark:text-dark-main-text text-sm"
           aria-current="page"
         >
