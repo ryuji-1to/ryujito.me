@@ -16,8 +16,8 @@ export async function generateHomeImage() {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: "rgb(40, 44, 53)",
-        color: "white",
+        backgroundColor: "var(--color-gray-light-2)",
+        color: "var(--color-gray-light-12)",
       }}
     >
       <div
@@ -65,8 +65,8 @@ export async function generatePostImage({ title }: { title: string }) {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: "rgb(40, 44, 53)",
-        color: "white",
+        backgroundColor: "var(--color-gray-dark-2)",
+        color: "var(--color-gray-light-12)",
       }}
     >
       <div
