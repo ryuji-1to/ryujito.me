@@ -5,8 +5,6 @@ tag: "Design"
 published: true
 ---
 
-## スタイリングソリューション備忘録
-
 ### コンポーネントライブラリ
 
 - [Mantine](https://mantine.dev)（素の CSS ベース）

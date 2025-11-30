@@ -11,6 +11,7 @@ import { markdownToHtml } from "@/share/lib.server";
 import { formatDate } from "@/share/utils";
 
 const Schema = v.object({
+  title: v.string(),
   date: v.date(),
   html: v.string(),
 });
@@ -55,20 +56,23 @@ export default async function PostPage(props: {
 
   return (
     <article>
-      <header className="mb-64 flex items-center">
-        <p>
+      <header className="mb-40 pb-8 space-y-40 border-b border-b-gray-4 dark:border-b-dark-gray-4">
+        {/* <p>
           <Link
             href="/posts"
             className="text-xs text-sub-text dark:text-dark-sub-text"
           >
             ← 記事一覧に戻る
           </Link>
-        </p>
-        <p className="font-semibold text-xs w-fit ml-auto">
-          <time dateTime={data.date.toLocaleDateString()}>
-            {formatDate(data.date)}
-          </time>
-        </p>
+        </p> */}
+        <div className="space-y-16">
+          <h1 className="text-xl text-center text-balance">{data.title}</h1>
+          <p className="text-xs w-fit ml-auto">
+            <time dateTime={data.date.toLocaleDateString()}>
+              {formatDate(data.date)}
+            </time>
+          </p>
+        </div>
       </header>
       <Markdown>{data.html}</Markdown>
     </article>
