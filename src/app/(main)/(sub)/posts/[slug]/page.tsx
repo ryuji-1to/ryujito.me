@@ -56,7 +56,7 @@ export default async function PostPage(props: {
 
   return (
     <article>
-      <header className="mb-40 pb-8 space-y-40 border-b border-b-gray-4 dark:border-b-dark-gray-4">
+      <header className="my-40 pb-8 space-y-40 border-b border-b-gray-4 dark:border-b-dark-gray-4">
         {/* <p>
           <Link
             href="/posts"
