@@ -67,7 +67,7 @@ export default async function PostPage(props: {
         </p> */}
         <div className="space-y-16">
           <h1 className="text-xl text-center text-balance">{data.title}</h1>
-          <p className="text-xs w-fit ml-auto">
+          <p className="text-xs w-fit ml-auto text-sub-text dark:text-dark-sub-text">
             <time dateTime={data.date.toLocaleDateString()}>
               {formatDate(data.date)}
             </time>
