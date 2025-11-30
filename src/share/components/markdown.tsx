@@ -114,7 +114,7 @@ export function Markdown(props: Props) {
 
   return (
     <div
-      className="prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:border-b prose-h2:pb-16 prose-h2:border-b-gray-6 prose-p:empty:hidden"
+      className="prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:pb-16 prose-p:empty:hidden"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: true
       dangerouslySetInnerHTML={{ __html: html }}
     />

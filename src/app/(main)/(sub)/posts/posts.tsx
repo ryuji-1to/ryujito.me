@@ -138,22 +138,19 @@ export async function Posts() {
               <span className="flex gap-16 w-full items-center justify-between">
                 {d.type === "md" ? (
                   // d.published && (
-                    <Link
-                      href={`/posts/${d.slug}`}
-                      className="text-sm underline"
+                  <Link href={`/posts/${d.slug}`} className="text-sm underline">
+                    <NavigationIndicator
+                      fallback={
+                        <span className="text-sub-text dark:text-dark-sub-text space-x-4">
+                          {d.title}
+                          &nbsp;
+                          <Spinner className="inline-block size-16 ml-4" />
+                        </span>
+                      }
                     >
-                      <NavigationIndicator
-                        fallback={
-                          <span className="text-sub-text dark:text-dark-sub-text space-x-4">
-                            {d.title}
-                            &nbsp;
-                            <Spinner className="inline-block size-16 ml-4" />
-                          </span>
-                        }
-                      >
-                        {d.title}
-                      </NavigationIndicator>
-                    </Link>
+                      {d.title}
+                    </NavigationIndicator>
+                  </Link>
                   // )
                 ) : (
                   <a
