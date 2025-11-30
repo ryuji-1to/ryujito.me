@@ -16,8 +16,8 @@ export async function generateHomeImage() {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: "oklch(0.982 0 0)",
-        color: "oklch(0.239 0 0)",
+        backgroundColor: "whitesmoke",
+        color: "black",
       }}
     >
       <div
@@ -65,8 +65,8 @@ export async function generatePostImage({ title }: { title: string }) {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: "oklch(0.982 0 0)",
-        color: "oklch(0.239 0 0)",
+        backgroundColor: "whitesmoke",
+        color: "black",
       }}
     >
       <div
