@@ -135,6 +135,11 @@
   content: none;
 }
 
+.prose ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 .prose li {
   position: relative;
   padding-left: .65lh;

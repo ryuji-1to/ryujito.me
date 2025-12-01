@@ -1,7 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import matter from "gray-matter";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Err, Ok, type Result } from "rustlike-ts";
 import * as v from "valibot";
@@ -65,7 +64,7 @@ export default async function PostPage(props: {
             ← 記事一覧に戻る
           </Link>
         </p> */}
-        <div className="space-y-16">
+        <div className="space-y-24">
           <h1 className="text-xl text-center text-balance">{data.title}</h1>
           <p className="text-xs w-fit ml-auto text-sub-text dark:text-dark-sub-text">
             <time dateTime={data.date.toLocaleDateString()}>
