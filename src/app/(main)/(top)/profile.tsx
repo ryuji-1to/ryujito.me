@@ -19,10 +19,7 @@ export function Profile() {
       </Link>
       <div className="mt-16">
         <p>
-          フロントエンドのエンジニアとデザイナーをしています&nbsp;
-          <span role="img" aria-hidden>
-            🎨🧑‍💻
-          </span>
+          フロントエンドのエンジニアとデザイナーをしています
         </p>
         <nav>
           <ul className="flex gap-4 text-sm">
