@@ -33,6 +33,8 @@ export async function generateHomeImage() {
         <img
           alt="Ryuji Ito"
           src="https://github.com/ryuji-1to.png"
+          width={80}
+          height={80}
           style={{
             height: 80,
             width: 80,
@@ -82,6 +84,8 @@ export async function generatePostImage({ title }: { title: string }) {
         <img
           alt="Ryuji Ito"
           src="https://github.com/ryuji-1to.png"
+          width={80}
+          height={80}
           style={{
             height: 80,
             width: 80,
