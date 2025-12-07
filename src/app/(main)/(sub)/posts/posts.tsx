@@ -126,10 +126,12 @@ export async function Posts() {
     ...zennPosts.unwrapOr([]),
   ].sort((a, b) => b.date.getTime() - a.date.getTime());
 
+  const labelId = "all-posts";
+
   return (
     <div className="space-y-40">
-      <section aria-labelledby="all-posts">
-        <h2 id="all-posts" className="mb-16 font-medium">
+      <section aria-labelledby={labelId}>
+        <h2 id={labelId} className="mb-16 font-medium">
           記事一覧
         </h2>
         <ul className="ml-4 space-y-16">
@@ -138,7 +140,10 @@ export async function Posts() {
               <span className="flex gap-16 w-full items-center justify-between">
                 {d.type === "md" ? (
                   // d.published && (
-                  <Link href={`/posts/${d.slug}`} className="text-sm hover:underline">
+                  <Link
+                    href={`/posts/${d.slug}`}
+                    className="text-sm hover:underline"
+                  >
                     <NavigationIndicator
                       fallback={
                         <span className="text-sub-text dark:text-dark-sub-text space-x-4">
