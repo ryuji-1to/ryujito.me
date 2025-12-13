@@ -1,5 +1,5 @@
-import { cn } from "@/share/lib";
 import { Fragment } from "react";
+import { cn } from "@/share/lib";
 
 export function TimeLine() {
   const formatter = new Intl.DateTimeFormat("ja-JP", {
@@ -20,7 +20,7 @@ export function TimeLine() {
               {formatter.format(new Date(d.date))}
             </time>
           </div>
-          <div className="flex gap-24 pl-[4px]">
+          <div className="flex gap-24 pl-4">
             <div
               className={cn(
                 i !== data.length - 1 && "bg-gray-6 dark:bg-dark-gray-6",
