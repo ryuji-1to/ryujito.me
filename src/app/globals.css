@@ -115,10 +115,6 @@
   --radius-full: var(--border-radius-full);
 }
 
-@utility text-heading-xl {
-  font-size: var(--font-size-10);
-}
-
 .prose p > code {
   @apply text-xs;
   background-color: theme("colors.gray.4");
@@ -165,22 +161,20 @@
   display: none;
 }
 
-@media print {
-  .print-only {
-    display: block;
-  }
-}
-
 p {
   max-width: 80ch;
 }
 
 *:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 2px theme("colors.white"),
-    0 0 0 4px theme("colors.gray.12");
+  outline: 3px dotted theme("colors.gray.12");
+  outline-offset: 2px;
   border-radius: theme("radius.2");
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

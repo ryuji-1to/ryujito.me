@@ -1,5 +1,5 @@
-import { NavigationIndicator } from "@/share/components/navigation-indicator";
 import Link from "next/link";
+import { NavigationIndicator } from "@/share/components/navigation-indicator";
 
 export function Profile() {
   return (
@@ -18,9 +18,7 @@ export function Profile() {
         </picture>
       </Link>
       <div className="mt-16">
-        <p>
-          フロントエンドのエンジニアとデザイナーをしています
-        </p>
+        <p>フロントエンドエンジニアとデザイナーをしています</p>
         <nav>
           <ul className="flex gap-4 text-sm">
             <li>
