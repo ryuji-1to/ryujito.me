@@ -166,10 +166,8 @@ p {
 }
 
 *:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 2px theme("colors.white"),
-    0 0 0 4px theme("colors.gray.12");
+  outline: 3px dotted theme("colors.gray.12");
+  outline-offset: 2px;
   border-radius: theme("radius.2");
 }
 

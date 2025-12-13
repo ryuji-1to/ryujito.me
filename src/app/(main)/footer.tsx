@@ -8,12 +8,12 @@ export function Footer() {
       <div className="mx-auto w-fit">
         <ul className="w-fit flex gap-x-8">
           <li>
-            <a href="https://x.com/ryuji_1to">
+            <a href="https://x.com/ryuji_1to" className="flex">
               <RiTwitterXFill size={24} title="Follow me on X" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/ryuji-1to">
+            <a href="https://github.com/ryuji-1to" className="flex">
               <RiGithubLine size={24} title="Follow me on GitHub" />
             </a>
           </li>
