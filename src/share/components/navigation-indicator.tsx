@@ -12,7 +12,7 @@ export function NavigationIndicator(props: Props) {
   return (
     <>
       <span className="sr-only" aria-live="polite">
-        {pending ? "ローディング中" : null}
+        {pending ? "読み込み中" : null}
       </span>
       {pending ? props.fallback : props.children}
     </>

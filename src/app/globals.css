@@ -115,10 +115,6 @@
   --radius-full: var(--border-radius-full);
 }
 
-@utility text-heading-xl {
-  font-size: var(--font-size-10);
-}
-
 .prose p > code {
   @apply text-xs;
   background-color: theme("colors.gray.4");
@@ -165,12 +161,6 @@
   display: none;
 }
 
-@media print {
-  .print-only {
-    display: block;
-  }
-}
-
 p {
   max-width: 80ch;
 }
@@ -181,6 +171,12 @@ p {
     0 0 0 2px theme("colors.white"),
     0 0 0 4px theme("colors.gray.12");
   border-radius: theme("radius.2");
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
