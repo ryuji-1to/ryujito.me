@@ -13,10 +13,8 @@ published: true
 
 - **Next.js**
 - **Tailwind CSS**
-- **Biome**
-- **Valibot**
 - **Shiki**
-- **remark**
+- **Valibot**
 
 --browser:end--
 
