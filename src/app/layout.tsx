@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "Ryuji Ito",
 };
 
+const BODY_ID = "body";
+
 export default function RootLayout(props: Props) {
   return (
     <RouteChangeFocus>
@@ -23,7 +25,7 @@ export default function RootLayout(props: Props) {
           <link href="/favicon.png" rel="icon" />
           <link rel="canonical" href="https://ryujito.me" />
         </head>
-        <body id="body" tabIndex={-1}>
+        <body id={BODY_ID} tabIndex={-1}>
           {props.children}
         </body>
       </html>
