@@ -7,6 +7,7 @@ export function TimeLine() {
     month: "long",
     day: "numeric",
   });
+
   return (
     <div>
       {data.map((d, i) => (
@@ -24,7 +25,7 @@ export function TimeLine() {
             <div
               className={cn(
                 i !== data.length - 1 && "bg-gray-6 dark:bg-dark-gray-6",
-                "w-[2px]",
+                "w-2",
               )}
             />
             <div className="py-24 w-full">
