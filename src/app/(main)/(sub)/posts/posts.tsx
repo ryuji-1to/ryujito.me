@@ -61,7 +61,7 @@ type MdPost = {
   slug: string;
   title: string;
   date: Date;
-  // published: boolean;
+  published: boolean;
 };
 
 async function getMdPosts(): Promise<
@@ -92,7 +92,7 @@ async function getMdPosts(): Promise<
         slug: v.string(),
         title: v.string(),
         date: v.date(),
-        // published: v.boolean(),
+        published: v.boolean(),
       }),
     ),
     data,
@@ -105,7 +105,7 @@ async function getMdPosts(): Promise<
   return Ok(
     validated.output
       .toSorted((a, b) => (a.date > b.date ? -1 : 1))
-      // .filter((d) => d.published)
+      .filter((d) => d.published)
       .map((d) => ({
         type: "md",
         ...d,
@@ -139,28 +139,28 @@ export async function Posts() {
             <li key={d.type === "md" ? d.slug : d.path}>
               <span className="flex gap-16 w-full items-center justify-between">
                 {d.type === "md" ? (
-                  // d.published && (
-                  <Link
-                    href={`/posts/${d.slug}`}
-                    className="text-sm hover:underline"
-                  >
-                    <NavigationIndicator
-                      fallback={
-                        <span className="text-sub-text dark:text-dark-sub-text space-x-4">
-                          {d.title}
-                          &nbsp;
-                          <Spinner className="inline-block size-16 ml-4" />
-                        </span>
-                      }
+                  d.published && (
+                    <Link
+                      href={`/posts/${d.slug}`}
+                      className="text-sm hover:underline"
                     >
-                      {d.title}
-                    </NavigationIndicator>
-                  </Link>
-                  // )
+                      <NavigationIndicator
+                        fallback={
+                          <span className="text-sub-text dark:text-dark-sub-text space-x-4">
+                            {d.title}
+                            &nbsp;
+                            <Spinner className="inline-block size-16 ml-4" />
+                          </span>
+                        }
+                      >
+                        {d.title}
+                      </NavigationIndicator>
+                    </Link>
+                  )
                 ) : (
                   <a
                     href={`https://zenn.dev/${d.path}`}
-                    className="text-sm hover:underline"
+                    className="flex items-center text-sm hover:underline"
                     target="_blank"
                     rel="noreferrer"
                   >
