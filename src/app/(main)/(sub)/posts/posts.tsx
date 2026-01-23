@@ -61,7 +61,7 @@ type MdPost = {
   slug: string;
   title: string;
   date: Date;
-  // published: boolean;
+  published: boolean;
 };
 
 async function getMdPosts(): Promise<
