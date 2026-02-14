@@ -2,7 +2,6 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 @custom-variant dark (@media (prefers-color-scheme: dark));
-@import "./variables.css";
 
 @theme {
   /* --*: initial; */
@@ -11,42 +10,42 @@
   --color-black: #000;
 
   /* For light theme */
-  --color-gray-1: var(--color-gray-light-1); /* #fcfcfc */
-  --color-gray-2: var(--color-gray-light-2); /* #f9f9f9 */
-  --color-gray-3: var(--color-gray-light-3); /* #f0f0f0 */
-  --color-gray-4: var(--color-gray-light-4); /* #e8e8e8 */
-  --color-gray-5: var(--color-gray-light-5); /* #e1e1e1 */
-  --color-gray-6: var(--color-gray-light-6); /* #d9d9d9 */
-  --color-gray-7: var(--color-gray-light-7); /* #cecece */
-  --color-gray-8: var(--color-gray-light-8); /* #bbbbbb */
-  --color-gray-9: var(--color-gray-light-9); /* #8c8c8c */
-  --color-gray-10: var(--color-gray-light-10); /* #818181 */
-  --color-gray-11: var(--color-gray-light-11); /* #636363 */
-  --color-gray-12: var(--color-gray-light-12); /* #1f1f1f */
+  --color-gray-1: oklch(0.991 0 0); /* #fcfcfc */
+  --color-gray-2: oklch(0.982 0 0); /* #f9f9f9 */
+  --color-gray-3: oklch(0.955 0 0); /* #f0f0f0 */
+  --color-gray-4: oklch(0.931 0 0); /* #e8e8e8 */
+  --color-gray-5: oklch(0.91 0 0); /* #e1e1e1 */
+  --color-gray-6: oklch(0.885 0 0); /* #d9d9d9 */
+  --color-gray-7: oklch(0.851 0 0); /* #cecece */
+  --color-gray-8: oklch(0.792 0 0); /* #bbbbbb */
+  --color-gray-9: oklch(0.64 0 0); /* #8c8c8c */
+  --color-gray-10: oklch(0.603 0 0); /* #818181 */
+  --color-gray-11: oklch(0.5 0 0); /* #636363 */
+  --color-gray-12: oklch(0.239 0 0); /* #1f1f1f */
 
-  --color-main-bg: var(--color-gray-light-1);
-  --color-sub-bg: var(--color-gray-light-2);
-  --color-main-text: var(--color-gray-light-12);
-  --color-sub-text: var(--color-gray-light-11);
+  --color-main-bg: oklch(0.991 0 0);
+  --color-sub-bg: oklch(0.982 0 0);
+  --color-main-text: oklch(0.239 0 0);
+  --color-sub-text: oklch(0.5 0 0);
 
   /* For dark theme */
-  --color-dark-gray-1: var(--color-gray-dark-1); /* #111111 */
-  --color-dark-gray-2: var(--color-gray-dark-2); /* #191919 */
-  --color-dark-gray-3: var(--color-gray-dark-3); /* #222222 */
-  --color-dark-gray-4: var(--color-gray-dark-4); /* #292929 */
-  --color-dark-gray-5: var(--color-gray-dark-5); /* #313131 */
-  --color-dark-gray-6: var(--color-gray-dark-6); /* #3a3a3a */
-  --color-dark-gray-7: var(--color--gray-dark-7); /* #484848 */
-  --color-dark-gray-8: var(--color-gray-dark-8); /* #606060 */
-  --color-dark-gray-9: var(--color-gray-dark-9); /* #6d6d6d */
-  --color-dark-gray-10: var(--color-gray-dark-10); /* #7a7a7a */
-  --color-dark-gray-11: var(--color-gray-dark-11); /* #b3b3b3 */
-  --color-dark-gray-12: var(--color-gray-dark-12); /* #eeeeee */
+  --color-dark-gray-1: oklch(0.178 0 0); /* #111111 */
+  --color-dark-gray-2: oklch(0.213 0 0); /* #191919 */
+  --color-dark-gray-3: oklch(0.252 0 0); /* #222222 */
+  --color-dark-gray-4: oklch(0.281 0 0); /* #292929 */
+  --color-dark-gray-5: oklch(0.313 0 0); /* #313131 */
+  --color-dark-gray-6: oklch(0.348 0 0); /* #3a3a3a */
+  --color-dark-gray-7: oklch(0.402 0 0); /* #484848 */
+  --color-dark-gray-8: oklch(0.489 0 0); /* #606060 */
+  --color-dark-gray-9: oklch(0.535 0 0); /* #6d6d6d */
+  --color-dark-gray-10: oklch(0.58 0 0); /* #7a7a7a */
+  --color-dark-gray-11: oklch(0.767 0 0); /* #b3b3b3 */
+  --color-dark-gray-12: oklch(0.949 0 0); /* #eeeeee */
 
-  --color-dark-main-bg: var(--color-gray-dark-1);
-  --color-dark-sub-bg: var(--color-gray-dark-2);
-  --color-dark-main-text: var(--color-gray-dark-12);
-  --color-dark-sub-text: var(--color-gray-dark-11);
+  --color-dark-main-bg: oklch(0.178 0 0);
+  --color-dark-sub-bg: oklch(0.213 0 0);
+  --color-dark-main-text: oklch(0.949 0 0);
+  --color-dark-sub-text: oklch(0.767 0 0);
 
   /* For Accent Color */
   --color-red: oklch(66% 0.2267 26.03); /* #ff4040 */
@@ -58,61 +57,63 @@
 
   /* Font Size */
   --text-*: initial;
-  --text-xxs: var(--font-size-1); /* ≒10.67px | ≒0.6667rem */
-  --text-xs: var(--font-size-2); /* 12.80px | 0.8rem */
-  --text-sm: var(--font-size-3); /* ≒14.22px | ≒0.8889rem */
-  --text-base: var(--font-size-4); /* 16.00px | 1rem */
-  --text-md: var(--font-size-5); /* ≒18.29px | ≒1.143rem */
-  --text-lg: var(--font-size-6); /* ≒21.33px | ≒1.333rem */
-  --text-xl: var(--font-size-7); /* 25.60px | 1.6rem */
-  --text-2xl: var(--font-size-8); /* 32.00px | 2rem */
-  --text-3xl: var(--font-size-9); /* ≒42.67px | ≒2.667rem */
-  --text-4xl: var(--font-size10); /* 64.00px | 4rem */
+  --text-xxs: 0.667rem; /* ≒10.67px | ≒0.6667rem */
+  --text-xs: 0.8rem; /* 12.80px | 0.8rem */
+  --text-sm: 0.887rem; /* ≒14.22px | ≒0.8889rem */
+  --text-base: 1rem; /* 16.00px | 1rem */
+  --text-md: 1.1431rem; /* ≒18.29px | ≒1.143rem */
+  --text-lg: 1.3331rem; /* ≒21.33px | ≒1.333rem */
+  --text-xl: 1.6rem; /* 25.60px | 1.6rem */
+  --text-2xl: 2rem; /* 32.00px | 2rem */
+  --text-3xl: 2.6675rem; /* ≒42.67px | ≒2.667rem */
+  --text-4xl: 4rem; /* 64.00px | 4rem */
 
   /* Font Family */
   /* --font-*: initial; */
-  --font-sans: var(--font-family-sans);
+  --font-sans: -apple-system, BlinkMacSystemFont, Inter, "Noto Sans JP",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
   --font-ud: -apple-system, BlinkMacSystemFont, Inter, "BIZ UDGothic",
     sans-serif;
 
   /* Line Height */
   --leading-*: initial;
-  --leading-12: var(--line-height-1); /* 12px | 0.75rem */
-  --leading-16: var(--line-height-2); /* 16px | 1rem */
-  --leading-20: var(--line-height-3); /* 20px | 1.25rem */
-  --leading-24: var(--line-height-4); /* 24px | 1.5rem */
-  --leading-28: var(--line-height-5); /* 28px | 1.75rem */
-  --leading-32: var(--line-height-6); /* 32px | 2rem */
-  --leading-48: var(--line-height-8); /* 48px | 3rem */
-  --leading-64: var(--line-height-10); /* 64px | 4rem */
+  --leading-12: 0.75rem; /* 12px | 0.75rem */
+  --leading-16: 1rem; /* 16px | 1rem */
+  --leading-20: 1.25rem; /* 20px | 1.25rem */
+  --leading-24: 1.5rem; /* 24px | 1.5rem */
+  --leading-28: 1.75rem; /* 28px | 1.75rem */
+  --leading-32: 2rem; /* 32px | 2rem */
+  --leading-48: 3rem; /* 48px | 3rem */
+  --leading-64: 4rem; /* 64px | 4rem */
 
   /* Spacing */
   --spacing-*: initial;
-  --spacing-0: var(--spacing-0);
-  --spacing-1: var(--spacing-1); /* 1px */
-  --spacing-2: var(--spacing-2); /* 2px */
-  --spacing-4: var(--spacing-4); /* 4px */
-  --spacing-8: var(--spacing-8); /* 8px */
-  --spacing-16: var(--spacing-16); /* 16px */
-  --spacing-24: var(--spacing-24); /* 24px */
-  --spacing-40: var(--spacing-40); /* 40px */
-  --spacing-64: var(--spacing-64); /* 64px */
-  --spacing-104: var(--spacing-104); /* 104px */
-  --spacing-168: var(--spacing-168); /* 168px */
+  --spacing-0: 0px;
+  --spacing-1: 1px; /* 1px */
+  --spacing-2: 2px; /* 2px */
+  --spacing-4: 4px; /* 4px */
+  --spacing-8: 8px; /* 8px */
+  --spacing-16: 16px; /* 16px */
+  --spacing-24: 24px; /* 24px */
+  --spacing-40: 40px; /* 40px */
+  --spacing-64: 64px; /* 64px */
+  --spacing-104: 104px; /* 104px */
+  --spacing-168: 168px; /* 168px */
 
   /* Border Radius */
   --radius-*: initial;
-  --radius-0: var(--border-radius-0);
-  --radius-2: var(--border-radius-2);
-  --radius-4: var(--border-radius-4);
-  --radius-6: var(--border-radius-6);
-  --radius-8: var(--border-radius-8);
-  --radius-12: var(--border-radius-12);
-  --radius-16: var(--border-radius-16);
-  --radius-20: var(--border-radius-20);
-  --radius-24: var(--border-radius-24);
-  --radius-32: var(--border-radius-32);
-  --radius-full: var(--border-radius-full);
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-full: 9999px;
 }
 
 body {
