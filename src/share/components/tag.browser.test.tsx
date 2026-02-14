@@ -1,7 +1,6 @@
-// biome-ignore lint/correctness/noUnusedImports: <explanation>
-import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import { userEvent } from "@vitest/browser/context";
+
+import { userEvent } from "vitest/browser";
 import { Tag } from "./tag";
 
 describe("Tag Component", () => {
