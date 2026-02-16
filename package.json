@@ -25,7 +25,7 @@
     "valibot": "^1.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.15",
+    "@biomejs/biome": "2.4.1",
     "@markuplint/jsx-parser": "^4.7.22",
     "@markuplint/react-spec": "^4.5.22",
     "@shikijs/markdown-it": "^3.2.2",
