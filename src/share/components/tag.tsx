@@ -1,5 +1,5 @@
-import { cn } from "../lib";
 import Close from "@/assets/close.svg";
+import { cn } from "../lib";
 
 type TagWithOnRemove = {
   onClick?: never;
