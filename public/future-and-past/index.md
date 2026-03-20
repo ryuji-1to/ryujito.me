@@ -2,7 +2,7 @@
 title: "これまでとこれからのこと"
 date: 2025-10-05
 tag: ""
-published: true
+published: false
 ---
 
 **石の上にも 3 年**
