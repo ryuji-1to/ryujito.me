@@ -129,7 +129,6 @@ body {
   border-radius: 4px;
 }
 
-
 .prose p > code::after {
   content: none;
 }
@@ -145,10 +144,10 @@ body {
 
 .prose li {
   position: relative;
-  padding-left: .65lh;
+  padding-left: 0.65lh;
 }
 
-.prose li::before{
+.prose li::before {
   position: absolute;
   top: 0.4lh;
   content: "";
@@ -157,7 +156,24 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  border: 1.5px solid theme("colors.gray.10") 
+  border: 1.5px solid theme("colors.gray.10");
+}
+
+.list-custom li {
+  position: relative;
+  padding-left: 0.65lh;
+}
+
+.list-custom li::before {
+  position: absolute;
+  top: 0.35lh;
+  content: "";
+  left: 0.1lh;
+  display: inline-flex;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid theme("colors.gray.10");
 }
 
 .prose li::marker {
@@ -186,16 +202,16 @@ p {
 
 @media (prefers-color-scheme: dark) {
   .prose p > code {
-    background-color: theme('colors.dark.gray.4');
+    background-color: theme("colors.dark.gray.4");
   }
 
- .prose li::before{
-  border-color: theme("colors.dark.gray.10");
- }
+  .prose li::before {
+    border-color: theme("colors.dark.gray.10");
+  }
 
-*:focus-visible {
-  outline: 3px dotted theme("colors.white");
-  outline-offset: 2px;
-  border-radius: theme("radius.2");
-}
+  *:focus-visible {
+    outline: 3px dotted theme("colors.white");
+    outline-offset: 2px;
+    border-radius: theme("radius.2");
+  }
 }
