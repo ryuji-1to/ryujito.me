@@ -131,10 +131,10 @@ export async function Posts() {
   return (
     <div className="space-y-40">
       <section aria-labelledby={labelId}>
-        <h2 id={labelId} className="mb-16 font-medium">
+        <h2 id={labelId} className="mb-16 font-semibold">
           記事一覧
         </h2>
-        <ul className="ml-4 space-y-16">
+        <ul className="ml-4 space-y-16 list-custom">
           {allPosts.map((d) => (
             <li key={d.type === "md" ? d.slug : d.path}>
               <span className="flex gap-16 w-full items-center justify-between">
