@@ -2,7 +2,7 @@
 title: "デザインに意味を持たせる：数学でつくる美しいスケーリング"
 date: 2026-03-21
 tag: "Design"
-published: true
+published: false
 ---
 
 余白やサイズのスケーリングには、4の倍数や8の倍数がよく使われます。
