@@ -1,3 +1,5 @@
+import { cn } from "@/share/lib";
+
 function escapeRegExp(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -111,10 +113,14 @@ export function Markdown(props: Props) {
     replaceBrowser,
     replaceHtmlContent,
   ]);
-
   return (
     <div
-      className="prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:pb-16 prose-p:empty:hidden"
+      className={cn(
+        "prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:pb-16 prose-p:empty:hidden list-custom",
+        "[&_p>code]:text-xs [&_p>code]:bg-gray-4 dark:[&_p>code]:bg-dark-gray-4 [&_p>code]:px-4 [&_p>code]:py-2 [&_p>code]:rounded-4",
+        "[&_p>code::before]:content-none [&_p>code::after]:content-none",
+        "[&_ul]:list-none [&_ul]:pl-0",
+      )}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: true
       dangerouslySetInnerHTML={{ __html: html }}
     />

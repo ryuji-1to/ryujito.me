@@ -122,53 +122,27 @@ body {
   line-break: strict;
 }
 
-.prose p > code {
-  @apply text-xs;
-  background-color: theme("colors.gray.4");
-  padding: 2px 4px;
-  border-radius: 4px;
+/* Typography */
+p {
+  max-width: 80ch;
 }
 
-.prose p > code::after {
-  content: none;
-}
-
-.prose p > code::before {
-  content: none;
-}
-
-.prose ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.prose li {
-  position: relative;
-  padding-left: 0.65lh;
-}
-
-.prose li::before {
-  position: absolute;
-  top: 0.4lh;
-  content: "";
-  left: 0.1lh;
-  display: inline-flex;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: 1.5px solid theme("colors.gray.10");
-}
-
+/* List marker styles */
 .list-custom li {
   position: relative;
   padding-left: 0.65lh;
 }
 
+.list-custom li::marker {
+  content: none;
+}
+
 .list-custom li::before {
   position: absolute;
-  top: 0.35lh;
   content: "";
+  top: 50%;
   left: 0.1lh;
+  transform: translateY(-50%);
   display: inline-flex;
   width: 6px;
   height: 6px;
@@ -176,18 +150,12 @@ body {
   border: 1.5px solid theme("colors.gray.10");
 }
 
-.prose li::marker {
-  content: none;
-}
-
+/* Print */
 .print-only {
   display: none;
 }
 
-p {
-  max-width: 80ch;
-}
-
+/* Focus */
 *:focus-visible {
   outline: 3px dotted theme("colors.black");
   outline-offset: 2px;
@@ -201,17 +169,11 @@ p {
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose p > code {
-    background-color: theme("colors.dark.gray.4");
-  }
-
-  .prose li::before {
+  .list-custom li::before {
     border-color: theme("colors.dark.gray.10");
   }
 
   *:focus-visible {
-    outline: 3px dotted theme("colors.white");
-    outline-offset: 2px;
-    border-radius: theme("radius.2");
+    outline-color: theme("colors.white");
   }
 }
