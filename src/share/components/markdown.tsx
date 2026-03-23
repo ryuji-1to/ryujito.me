@@ -1,3 +1,5 @@
+import { cn } from "@/share/lib";
+
 function escapeRegExp(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -43,16 +45,6 @@ function replaceCard(htmlText: string) {
   return htmlText
     .replaceAll(cardStartTag, cardStartDiv)
     .replaceAll(cardEndTag, cardEndDiv);
-}
-
-function replaceMark(htmlText: string) {
-  // const mark = "<p>--mark:print--</p>";
-  // if (!htmlText.includes(mark)) {
-  //   return htmlText;
-  // }
-  // const printStyle = `<div class='print-only' style='font-size: 10px; text-align: right;'>※ This resume is generated from https://ryujito.me/resume.</div>`;
-  // return htmlText.replaceAll(mark, printStyle);
-  return htmlText;
 }
 
 function replaceBrowser(htmlText: string) {
@@ -107,14 +99,17 @@ export function Markdown(props: Props) {
   const html = replaceHtml(value, [
     replaceCard,
     replaceSmall,
-    replaceMark,
     replaceBrowser,
     replaceHtmlContent,
   ]);
-
   return (
     <div
-      className="prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:pb-16 prose-p:empty:hidden"
+      className={cn(
+        "prose prose-md dark:prose-invert prose-headings:text-balance prose-h2:pb-16 prose-p:empty:hidden list-custom",
+        "[&_p>code]:text-xs [&_p>code]:bg-gray-4 dark:[&_p>code]:bg-dark-gray-4 [&_p>code]:px-4 [&_p>code]:py-2 [&_p>code]:rounded-4",
+        "[&_p>code::before]:content-none [&_p>code::after]:content-none",
+        "[&_ul]:list-none [&_ul]:pl-0",
+      )}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: true
       dangerouslySetInnerHTML={{ __html: html }}
     />

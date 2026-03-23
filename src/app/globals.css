@@ -23,10 +23,10 @@
   --color-gray-11: oklch(0.5 0 0); /* #636363 */
   --color-gray-12: oklch(0.239 0 0); /* #1f1f1f */
 
-  --color-main-bg: oklch(0.991 0 0);
-  --color-sub-bg: oklch(0.982 0 0);
-  --color-main-text: oklch(0.239 0 0);
-  --color-sub-text: oklch(0.5 0 0);
+  --color-main-bg: var(--color-gray-1);
+  --color-sub-bg: var(--color-gray-2);
+  --color-main-text: var(--color-gray-12);
+  --color-sub-text: var(--color-gray-11);
 
   /* For dark theme */
   --color-dark-gray-1: oklch(0.178 0 0); /* #111111 */
@@ -42,10 +42,10 @@
   --color-dark-gray-11: oklch(0.767 0 0); /* #b3b3b3 */
   --color-dark-gray-12: oklch(0.949 0 0); /* #eeeeee */
 
-  --color-dark-main-bg: oklch(0.178 0 0);
-  --color-dark-sub-bg: oklch(0.213 0 0);
-  --color-dark-main-text: oklch(0.949 0 0);
-  --color-dark-sub-text: oklch(0.767 0 0);
+  --color-dark-main-bg: var(--color-dark-gray-1);
+  --color-dark-sub-bg: var(--color-dark-gray-2);
+  --color-dark-main-text: var(--color-dark-gray-12);
+  --color-dark-sub-text: var(--color-dark-gray-11);
 
   /* For Accent Color */
   --color-red: oklch(66% 0.2267 26.03); /* #ff4040 */
@@ -122,53 +122,27 @@ body {
   line-break: strict;
 }
 
-.prose p > code {
-  @apply text-xs;
-  background-color: theme("colors.gray.4");
-  padding: 2px 4px;
-  border-radius: 4px;
+/* Typography */
+p {
+  max-width: 80ch;
 }
 
-.prose p > code::after {
-  content: none;
-}
-
-.prose p > code::before {
-  content: none;
-}
-
-.prose ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.prose li {
-  position: relative;
-  padding-left: 0.65lh;
-}
-
-.prose li::before {
-  position: absolute;
-  top: 0.4lh;
-  content: "";
-  left: 0.1lh;
-  display: inline-flex;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: 1.5px solid theme("colors.gray.10");
-}
-
+/* List marker styles */
 .list-custom li {
   position: relative;
   padding-left: 0.65lh;
 }
 
+.list-custom li::marker {
+  content: none;
+}
+
 .list-custom li::before {
   position: absolute;
-  top: 0.35lh;
   content: "";
+  top: 50%;
   left: 0.1lh;
+  transform: translateY(-50%);
   display: inline-flex;
   width: 6px;
   height: 6px;
@@ -176,20 +150,14 @@ body {
   border: 1.5px solid theme("colors.gray.10");
 }
 
-.prose li::marker {
-  content: none;
-}
-
+/* Print */
 .print-only {
   display: none;
 }
 
-p {
-  max-width: 80ch;
-}
-
+/* Focus */
 *:focus-visible {
-  outline: 3px dotted theme("colors.gray.12");
+  outline: 3px dotted theme("colors.black");
   outline-offset: 2px;
   border-radius: theme("radius.2");
 }
@@ -201,17 +169,11 @@ p {
 }
 
 @media (prefers-color-scheme: dark) {
-  .prose p > code {
-    background-color: theme("colors.dark.gray.4");
-  }
-
-  .prose li::before {
+  .list-custom li::before {
     border-color: theme("colors.dark.gray.10");
   }
 
   *:focus-visible {
-    outline: 3px dotted theme("colors.white");
-    outline-offset: 2px;
-    border-radius: theme("radius.2");
+    outline-color: theme("colors.white");
   }
 }
