@@ -47,16 +47,6 @@ function replaceCard(htmlText: string) {
     .replaceAll(cardEndTag, cardEndDiv);
 }
 
-function replaceMark(htmlText: string) {
-  // const mark = "<p>--mark:print--</p>";
-  // if (!htmlText.includes(mark)) {
-  //   return htmlText;
-  // }
-  // const printStyle = `<div class='print-only' style='font-size: 10px; text-align: right;'>※ This resume is generated from https://ryujito.me/resume.</div>`;
-  // return htmlText.replaceAll(mark, printStyle);
-  return htmlText;
-}
-
 function replaceBrowser(htmlText: string) {
   const browserStart = "<p>--browser:start--</p>";
   const browserEnd = "<p>--browser:end--</p>";
@@ -109,7 +99,6 @@ export function Markdown(props: Props) {
   const html = replaceHtml(value, [
     replaceCard,
     replaceSmall,
-    replaceMark,
     replaceBrowser,
     replaceHtmlContent,
   ]);
