@@ -4,7 +4,7 @@ import { Err, Ok, type Result } from "rustlike-ts";
 import * as v from "valibot";
 import ExternalLinkIcon from "@/assets/external-link.svg?url";
 import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
-import { resolvePublicDir } from "@/share/public-dir.server";
+import { resolvePublicDir } from "@/share/lib.server";
 import { formatDate } from "@/share/utils";
 
 type ZennPost = {
