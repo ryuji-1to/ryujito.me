@@ -1,31 +1,12 @@
-import { access, readFile } from "node:fs/promises";
-import path from "node:path";
 import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it-async";
 import { codeToHtml } from "shiki";
 
-const CANDIDATE_DIRS = [
-  path.join(process.cwd(), "public"),
-  path.join(process.cwd(), ".output", "public"),
-  "/var/task/public",
-  "/var/task/.output/public",
-] as const;
-
-export async function resolvePublicDir() {
-  for (const dir of CANDIDATE_DIRS) {
-    try {
-      await access(dir);
-      return dir;
-    } catch {
-      // Try the next candidate.
-    }
-  }
-
-  throw new Error(
-    `Public directory was not found. Tried: ${CANDIDATE_DIRS.join(", ")}`,
-  );
-}
+const CONTENT_MARKDOWN_MODULES = import.meta.glob("../content/**/*.md", {
+  query: "?raw",
+  import: "default",
+});
 
 export async function markdownToHtml(content: string) {
   const md = MarkdownIt();
@@ -41,9 +22,57 @@ export async function markdownToHtml(content: string) {
   return html;
 }
 
+export async function getRawContentMarkdown(filePath: `${string}.md`) {
+  const key = `../content/${filePath}`;
+  const loader = CONTENT_MARKDOWN_MODULES[key];
+
+  if (!loader) {
+    throw new Error(`Markdown file was not found: ${filePath}`);
+  }
+
+  return (await loader()) as string;
+}
+
+export async function getRawPostMarkdownBySlug(slug: string) {
+  const key = `../content/posts/${slug}/index.md`;
+  const loader = CONTENT_MARKDOWN_MODULES[key];
+
+  if (!loader) {
+    return null;
+  }
+
+  return (await loader()) as string;
+}
+
+export async function getAllRawPostMarkdown() {
+  const postEntries = Object.entries(CONTENT_MARKDOWN_MODULES).filter(
+    ([key]) => key.startsWith("../content/posts/") && key.endsWith("/index.md"),
+  );
+
+  const loaded = await Promise.all(
+    postEntries.map(async ([key, loader]) => {
+      const match = key.match(/^\.\.\/content\/posts\/([^/]+)\/index\.md$/);
+      if (!match) {
+        return null;
+      }
+
+      const slug = match[1];
+      if (!slug) {
+        return null;
+      }
+
+      return {
+        slug,
+        content: (await loader()) as string,
+      };
+    }),
+  );
+
+  return loaded.filter((entry) => entry !== null);
+}
+
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  const publicDir = await resolvePublicDir();
-  const f = await readFile(path.join(publicDir, filePath), "utf8");
+  const f = await getRawContentMarkdown(filePath);
   const { content, data } = matter(f);
   const html = await markdownToHtml(content);
 

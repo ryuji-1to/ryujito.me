@@ -18,20 +18,20 @@ const getPostBySlug = createServerFn({ method: "GET" }).handler(
       return null;
     }
 
-    const [{ readFile }, matterModule, libModule] = await Promise.all([
-      import("node:fs/promises"),
+    const [matterModule, libModule] = await Promise.all([
       import("gray-matter"),
       import("@/share/lib.server"),
     ]);
     const matter = matterModule.default;
-    const { markdownToHtml, resolvePublicDir } = libModule;
-    const publicDir = await resolvePublicDir();
-    const filename = `${publicDir}/${slug}/index.md`;
+    const { markdownToHtml, getRawPostMarkdownBySlug } = libModule;
+    const rawMarkdown = await getRawPostMarkdownBySlug(slug);
+
+    if (!rawMarkdown) {
+      return null;
+    }
 
     try {
-      const { content, data: frontmatter } = matter(
-        await readFile(filename, "utf8"),
-      );
+      const { content, data: frontmatter } = matter(rawMarkdown);
       const html = await markdownToHtml(content);
       const validated = v.safeParse(schema, { html, ...frontmatter });
 

@@ -4,7 +4,6 @@ import { Err, Ok, type Result } from "rustlike-ts";
 import * as v from "valibot";
 import ExternalLinkIcon from "@/assets/external-link.svg?url";
 import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
-import { resolvePublicDir } from "@/share/lib.server";
 import { formatDate } from "@/share/utils";
 
 type ZennPost = {
@@ -64,27 +63,15 @@ type MdPost = {
 async function getMdPosts(): Promise<
   Result<MdPost[], typeof VALIDATION_ERROR>
 > {
-  const [{ readdir, readFile }, matterModule] = await Promise.all([
-    import("node:fs/promises"),
+  const [matterModule, libModule] = await Promise.all([
     import("gray-matter"),
+    import("@/share/lib.server"),
   ]);
   const matter = matterModule.default;
-  const dir = await resolvePublicDir();
-  const entries = await readdir(dir, {
-    withFileTypes: true,
-  });
-  const posts = entries.filter((f) => f.isDirectory()).map((file) => file.name);
-  const contents = await Promise.all(
-    posts.map((post) => readFile(`${dir}/${post}/index.md`, "utf-8")),
-  );
-  const data = posts.map((slug, i) => {
-    const content = contents[i];
-    if (!content) {
-      return null;
-    }
-
+  const { getAllRawPostMarkdown } = libModule;
+  const posts = await getAllRawPostMarkdown();
+  const data = posts.map(({ slug, content }) => {
     const { data } = matter(content);
-
     return { slug, ...data };
   });
 
