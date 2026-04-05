@@ -7,8 +7,15 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
-    "experimentalScannerIgnores": ["globals.css"]
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.json",
+      "!src/routeTree.gen.ts"
+    ],
+    "experimentalScannerIgnores": ["styles.css", "routeTree.gen.ts"]
   },
   "formatter": {
     "enabled": true,
