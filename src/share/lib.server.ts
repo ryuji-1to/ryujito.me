@@ -4,6 +4,7 @@ import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it-async";
 import { codeToHtml } from "shiki";
+import { resolvePublicDir } from "./public-dir.server";
 
 export async function markdownToHtml(content: string) {
   const md = MarkdownIt();
@@ -20,10 +21,8 @@ export async function markdownToHtml(content: string) {
 }
 
 export async function getFormattedMarkdown(filePath: `${string}.md`) {
-  const f = await readFile(
-    path.join(process.cwd(), `public/${filePath}`),
-    "utf8",
-  );
+  const publicDir = await resolvePublicDir();
+  const f = await readFile(path.join(publicDir, filePath), "utf8");
   const { content, data } = matter(f);
   const html = await markdownToHtml(content);
 

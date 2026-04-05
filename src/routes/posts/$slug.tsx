@@ -18,14 +18,18 @@ const getPostBySlug = createServerFn({ method: "GET" }).handler(
       return null;
     }
 
-    const [{ readFile }, matterModule, markdownModule] = await Promise.all([
-      import("node:fs/promises"),
-      import("gray-matter"),
-      import("@/share/lib.server"),
-    ]);
+    const [{ readFile }, matterModule, markdownModule, publicDirModule] =
+      await Promise.all([
+        import("node:fs/promises"),
+        import("gray-matter"),
+        import("@/share/lib.server"),
+        import("@/share/public-dir.server"),
+      ]);
     const matter = matterModule.default;
     const { markdownToHtml } = markdownModule;
-    const filename = `./public/${slug}/index.md`;
+    const { resolvePublicDir } = publicDirModule;
+    const publicDir = await resolvePublicDir();
+    const filename = `${publicDir}/${slug}/index.md`;
 
     try {
       const { content, data: frontmatter } = matter(
