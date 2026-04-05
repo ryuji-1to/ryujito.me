@@ -68,13 +68,13 @@ jobs:
         run: npx -p nextjs-bundle-analysis report
 
       - name: Upload bundle
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: bundle
           path: .next/analyze/__bundle_analysis.json
 
       - name: Download base branch bundle stats
-        uses: dawidd6/action-download-artifact@v14
+        uses: dawidd6/action-download-artifact@v19
         if: success() && github.event.number
         with:
           workflow: nextjs_bundle_analysis.yml
