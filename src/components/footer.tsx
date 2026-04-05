@@ -1,4 +1,5 @@
 import { RiGithubLine, RiTwitterXFill } from "react-icons/ri";
+
 export function Footer() {
   const start = 2024;
   const currentYear = new Date().getFullYear();

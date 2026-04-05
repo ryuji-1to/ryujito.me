@@ -1,10 +1,7 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useRouterState } from "@tanstack/react-router";
 
 export function Header() {
-  const pathname = usePathname();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const path = getPath(pathname);
 
   if (path === null) {
@@ -14,7 +11,7 @@ export function Header() {
   return (
     <header className="sticky top-0 backdrop-blur-xs z-[calc(1/0)]">
       <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4 items-center">
-        <Link href="/" aria-label="トップページに戻る">
+        <Link to="/" aria-label="トップページに戻る">
           <h1>
             <picture>
               <source srcSet="/icon.webp" type="image/webp" />
@@ -31,7 +28,7 @@ export function Header() {
         </Link>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
         <Link
-          href={path.path}
+          to={path.path}
           className="text-main-text dark:text-dark-main-text text-sm"
           aria-current="page"
         >
@@ -43,13 +40,14 @@ export function Header() {
 }
 
 function getPath(pathname: string) {
-  const pathWithoutLocale = pathname.replace(/^\/(en|ja)(?=\/|$)/, "");
-
-  if (pathWithoutLocale.startsWith("/posts")) {
+  if (pathname.startsWith("/posts")) {
     return { path: "/posts", label: "ブログ" };
   }
-  if (pathWithoutLocale.startsWith("/about")) {
+  if (pathname.startsWith("/about")) {
     return { path: "/about", label: "自己紹介" };
+  }
+  if (pathname.startsWith("/resume")) {
+    return { path: "/resume", label: "Resume" };
   }
   return null;
 }

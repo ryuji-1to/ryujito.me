@@ -1,12 +1,8 @@
-import { readdir, readFile } from "node:fs/promises";
-import path from "node:path";
-import matter from "gray-matter";
-import Link from "next/link";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Err, Ok, type Result } from "rustlike-ts";
 import * as v from "valibot";
-import ExternalLinkIcon from "@/assets/external-link.svg";
-import { NavigationIndicator } from "@/share/components/navigation-indicator";
-import { Spinner } from "@/share/components/spinner";
+import ExternalLinkIcon from "@/assets/external-link.svg?url";
 import { UNEXPECTED_ERROR, VALIDATION_ERROR } from "@/share/constants";
 import { formatDate } from "@/share/utils";
 
@@ -14,59 +10,66 @@ type ZennPost = {
   type: "zenn";
   path: string;
   title?: string;
-  date: Date;
+  date: string;
 };
 
 async function getZennPosts(): Promise<
   Result<ZennPost[], typeof UNEXPECTED_ERROR | typeof VALIDATION_ERROR>
 > {
-  const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito", {
-    next: {
-      revalidate: 24 * 60 * 10,
-    },
-  });
+  try {
+    const res = await fetch("https://zenn.dev/api/articles?username=ryuji_ito");
 
-  if (!res.ok) {
+    if (!res.ok) {
+      return Err(UNEXPECTED_ERROR);
+    }
+
+    const data = await res.json();
+    const validated = v.safeParse(
+      v.array(
+        v.object({
+          title: v.optional(v.string()),
+          path: v.string(),
+          published_at: v.string(),
+        }),
+      ),
+      data.articles,
+    );
+
+    if (!validated.success) {
+      return Err(VALIDATION_ERROR);
+    }
+
+    return Ok(
+      validated.output.toReversed().map((d) => ({
+        type: "zenn",
+        path: d.path,
+        title: d.title,
+        date: new Date(d.published_at).toISOString(),
+      })),
+    );
+  } catch {
     return Err(UNEXPECTED_ERROR);
   }
-
-  const data = await res.json();
-  const validated = v.safeParse(
-    v.array(
-      v.object({
-        title: v.optional(v.string()),
-        path: v.string(),
-        published_at: v.string(),
-      }),
-    ),
-    data.articles,
-  );
-
-  if (!validated.success) {
-    return Err(VALIDATION_ERROR);
-  }
-
-  return Ok(
-    validated.output.toReversed().map((d) => ({
-      type: "zenn",
-      path: d.path,
-      title: d.title,
-      date: new Date(d.published_at),
-    })),
-  );
 }
 
 type MdPost = {
   type: "md";
   slug: string;
   title: string;
-  date: Date;
+  date: string;
   published: boolean;
 };
 
 async function getMdPosts(): Promise<
   Result<MdPost[], typeof VALIDATION_ERROR>
 > {
+  const [{ readdir, readFile }, pathModule, matterModule] = await Promise.all([
+    import("node:fs/promises"),
+    import("node:path"),
+    import("gray-matter"),
+  ]);
+  const path = pathModule.default;
+  const matter = matterModule.default;
   const dir = path.join(process.cwd(), "public");
   const entries = await readdir(dir, {
     withFileTypes: true,
@@ -109,23 +112,35 @@ async function getMdPosts(): Promise<
       .map((d) => ({
         type: "md",
         ...d,
+        date: d.date.toISOString(),
       })),
   );
 }
 
 type Post = MdPost | ZennPost;
 
-export async function Posts() {
+const getPosts = createServerFn({ method: "GET" }).handler(async () => {
   const [mdPosts, zennPosts] = await Promise.all([
     getMdPosts(),
     getZennPosts(),
   ]);
-
   const allPosts: Post[] = [
     ...mdPosts.unwrapOr([]),
     ...zennPosts.unwrapOr([]),
-  ].sort((a, b) => b.date.getTime() - a.date.getTime());
+  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return allPosts;
+});
 
+export const Route = createFileRoute("/posts/")({
+  head: () => ({
+    meta: [{ title: "ブログ | Ryuji Ito" }],
+  }),
+  loader: () => getPosts(),
+  component: PostsPage,
+});
+
+function PostsPage() {
+  const allPosts = Route.useLoaderData();
   const labelId = "all-posts";
 
   return (
@@ -141,20 +156,12 @@ export async function Posts() {
                 {d.type === "md" ? (
                   d.published && (
                     <Link
-                      href={`/posts/${d.slug}`}
+                      to="/posts/$slug"
+                      params={{ slug: d.slug }}
                       className="text-sm hover:underline"
                     >
-                      <NavigationIndicator
-                        fallback={
-                          <span className="text-sub-text dark:text-dark-sub-text space-x-4">
-                            {d.title}
-                            &nbsp;
-                            <Spinner className="inline-block size-16 ml-4" />
-                          </span>
-                        }
-                      >
-                        {d.title}
-                      </NavigationIndicator>
+                      {" "}
+                      {d.title}
                     </Link>
                   )
                 ) : (
@@ -165,17 +172,20 @@ export async function Posts() {
                     rel="noreferrer"
                   >
                     {d.title}
-                    <ExternalLinkIcon
-                      className="size-16 inline-block ml-4 dark:fill-dark-gray-12"
-                      aria-label="(別タブで開きます)"
+                    <img
+                      width={16}
+                      height={16}
+                      src={ExternalLinkIcon}
+                      className="size-16 inline-block ml-4"
+                      alt="(別タブで開きます)"
                     />
                   </a>
                 )}
                 <time
                   className="text-xs text-sub-text font-mono dark:text-dark-sub-text"
-                  dateTime={d.date.toLocaleDateString()}
+                  dateTime={new Date(d.date).toLocaleDateString()}
                 >
-                  {formatDate(d.date)}
+                  {formatDate(new Date(d.date))}
                 </time>
               </span>
             </li>

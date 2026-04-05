@@ -1,9 +1,8 @@
-import "server-only";
 import { readFile } from "node:fs/promises";
-import matter from "gray-matter";
 import path from "node:path";
-import MarkdownIt from "markdown-it-async";
 import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
+import matter from "gray-matter";
+import MarkdownIt from "markdown-it-async";
 import { codeToHtml } from "shiki";
 
 export async function markdownToHtml(content: string) {
