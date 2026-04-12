@@ -62,7 +62,7 @@ const data: {
   {
     title: "LINEヤフー株式会社を退職",
     description: "Yahooメールで2年間、Yahoo検索で3か月間エンジニアとして勤務",
-    date: "2024-01-31",
+    date: "2025-01-31",
   },
   {
     title: "Yahoo! JAPAN（現：LINEヤフー株式会社）に入社",
