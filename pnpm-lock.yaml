@@ -116,8 +116,8 @@ importers:
         specifier: ^8.0.0
         version: 8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0)
       vite-tsconfig-paths:
-        specifier: ^5.1.4
-        version: 5.1.4(typescript@6.0.3)(vite@8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0))
+        specifier: ^6.0.0
+        version: 6.1.1(typescript@6.0.3)(vite@8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0))
       vitest:
         specifier: ^4.0.18
         version: 4.1.5(@types/node@22.19.11)(@vitest/browser-playwright@4.1.5)(@vitest/coverage-v8@4.1.5)(happy-dom@17.4.7)(vite@8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0))
@@ -2758,13 +2758,10 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite-tsconfig-paths@5.1.4:
-    resolution: {integrity: sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==}
+  vite-tsconfig-paths@6.1.1:
+    resolution: {integrity: sha512-2cihq7zliibCCZ8P9cKJrQBkfgdvcFkOOc3Y02o3GWUDLgqjWsZudaoiuOwO/gzTzy17cS5F7ZPo4bsnS4DGkg==}
     peerDependencies:
       vite: '*'
-    peerDependenciesMeta:
-      vite:
-        optional: true
 
   vite@8.0.10:
     resolution: {integrity: sha512-rZuUu9j6J5uotLDs+cAA4O5H4K1SfPliUlQwqa6YEwSrWDZzP4rhm00oJR5snMewjxF5V/K3D4kctsUTsIU9Mw==}
@@ -5493,12 +5490,11 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-tsconfig-paths@5.1.4(typescript@6.0.3)(vite@8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0)):
+  vite-tsconfig-paths@6.1.1(typescript@6.0.3)(vite@8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0)):
     dependencies:
       debug: 4.4.3
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@6.0.3)
-    optionalDependencies:
       vite: 8.0.10(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.6.1)(terser@5.43.1)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
