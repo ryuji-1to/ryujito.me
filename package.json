@@ -14,8 +14,8 @@
     "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\""
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.132.0",
-    "@tanstack/react-start": "^1.132.0",
+    "@tanstack/react-router": "1.168.10",
+    "@tanstack/react-start": "1.167.16",
     "clsx": "^2.1.0",
     "gray-matter": "^4.0.3",
     "nitro": "^3.0.0",
@@ -33,7 +33,8 @@
     "@shikijs/markdown-it": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@tanstack/router-plugin": "^1.132.0",
+    "@rsbuild/core": "^1.5.10",
+    "@tanstack/router-plugin": "1.167.12",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
     "@types/node": "^22.0.0",
