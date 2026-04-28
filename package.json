@@ -33,7 +33,7 @@
     "@shikijs/markdown-it": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@rsbuild/core": "^1.5.10",
+    "@rsbuild/core": "^2.0.0",
     "@tanstack/router-plugin": "1.167.27",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
