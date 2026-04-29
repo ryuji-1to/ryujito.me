@@ -54,7 +54,7 @@ importers:
         version: 4.7.23(typescript@5.9.3)
       '@markuplint/react-spec':
         specifier: ^4.5.22
-        version: 4.5.23
+        version: 4.18.0
       '@rsbuild/core':
         specifier: ^1.5.10
         version: 1.7.5
@@ -699,8 +699,8 @@ packages:
   '@markuplint/parser-utils@4.8.11':
     resolution: {integrity: sha512-/2QcYU/V6eVyfAt1wfOFz9jehwkKOzTRwuJUi9MQE/JIiEh3Tgd5aCDLUyJpYJjcT+CW8m2kjZ82cQ7V0+9xXA==}
 
-  '@markuplint/react-spec@4.5.23':
-    resolution: {integrity: sha512-ZFgCM4crdn+cnLI674d4FoVn2VXLzTKI+LMoEN8ralyXOcPXPikWWZYj4FzI6Lli7nUVoo/IV3TH4xeih4w2og==}
+  '@markuplint/react-spec@4.18.0':
+    resolution: {integrity: sha512-ecQGaLEzXnZ+Es7TPkHFdwWv0PMxE0K9Sz+Xvt0LZyZFLkIm4o/UJAUGA/rvXNFPCnfgErPjvAClXpoIo7W40Q==}
 
   '@markuplint/rules@4.18.1':
     resolution: {integrity: sha512-dAIv1nrU5Upra3dVLJbtMVt6Nb5b2HCmzcdAtoJsD1686rMHUUd1tpPxYOs7mN0TdzlntYoITx3Dme83nEGTwg==}
@@ -1854,8 +1854,8 @@ packages:
   get-installed-path@2.1.1:
     resolution: {integrity: sha512-Qkn9eq6tW5/q9BDVdMpB8tOHljX9OSP0jRC5TRNVA4qRc839t4g8KQaR8t0Uv0EFVL0MlyG7m/ofjEgAROtYsA==}
 
-  get-tsconfig@4.13.7:
-    resolution: {integrity: sha512-7tN6rFgBlMgpBML5j8typ92BKFi2sFQvIdpAqLA2beia5avZDrMs0FLZiM5etShWq5irVyGcGMEA1jcDaK7A/Q==}
+  get-tsconfig@4.14.0:
+    resolution: {integrity: sha512-yTb+8DXzDREzgvYmh6s9vHsSVCHeC0G3PI5bEXNBHtmshPnO+S5O7qgLEOn0I5QvMy6kpZN8K1NKGyilLb93wA==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -3482,9 +3482,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@markuplint/react-spec@4.5.23':
+  '@markuplint/react-spec@4.18.0':
     dependencies:
-      '@markuplint/ml-spec': 4.10.2
+      '@markuplint/ml-spec': 4.18.0
     transitivePeerDependencies:
       - supports-color
 
@@ -4325,8 +4325,7 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  acorn@8.16.0:
-    optional: true
+  acorn@8.16.0: {}
 
   ansi-colors@4.1.3: {}
 
@@ -4718,7 +4717,7 @@ snapshots:
     dependencies:
       global-modules: 1.0.0
 
-  get-tsconfig@4.13.7:
+  get-tsconfig@4.14.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
     optional: true
@@ -5510,7 +5509,7 @@ snapshots:
   tsx@4.21.0:
     dependencies:
       esbuild: 0.27.7
-      get-tsconfig: 4.13.7
+      get-tsconfig: 4.14.0
     optionalDependencies:
       fsevents: 2.3.3
     optional: true
