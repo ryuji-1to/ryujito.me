@@ -132,17 +132,16 @@ p {
   position: relative;
   padding-left: 0.65lh;
 }
-
 .list-custom li::marker {
   content: none;
 }
-
 .list-custom li::before {
   position: absolute;
   content: "";
-  top: 50%;
-  left: 0.1lh;
+  /* top: 50% + translateY をやめて、1行目の行中央に揃える */
+  top: 0.5lh; /* line-heightの半分 = 1行目の中央 */
   transform: translateY(-50%);
+  left: 0.1lh;
   display: inline-flex;
   width: 6px;
   height: 6px;
