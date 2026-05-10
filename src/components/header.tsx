@@ -46,8 +46,5 @@ function getPath(pathname: string) {
   if (pathname.startsWith("/about")) {
     return { path: "/about", label: "自己紹介" };
   }
-  if (pathname.startsWith("/resume")) {
-    return { path: "/resume", label: "Resume" };
-  }
   return null;
 }
