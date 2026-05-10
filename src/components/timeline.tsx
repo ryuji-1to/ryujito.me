@@ -56,12 +56,12 @@ const data: {
   {
     title: "株式会社一休に入社",
     description:
-      "一休.com、Y!トラベルのフロントエンド開発、RESZAIKO台帳の開発に従事",
+      "一休.com、Y!トラベルのフロントエンド開発、飲食店向けSaasの「RESZAIKO Pro」の開発に従事",
     date: "2025-02-01",
   },
   {
     title: "LINEヤフー株式会社を退職",
-    description: "Yahooメールで2年間、Yahoo検索で3か月間エンジニアとして勤務",
+    description: "Yahooメールで2年半、Yahoo検索で3か月間エンジニアとして勤務",
     date: "2025-01-31",
   },
   {
