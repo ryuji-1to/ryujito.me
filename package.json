@@ -30,7 +30,7 @@
     "@biomejs/biome": "2.4.14",
     "@markuplint/jsx-parser": "^4.7.22",
     "@markuplint/react-spec": "^4.5.22",
-    "@rsbuild/core": "^1.5.10",
+    "@rsbuild/core": "^2.0.0",
     "@shikijs/markdown-it": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
