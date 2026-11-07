@@ -33,7 +33,6 @@
     "@markuplint/react-spec": "^4.5.22",
     "@rsbuild/core": "^2.0.0",
     "@shikijs/markdown-it": "^4.0.0",
-    "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@tailwindcss/vite": "^4.3.5",
     "@tanstack/router-plugin": "1.168.48",
