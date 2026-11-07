@@ -21,7 +21,7 @@ export const Route = createRootRoute({
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png" },
-      { rel: "canonical", href: "https://ryujito.me" },
+      // { rel: "canonical", href: "https://ryujito.me" },
     ],
   }),
   component: RootComponent,
