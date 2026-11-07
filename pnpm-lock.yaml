@@ -59,7 +59,7 @@ importers:
         version: 4.0.2(markdown-it-async@2.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.10
-        version: 0.5.20(tailwindcss@4.3.0)
+        version: 0.5.20(tailwindcss@4.3.5)
       '@tailwindcss/vite':
         specifier: ^4.3.5
         version: 4.3.5(vite@8.3.6(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.7.0))
@@ -107,7 +107,7 @@ importers:
         version: 4.0.2
       tailwindcss:
         specifier: ^4.0.0
-        version: 4.3.0
+        version: 4.3.5
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -2174,9 +2174,6 @@ packages:
   tailwind-merge@3.5.0:
     resolution: {integrity: sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A==}
 
-  tailwindcss@4.3.0:
-    resolution: {integrity: sha512-y6nxMGB1nMW9R6k96e5gdIFzcfL/gTJRNaqGes1YvkLnPVXzWgbqFF2yLC0T8G774n24cx3Pe8XrKoniCOAH+Q==}
-
   tailwindcss@4.3.5:
     resolution: {integrity: sha512-FcQk9BuffmEHJP2G0XmB2SplU1aLTI7j07Kunk+U74Ny+XiWOtzXz9aujFZ/avntw1e2cOv/3PkgzflQ7gX2vQ==}
 
@@ -3267,10 +3264,10 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.5
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.5
 
-  '@tailwindcss/typography@0.5.20(tailwindcss@4.3.0)':
+  '@tailwindcss/typography@0.5.20(tailwindcss@4.3.5)':
     dependencies:
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.3.0
+      tailwindcss: 4.3.5
 
   '@tailwindcss/vite@4.3.5(vite@8.3.6(@types/node@22.19.11)(esbuild@0.27.7)(jiti@2.7.0))':
     dependencies:
@@ -4609,8 +4606,6 @@ snapshots:
   tagged-tag@1.0.0: {}
 
   tailwind-merge@3.5.0: {}
-
-  tailwindcss@4.3.0: {}
 
   tailwindcss@4.3.5: {}
 
