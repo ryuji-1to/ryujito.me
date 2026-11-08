@@ -1,7 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-
-export function Header() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+export function Header({ pathname }: { pathname: string }) {
   const path = getPath(pathname);
 
   if (path === null) {
@@ -11,7 +8,7 @@ export function Header() {
   return (
     <header className="sticky top-0 backdrop-blur-xs z-[calc(1/0)]">
       <div className="max-w-2xl mx-auto px-24 sm:px-40 py-16 flex gap-4 items-center">
-        <Link to="/" aria-label="トップページに戻る">
+        <a href="/" aria-label="トップページに戻る">
           <h1>
             <picture>
               <source srcSet="/icon.webp" type="image/webp" />
@@ -25,15 +22,15 @@ export function Header() {
               />
             </picture>
           </h1>
-        </Link>
+        </a>
         <span className="text-gray-8 dark:text-dark-gray-8">/</span>
-        <Link
-          to={path.path}
+        <a
+          href={path.path}
           className="text-main-text dark:text-dark-main-text text-sm"
           aria-current="page"
         >
           {path.label}
-        </Link>
+        </a>
       </div>
     </header>
   );

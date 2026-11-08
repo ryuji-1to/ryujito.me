@@ -168,6 +168,15 @@ p {
 }
 
 @media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+  }
+
+  .astro-code {
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
   .list-custom li::before {
     border-color: theme("colors.dark.gray.10");
   }

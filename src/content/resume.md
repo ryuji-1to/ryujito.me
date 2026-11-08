@@ -3,7 +3,7 @@
 **更新日**：2026 年 8 月 27 日
 **氏名**：伊藤 龍二
 
-- **Home**: <https://ryujito.me>
+- **Home**: [トップページ](/)
 - **GitHub️**: <https://github.com/ryuji-1to>
 
 ## ■ 職務要約

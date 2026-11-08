@@ -28,7 +28,7 @@ describe("Tag Component", () => {
       render(<Tag onClick={handleClick}>Test Tag</Tag>);
 
       const button = screen.getByRole("button");
-      expect(button.className).toContain("bg-gray-2");
+      expect(button.className).toContain("bg-gray-4");
       expect(button.className).toContain("rounded-full");
     });
 
@@ -41,7 +41,7 @@ describe("Tag Component", () => {
       );
 
       const button = screen.getByRole("button");
-      expect(button.className).toContain("bg-gray-2");
+      expect(button.className).toContain("bg-gray-4");
       expect(button.className).toContain("rounded-full");
       expect(button.className).toContain("custom-class");
     });
@@ -58,7 +58,7 @@ describe("Tag Component", () => {
 
       // 削除ボタンが存在することを確認
       const removeButton = screen.getByRole("button");
-      expect(removeButton.textContent).toBe("x");
+      expect(removeButton.getAttribute("aria-label")).toBe("このタグを削除");
     });
 
     it("削除ボタンクリック時にonRemoveが呼ばれる", async () => {
@@ -76,7 +76,7 @@ describe("Tag Component", () => {
       render(<Tag onRemove={handleRemove}>Test Tag</Tag>);
 
       const span = screen.getByText("Test Tag").closest("span");
-      expect(span?.className).toContain("bg-gray-2");
+      expect(span?.className).toContain("bg-gray-4");
       expect(span?.className).toContain("rounded-full");
     });
 
@@ -89,7 +89,7 @@ describe("Tag Component", () => {
       );
 
       const span = screen.getByText("Test Tag").closest("span");
-      expect(span?.className).toContain("bg-gray-2");
+      expect(span?.className).toContain("bg-gray-4");
       expect(span?.className).toContain("rounded-full");
       expect(span?.className).toContain("custom-class");
     });

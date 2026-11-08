@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import externalLinkIcon from "@/assets/external-link.svg?url";
+import Site from "@/layouts/Site.astro";
+import { formatDate } from "@/share/utils";
+import { getZennPosts } from "@/share/zenn";
+
+export const prerender = false;
+
+const [localPosts, zennPosts] = await Promise.all([
+  getCollection("posts", ({ data }) => data.published),
+  getZennPosts(),
+]);
+const posts = [
+  ...localPosts.map(({ id, data }) => ({
+    title: data.title,
+    href: `/posts/${id}`,
+    date: data.date,
+    external: false,
+  })),
+  ...zennPosts,
+].sort((a, b) => b.date.getTime() - a.date.getTime());
+---
+
+<Site title="ブログ">
+  <section aria-labelledby="all-posts">
+    <h2 id="all-posts" class="mb-16 font-semibold">記事一覧</h2>
+    <ul class="ml-4 space-y-16 list-custom">
+      {posts.map((post) => (
+        <li>
+          <span class="flex gap-16 w-full items-center justify-between">
+            <a
+              href={post.href}
+              class:list={["text-sm hover:underline", post.external && "flex items-center"]}
+              target={post.external ? "_blank" : undefined}
+              rel={post.external ? "noreferrer" : undefined}
+            >
+              {post.title}
+              {post.external && (
+                <img
+                  width="16"
+                  height="16"
+                  src={externalLinkIcon}
+                  class="size-16 inline-block ml-4"
+                  alt="(別タブで開きます)"
+                />
+              )}
+            </a>
+            <time
+              class="text-xs text-sub-text font-mono dark:text-dark-sub-text"
+              datetime={post.date.toISOString()}
+            >
+              {formatDate(post.date)}
+            </time>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Site>

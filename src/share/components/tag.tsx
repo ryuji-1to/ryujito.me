@@ -1,4 +1,4 @@
-import Close from "@/assets/close.svg";
+import closeIcon from "@/assets/close.svg?url";
 import { cn } from "../lib";
 
 type TagWithOnRemove = {
@@ -31,7 +31,7 @@ export function Tag({ className, children, ...props }: Props) {
   const { onRemove, title, ...restProps } = props;
   const ariaLabel = title ? `${title}を削除` : "このタグを削除";
   return (
-    <span {...restProps} className={commonClassName}>
+    <span {...restProps} title={title} className={commonClassName}>
       {children}
       {onRemove && (
         <button
@@ -40,7 +40,7 @@ export function Tag({ className, children, ...props }: Props) {
           onClick={onRemove}
           aria-label={ariaLabel}
         >
-          <Close className="size-16 fill-gray-12" />
+          <img src={closeIcon} alt="" className="size-16" />
         </button>
       )}
     </span>

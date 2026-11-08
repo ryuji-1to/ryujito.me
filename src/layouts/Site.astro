@@ -1,0 +1,35 @@
+---
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import "../styles.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  robots?: string;
+}
+
+const { title, description = "Personal Website by Ryuji Ito", robots } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja" class="font-ud antialiased dark:bg-dark-main-bg dark:text-dark-main-text bg-main-bg text-main-text print:bg-white">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} | Ryuji Ito` : "Ryuji Ito"}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Ryuji Ito" />
+    {robots && <meta name="robots" content={robots} />}
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body id="body" tabindex="-1">
+    <div class="flex flex-col min-h-screen">
+      <Header pathname={Astro.url.pathname} />
+      <main class="flex-1 max-w-2xl w-full mx-auto px-24 py-40 sm:px-40">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

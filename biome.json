@@ -12,10 +12,9 @@
       "**/*.tsx",
       "**/*.js",
       "**/*.jsx",
-      "**/*.json",
-      "!src/routeTree.gen.ts"
+      "**/*.json"
     ],
-    "experimentalScannerIgnores": ["styles.css", "routeTree.gen.ts"]
+    "experimentalScannerIgnores": ["styles.css"]
   },
   "formatter": {
     "enabled": true,
