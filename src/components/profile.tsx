@@ -1,9 +1,7 @@
-import { Link } from "@tanstack/react-router";
-
 export function Profile() {
   return (
     <header>
-      <Link to="/about" title="about" className="block w-fit">
+      <a href="/about" title="about" className="block w-fit">
         <picture>
           <source srcSet="/icon.webp" type="image/webp" />
           <img
@@ -15,21 +13,21 @@ export function Profile() {
             decoding="async"
           />
         </picture>
-      </Link>
+      </a>
       <div className="mt-16">
         <p>フロントエンドエンジニアとデザイナーをしています</p>
         <nav>
           <ul className="flex gap-4 text-sm">
             <li>
-              <Link to="/about" className="underline">
+              <a href="/about" className="underline">
                 自己紹介
-              </Link>
+              </a>
             </li>
             <li className="text-sub-text dark:text-dark-sub-text">/</li>
             <li>
-              <Link to="/posts" className="underline">
+              <a href="/posts" className="underline">
                 ブログ
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

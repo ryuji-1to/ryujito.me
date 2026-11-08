@@ -1,0 +1,9 @@
+---
+import { compiledContent } from "@/content/about.md";
+import Site from "@/layouts/Site.astro";
+import { Markdown } from "@/share/components/markdown";
+---
+
+<Site title="自己紹介">
+  <Markdown html={await compiledContent()} />
+</Site>

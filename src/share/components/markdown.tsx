@@ -14,12 +14,6 @@ function decodeHtmlEntities(text: string): string {
     .replace(/&nbsp;/g, " ");
 }
 
-type Props = {
-  children: NonNullable<
-    React.ComponentProps<"div">["dangerouslySetInnerHTML"]
-  >["__html"];
-};
-
 function replaceSmall(htmlText: string) {
   const smallStartTag = "<p>--small:start--</p>";
   const smallEndTag = "<p>--small:end--</p>";
@@ -94,9 +88,8 @@ function replaceHtml(
   );
 }
 
-export function Markdown(props: Props) {
-  const value = props.children.toString();
-  const html = replaceHtml(value, [
+export function Markdown({ html }: { html: string }) {
+  const content = replaceHtml(html, [
     replaceCard,
     replaceSmall,
     replaceBrowser,
@@ -111,7 +104,7 @@ export function Markdown(props: Props) {
         "[&_ul]:list-none [&_ul]:pl-0",
       )}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: true
-      dangerouslySetInnerHTML={{ __html: html }}
+      dangerouslySetInnerHTML={{ __html: content }}
     />
   );
 }

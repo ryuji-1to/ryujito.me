@@ -1,25 +1,13 @@
 import { render } from "@testing-library/react";
 import { Markdown } from "./markdown";
 
-function wrapMarkdownRoot(htmlText: string) {
-  return `
-    <div class="prose prose-md dark:prose-invert prose-h1:text-balance">
-    ${htmlText}
-    </div>
-    `;
-}
-
 function trimSpace(v: string) {
   return v.replace(/\s+/g, "");
 }
 
-function formatExpected(expected: string) {
-  return trimSpace(wrapMarkdownRoot(expected));
-}
-
 describe("share/components/markdown", () => {
   test("snapshot", () => {
-    const { getByText } = render(<Markdown>hoge</Markdown>);
+    const { getByText } = render(<Markdown html="hoge" />);
     const target = getByText("hoge");
     expect(target).toMatchSnapshot();
   });
@@ -35,9 +23,9 @@ describe("share/components/markdown", () => {
     </div>
     `;
 
-    const { container } = render(<Markdown>{actual}</Markdown>);
-    expect(trimSpace(container.innerHTML.toString())).toMatch(
-      formatExpected(expected),
+    const { container } = render(<Markdown html={actual} />);
+    expect(trimSpace(container.firstElementChild?.innerHTML ?? "")).toBe(
+      trimSpace(expected),
     );
   });
   test("replaceCard", () => {
@@ -51,9 +39,9 @@ describe("share/components/markdown", () => {
     <div>test</div>
     </div>
     `;
-    const { container } = render(<Markdown>{actual}</Markdown>);
-    expect(trimSpace(container.innerHTML.toString())).toMatch(
-      formatExpected(expected),
+    const { container } = render(<Markdown html={actual} />);
+    expect(trimSpace(container.firstElementChild?.innerHTML ?? "")).toBe(
+      trimSpace(expected),
     );
   });
   test("replaceBrowser", () => {
@@ -76,9 +64,9 @@ describe("share/components/markdown", () => {
       </div>
     </div>
     `;
-    const { container } = render(<Markdown>{actual}</Markdown>);
-    expect(trimSpace(container.innerHTML.toString())).toMatch(
-      formatExpected(expected),
+    const { container } = render(<Markdown html={actual} />);
+    expect(trimSpace(container.firstElementChild?.innerHTML ?? "")).toBe(
+      trimSpace(expected),
     );
   });
 });

@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Site from "@/layouts/Site.astro";
+import { Markdown } from "@/share/components/markdown";
+import { formatDate } from "@/share/utils";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, description, date } = post.data;
+if (!post.rendered) throw new Error(`Missing rendered Markdown for ${post.id}`);
+---
+
+<Site title={title} description={description}>
+  <article>
+    <header class="my-40 pb-8 space-y-40 border-b border-b-gray-4 dark:border-b-dark-gray-4">
+      <div class="space-y-24">
+        <h1 class="text-xl text-center text-balance">{title}</h1>
+        <p class="text-xs w-fit ml-auto text-sub-text dark:text-dark-sub-text">
+          <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        </p>
+      </div>
+    </header>
+    <Markdown html={post.rendered.html} />
+  </article>
+</Site>

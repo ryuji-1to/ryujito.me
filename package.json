@@ -5,9 +5,10 @@
   "packageManager": "pnpm@9.12.3",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "start": "vite preview",
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "start": "astro preview",
     "lint": "biome check ./src",
     "lint:fix": "biome check ./src --fix --unsafe",
     "format": "biome format --write ./src",
@@ -15,27 +16,24 @@
     "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\""
   },
   "dependencies": {
-    "@tanstack/react-router": "1.170.46",
-    "@tanstack/react-start": "1.169.4",
+    "@astrojs/markdown-satteri": "0.4.7",
+    "@astrojs/node": "^11.1.11",
+    "@astrojs/react": "^7.1.4",
+    "@astrojs/vercel": "^11.0.20",
+    "astro": "^7.4.7",
     "clsx": "^2.1.0",
-    "gray-matter": "^4.0.3",
-    "nitro": "3.0.260610-beta",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-icons": "^5.5.0",
-    "rustlike-ts": "^2.0.0",
-    "tailwind-merge": "^3.0.0",
-    "valibot": "^1.0.0"
+    "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@biomejs/biome": "2.4.14",
     "@markuplint/jsx-parser": "^4.7.22",
     "@markuplint/react-spec": "^4.5.22",
-    "@rsbuild/core": "^2.0.0",
-    "@shikijs/markdown-it": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@tailwindcss/vite": "^4.3.5",
-    "@tanstack/router-plugin": "1.168.48",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
     "@types/node": "^22.0.0",
@@ -44,15 +42,15 @@
     "@vitejs/plugin-react": "6.2.1",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.0",
-    "markdown-it-async": "^2.2.0",
     "markuplint": "^4.14.0",
     "playwright": "^1.52.0",
     "postcss": "^8",
-    "shiki": "^4.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "6.0.3",
     "vite": "8.3.6",
-    "vite-tsconfig-paths": "5.1.4",
     "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=22.23.4 <23"
   }
 }
