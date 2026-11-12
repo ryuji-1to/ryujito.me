@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@biomejs/biome": "2.4.14",
+    "@biomejs/biome": "2.6.7",
     "@markuplint/jsx-parser": "^4.7.22",
     "@markuplint/react-spec": "^4.5.22",
     "@tailwindcss/typography": "^0.5.10",
